@@ -55,7 +55,3 @@ Contributions to this project are welcome. Feel free to submit bug reports, feat
 ## Credits
 
 This project was inspired by the tutorial series by [Joschan](https://github.com/joschan21) on YouTube.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
