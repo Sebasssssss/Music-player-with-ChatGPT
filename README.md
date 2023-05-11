@@ -25,6 +25,9 @@ You can obtain an OpenAI API key by signing up for an account on their website. 
 
 To get the REDIS_URL and REDIS_SECRET, you will have to register on [upstash](https://console.upstash.com/) and create a new database.
 
+
+Once the you've done all of that, you can interact with ChatGPT by typing in the chat input box. Ask for book recommendations based on genres, authors, or any other relevant queries. ChatGPT will process your query and provide you with personalized book recommendations.
+
 ## Libraries Used
 
 The following libraries were used in the development of this project:
@@ -44,10 +47,6 @@ The following libraries were used in the development of this project:
 - [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema validation library.
 
 Please refer to the documentation for each library to understand how to use them effectively in your own projects.
-
-## Usage
-
-Once the application is running, you can interact with ChatGPT by typing in the chat input box. Ask for book recommendations based on genres, authors, or any other relevant queries. ChatGPT will process your query and provide you with personalized book recommendations.
 
 ## Contributing
 
