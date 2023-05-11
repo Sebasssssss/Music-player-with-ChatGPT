@@ -11,6 +11,20 @@ To run this project locally, follow these steps:
 3. Start the development server: `npm run dev`
 4. Open your browser and navigate to `http://localhost:3000`
 
+## Usage
+
+To use the application, you must create a `.env` file at the root level of the project and add the following environment variables:
+
+```
+OPENAI_API_KEY=your_openai_api_key
+REDIS_URL=your_redis_url
+REDIS_SECRET=your_redis_secret
+```
+
+You can obtain an OpenAI API key by signing up for an account on their website. For Redis, you can use a hosted service or run Redis locally.
+
+To get the REDIS_URL and REDIS_SECRET, you will have to register on [upstash](https://console.upstash.com/) and create a new database.
+
 ## Libraries Used
 
 The following libraries were used in the development of this project:
