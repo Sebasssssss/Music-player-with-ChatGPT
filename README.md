@@ -19,13 +19,13 @@ The following libraries were used in the development of this project:
 - [tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) - A plugin for Tailwind CSS that provides pre-styled form components.
 - [radix-ui](https://www.radix-ui.com/) - A collection of high-quality React UI components.
 - [tanstack/react-query](https://react-query.tanstack.com/) - A library for managing remote data fetching and caching in React.
-- [upstash/ratelimit and redis](https://github.com/upstash/ratelimit) - A rate limiting library for Redis.
+- [upstash/ratelimit and redis](https://github.com/upstash/ratelimit)
 - [axios](https://axios-http.com/) - A popular JavaScript library for making HTTP requests.
-- [class-variance-authority](https://github.com/zilioner/class-variance-authority) - A library for computing variance-covariance matrices and testing the homogeneity of variance assumption.
+- [class-variance-authority](https://github.com/zilioner/class-variance-authority)
 - [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing class names dynamically.
-- [licide-react](https://github.com/reiinakano/licide) - A library for creating animated text gradients.
+- [licide-react](https://github.com/reiinakano/licide) - Icons
 - [nanoid](https://github.com/ai/nanoid) - A small and secure library for generating unique IDs.
-- [sonner](https://github.com/bpmn-io/sonner) - A library for generating sonar-like sound waves.
+- [sonner](https://github.com/bpmn-io/sonner) - An opinionated toast component for React. 
 - [tailwind-merge](https://github.com/benface/tailwindcss-merge) - A Tailwind CSS plugin for merging variants.
 - [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema validation library.
 
