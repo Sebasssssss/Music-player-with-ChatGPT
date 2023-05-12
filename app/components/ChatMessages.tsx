@@ -37,9 +37,11 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
                 )}
               >
                 <p
-                  className={cn('px-4 py-2 rounded-lg', {
-                    'bg-indigo-600 text-white': message.isUserMessage,
-                    'bg-gray-200 text-gray-900': !message.isUserMessage
+                  className={cn('px-4 py-2', {
+                    'bg-[#4a2560] text-white rounded-l-xl rounded-tr-xl':
+                      message.isUserMessage,
+                    'bg-gray-200 text-gray-900 rounded-r-xl rounded-tl-xl':
+                      !message.isUserMessage
                   })}
                 >
                   <MarkdownLite text={message.text} />

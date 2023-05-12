@@ -22,3 +22,34 @@
 .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
 }
+
+:root {
+  --shadow-color: 0deg 0% 63%;
+  --shadow-elevation-low: -0.2px 0.4px 0.5px hsl(var(--shadow-color) / 0.34),
+    -0.4px 0.6px 0.8px -1.2px hsl(var(--shadow-color) / 0.34),
+    -0.9px 1.5px 2px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium: -0.2px 0.4px 0.5px hsl(var(--shadow-color) / 0.36),
+    -0.7px 1.3px 1.7px -0.8px hsl(var(--shadow-color) / 0.36),
+    -1.8px 3.1px 4px -1.7px hsl(var(--shadow-color) / 0.36),
+    -4.4px 7.6px 9.9px -2.5px hsl(var(--shadow-color) / 0.36);
+  --shadow-elevation-high: -0.2px 0.4px 0.5px hsl(var(--shadow-color) / 0.34),
+    -1.3px 2.2px 2.9px -0.4px hsl(var(--shadow-color) / 0.34),
+    -2.4px 4.2px 5.4px -0.7px hsl(var(--shadow-color) / 0.34),
+    -3.9px 6.8px 8.8px -1.1px hsl(var(--shadow-color) / 0.34),
+    -6.2px 10.9px 14.1px -1.4px hsl(var(--shadow-color) / 0.34),
+    -9.7px 17.1px 22.1px -1.8px hsl(var(--shadow-color) / 0.34),
+    -14.8px 25.9px 33.6px -2.1px hsl(var(--shadow-color) / 0.34),
+    -21.8px 38.2px 49.5px -2.5px hsl(var(--shadow-color) / 0.34);
+}
+
+.customShadowLow {
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.customShadowMedium {
+  box-shadow: var(--shadow-elevation-medium);
+}
+
+.customShadowHigh {
+  box-shadow: var(--shadow-elevation-high);
+}
