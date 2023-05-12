@@ -6,7 +6,14 @@ import { Message } from '@/app/lib/validators/message'
 import { useMutation } from '@tanstack/react-query'
 import { CornerDownLeft, Loader2 } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
+import {
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  useContext,
+  useRef,
+  useState
+} from 'react'
 import { Toaster, toast } from 'sonner'
 import TextareaAutosize from 'react-textarea-autosize'
 
@@ -78,30 +85,36 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     }
   })
 
+  const handleKeyDown = e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault()
+
+      const message: Message = {
+        id: nanoid(),
+        isUserMessage: true,
+        text: input
+      }
+
+      sendMessage(message)
+    }
+  }
+
+  const handleChange = e => {
+    setInput(e.target.value)
+  }
+
   return (
     <div {...props} className={cn('border-t border-zinc-300', className)}>
       <div className="relative mt-4 flex-1 overflow-hidden rounded-lg border-none outline-none">
         <TextareaAutosize
           ref={textareaRef}
-          onKeyDown={e => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault()
-
-              const message: Message = {
-                id: nanoid(),
-                isUserMessage: true,
-                text: input
-              }
-
-              sendMessage(message)
-            }
-          }}
+          onKeyDown={handleKeyDown}
           rows={2}
           maxRows={4}
           value={input}
           autoFocus
           disabled={isLoading}
-          onChange={e => setInput(e.target.value)}
+          onChange={handleChange}
           placeholder="Write a message..."
           className="peer disabled:opacity-50 pr-14 resize-none block w-full border-0 bg-zinc-100 py-1.5 text-gray-900 focus:ring-0 text-sm sm:leading-6"
         />
