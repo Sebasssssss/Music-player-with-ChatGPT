@@ -1,4 +1,4 @@
-# Book Recommendation Chat
+# Chatbot
 
 This project is a chat application where users can interact with ChatGPT, an AI language model, to receive book recommendations based on their queries. The application is built using Next.js 13, Tailwind CSS, and TypeScript.
 
