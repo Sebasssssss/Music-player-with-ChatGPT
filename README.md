@@ -2,6 +2,8 @@
 
 This project is a chat application where users can interact with ChatGPT, an AI language model, to receive book recommendations based on questions made in the chat. The application is built using Next.js 13, Tailwind CSS, and TypeScript.
 
+![Screenshot 2023-05-11 220401](https://github.com/Sebasssssss/Chatbot/assets/105828786/ba38a6cf-78d8-4e33-926e-e969e5a37f29)
+
 ## Installation
 
 To run this project locally, follow these steps:
