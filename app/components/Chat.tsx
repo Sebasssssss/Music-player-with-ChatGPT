@@ -11,13 +11,9 @@ import {
 
 const Chat = () => {
   return (
-    <Accordion
-      type="single"
-      collapsible
-      className="relative bg-white z-40 customShadowLow"
-    >
+    <Accordion type="single" collapsible className="relative bg-white z-40">
       <AccordionItem value="item-1">
-        <div className="fixed right-8 w-80 bottom-8 bg-white border border-gray-200 rounded-2xl overflow-hidden">
+        <div className="fixed right-8 w-80 bottom-8 bg-white rounded-2xl overflow-hidden customShadowMedium">
           <div className="w-full h-full flex flex-col">
             <AccordionTrigger className="px-6 border-b border-zinc-300 bg-[#4a2560] text-white rounded-r-2xl">
               <ChatHeader />

@@ -1,6 +1,6 @@
 export default function Navbar() {
   return (
-    <header className="inline-flex items-center gap-4 w-full border justify-between p-3">
+    <header className="inline-flex items-center gap-4 w-full justify-between p-3">
       <h1 className="text-xl font-bold ml-8">BeatBrain</h1>
       <div className="inline-flex items-center gap-4">
         <a
