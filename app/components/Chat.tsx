@@ -11,7 +11,11 @@ import {
 
 const Chat = () => {
   return (
-    <Accordion type="single" collapsible className="relative bg-white z-40">
+    <Accordion
+      type="single"
+      collapsible
+      className="relative bg-white z-40 customShadowLow"
+    >
       <AccordionItem value="item-1">
         <div className="fixed right-8 w-80 bottom-8 bg-white border border-gray-200 rounded-2xl overflow-hidden">
           <div className="w-full h-full flex flex-col">
