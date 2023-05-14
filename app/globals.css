@@ -84,6 +84,7 @@ body::after {
 
 body::before {
   filter: url(#noiseFilter);
+  background: #fafafa;
 }
 
 .blob-cont {
