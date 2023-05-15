@@ -24,7 +24,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
         return (
           <div className="chat-message" key={`${message.id}-${message.id}`}>
             <motion.div
-              initial={{ opacity: 0.7, y: 8 }}
+              initial={{ opacity: 0.7, y: 5 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
               className={cn('flex items-end', {
@@ -42,9 +42,9 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
               >
                 <p
                   className={cn('px-4 py-2', {
-                    'bg-[#4a2560] text-white rounded-l-xl rounded-tr-xl':
+                    'bg-[#4a2560] text-white rounded-l-xl rounded-tr-xl rounded-br-sm':
                       message.isUserMessage,
-                    'bg-gray-200 text-gray-900 rounded-r-xl rounded-tl-xl':
+                    'bg-gray-200 text-gray-900 rounded-r-xl rounded-tl-xl rounded-bl-sm':
                       !message.isUserMessage
                   })}
                 >
