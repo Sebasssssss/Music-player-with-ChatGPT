@@ -73,6 +73,15 @@ customShadowButton {
   filter: blur(150px);
 }
 
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .gradient {
   position: absolute;
   border-radius: 100%;

@@ -3,6 +3,7 @@ import { MessagesContext } from '@/app/context/messages'
 import { cn } from '@/app/lib/utils'
 import { FC, HTMLAttributes, useContext } from 'react'
 import MarkdownLite from './MarkdownLite'
+import { motion } from 'framer-motion'
 
 interface ChatMessagesProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -22,7 +23,10 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
       {inverseMessages.map(message => {
         return (
           <div className="chat-message" key={`${message.id}-${message.id}`}>
-            <div
+            <motion.div
+              initial={{ opacity: 0.7, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
               className={cn('flex items-end', {
                 'justify-end': message.isUserMessage
               })}
@@ -47,7 +51,7 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
                   <MarkdownLite text={message.text} />
                 </p>
               </div>
-            </div>
+            </motion.div>
           </div>
         )
       })}

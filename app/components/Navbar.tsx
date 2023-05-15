@@ -10,9 +10,12 @@ export default function Navbar() {
         >
           Download the app
         </a>
-        <button className="w-max px-10 py-3 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowMedium text-white rounded-md font-semibold transition-all duration-200">
+        <a
+          href="/pages/login"
+          className="w-max px-10 py-3 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowMedium text-white rounded-md font-semibold transition-all duration-200"
+        >
           Go to the player
-        </button>
+        </a>
       </div>
     </header>
   )

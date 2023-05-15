@@ -1,7 +1,8 @@
-import { IcoSpotify } from './components/Icons'
-import Navbar from './components/Navbar'
+import { IcoSpotify } from '@/app/components/Icons'
+import Navbar from '@/app/components/Navbar'
+import { getProviders, signIn } from 'next-auth/react'
 
-export default function Home() {
+export default function Page({ providers }) {
   return (
     <>
       <Navbar />
@@ -19,9 +20,15 @@ export default function Home() {
                 - start streaming on our web player today.
               </span>
             </h1>
-            <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200">
-              Login with Spotify <IcoSpotify />
-            </button>{' '}
+            {Object.values(providers).map(provider => (
+              <button
+                key={provider.name}
+                onClick={() => signIn(provider.id)}
+                className="w-max px-10 py-3 inline-flex items-center gap-2 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200"
+              >
+                Login with Spotify <IcoSpotify />
+              </button>
+            ))}
           </div>
         </div>
         <div />
@@ -44,4 +51,13 @@ export default function Home() {
       </svg>
     </>
   )
+}
+
+export async function getServerSideProps() {
+  const providers = await getProviders()
+  return {
+    props: {
+      providers
+    }
+  }
 }
