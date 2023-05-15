@@ -14,14 +14,14 @@ export default function Home() {
         <div className="grid place-items-center absolute ml-auto mr-auto left-0 right-0 text-center py-12">
           <div className="w-max text-center flex flex-col gap-8 items-center text-zinc-900">
             <h1 className="text-7xl font-bold flex flex-col">
-              Get lost in the music{' '}
+              Get lost in the music
               <span className="text-xl">
                 - start streaming on our web player today.
               </span>
             </h1>
             <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200">
               Login with Spotify <IcoSpotify />
-            </button>{' '}
+            </button>
           </div>
         </div>
         <div />
