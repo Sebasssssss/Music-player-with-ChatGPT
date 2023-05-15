@@ -1,19 +1,10 @@
 'use client'
-
 import { MessagesContext } from '@/app/context/messages'
-import { cn } from '@/app/lib/utils'
 import { Message } from '@/app/lib/validators/message'
 import { useMutation } from '@tanstack/react-query'
-import { CornerDownLeft, Loader2 } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import { nanoid } from 'nanoid'
-import {
-  FC,
-  HTMLAttributes,
-  ReactNode,
-  useContext,
-  useRef,
-  useState
-} from 'react'
+import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
 import { Toaster, toast } from 'sonner'
 import TextareaAutosize from 'react-textarea-autosize'
 import { IcoSend } from './Icons'
@@ -117,7 +108,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
           disabled={isLoading}
           onChange={handleChange}
           placeholder="Write a message..."
-          className="peer disabled:opacity-50 pr-14 resize-none block w-full border-0 py-1.5 text-gray-900 focus:ring-0 text-sm sm:leading-6"
+          className="peer outline-none disabled:opacity-50 pr-14 resize-none block w-full border-0 py-1.5 text-gray-900 focus:ring-0 text-sm sm:leading-6"
         />
 
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
