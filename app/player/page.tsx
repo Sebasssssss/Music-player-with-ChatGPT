@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import template from '../../public/template.jpg'
 import { IcoPlay } from '../components/Icons'
@@ -66,7 +67,7 @@ export default function Player() {
             Know
             <span className="text-sm">Jason Mraz • 2018 • 10 songs</span>
           </h1>
-          <ul className="font-semibold text-sm flex flex-col gap-2">
+          <ul className="font-semibold text-sm flex flex-col gap-2 overflow-hidden">
             {Songs.map(song => (
               <li
                 key={song.id}
