@@ -19,7 +19,7 @@ export default function Home() {
                 - start streaming on our web player today.
               </span>
             </h1>
-            <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-[#4a2560] hover:bg-[#4a2560]/90 active:translate-y-0.5 active:bg-[#3f1f52] outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200">
+            <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200">
               Login with Spotify <IcoSpotify />
             </button>
           </div>
