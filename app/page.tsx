@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <Navbar />
       <div className="flex h-screen items-center w-full">
-        <div className="filter absolute -top-[50px] -left-[300px] w-full h-full overflow-hidden -z-20">
+        <div className="blur-[150px] absolute -top-[50px] -left-[300px] w-full h-full overflow-hidden -z-20">
           <div className="gradient blob gradient-1"></div>
           <div className="gradient blob gradient-2"></div>
           <div className="gradient blob gradient-3"></div>

@@ -3,56 +3,20 @@ import Image from 'next/image'
 import template from '../../public/template.jpg'
 import { IcoPlay } from '../components/Icons'
 import { cn } from '@/app/lib/utils'
-
-const Songs = [
-  {
-    id: 1,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: true
-  },
-  {
-    id: 2,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  },
-  {
-    id: 3,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  },
-  {
-    id: 4,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  },
-  {
-    id: 5,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  },
-  {
-    id: 6,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  },
-  {
-    id: 7,
-    name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
-  }
-]
+import { Songs } from '../lib/song-list'
 
 export default function Player() {
   return (
-    <>
+    <div className="overflow-hidden w-full h-screen">
       <div className="flex h-screen items-center justify-center w-full gap-12">
+        <div className="glassmorphism w-full h-screen absolute ml-auto mr-auto right-0 left-0 text-center -z-10 bg-white/20"></div>
+        <Image
+          alt="albumCover"
+          src={template}
+          width={100}
+          height={100}
+          className="rounded-xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+        />
         <div>
           <Image
             alt="albumCover"
@@ -104,6 +68,6 @@ export default function Player() {
           <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
         </filter>
       </svg>
-    </>
+    </div>
   )
 }

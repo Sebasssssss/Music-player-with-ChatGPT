@@ -1,4 +1,3 @@
-import Chat from '@/app/components/Chat'
 import Providers from '@/app/components/Providers'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -18,10 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>
-          <Chat />
-          {children}
-        </body>
+        <body className={inter.className}>{children}</body>
       </Providers>
     </html>
   )
