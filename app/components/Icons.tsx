@@ -84,3 +84,61 @@ export const IcoSearch = () => (
     ></path>
   </svg>
 )
+
+export const IcoSkipNext = () => (
+  <svg
+    width="24px"
+    height="24px"
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    color="currentColor"
+  >
+    <path
+      d="M18 7v10M6.972 5.267A.6.6 0 006 5.738v12.524a.6.6 0 00.972.47l7.931-6.261a.6.6 0 000-.942L6.972 5.267z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+)
+
+export const IcoSkipPrev = () => (
+  <svg
+    width="24px"
+    height="24px"
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    color="currentColor"
+  >
+    <path
+      d="M6 7v10M17.028 5.267a.6.6 0 01.972.471v12.524a.6.6 0 01-.972.47l-7.931-6.261a.6.6 0 010-.942l7.931-6.262z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+)
+
+export const IcoPause = () => (
+  <svg
+    width="24px"
+    height="24px"
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    color="currentColor"
+  >
+    <path
+      d="M6 18.4V5.6a.6.6 0 01.6-.6h2.8a.6.6 0 01.6.6v12.8a.6.6 0 01-.6.6H6.6a.6.6 0 01-.6-.6zM14 18.4V5.6a.6.6 0 01.6-.6h2.8a.6.6 0 01.6.6v12.8a.6.6 0 01-.6.6h-2.8a.6.6 0 01-.6-.6z"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    ></path>
+  </svg>
+)
