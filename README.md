@@ -27,7 +27,6 @@ You can obtain an OpenAI API key by signing up for an account on their website. 
 
 To get the REDIS_URL and REDIS_SECRET, you will have to register on [upstash](https://console.upstash.com/) and create a new database.
 
-
 Once the you've done all of that, you can interact with ChatGPT by typing in the chat input box. Ask for music recommendations based on genres, artists, or any other relevant queries. ChatGPT will process your query and provide you with personalized recommendations.
 
 ## Libraries Used
