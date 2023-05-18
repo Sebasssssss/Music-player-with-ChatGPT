@@ -47,23 +47,24 @@ export const Songs = [
 
 interface ListItem {
   element: React.ReactElement
-
   svg: React.ReactElement
 }
 
 export const listData: ListItem[] = [
   {
+    element: <span className="sidebar-listItemText">Home</span>,
+    svg: <IcoHome />
+  },
+  {
     element: (
-      <input
-        className="sidebar-listItemText outline-none bg-transparent placeholder:text-[#00071d]"
-        placeholder="Search"
-      />
+      <span className="sidebar-listItemText">
+        <input
+          className="outline-none bg-transparent placeholder:text-[#00071d]"
+          placeholder="Search"
+        />
+      </span>
     ),
 
     svg: <IcoSearch />
-  },
-  {
-    element: <span className="sidebar-listItemText">Home</span>,
-    svg: <IcoHome />
   }
 ]

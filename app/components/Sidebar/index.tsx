@@ -1,9 +1,9 @@
 'use client'
 import { useState } from 'react'
-import './styles.css'
-import template from '../../../public/template.jpg'
 import Image from 'next/image'
 import { listData } from '@/app/lib/itemsList'
+import template from '../../../public/template.jpg'
+import './styles.css'
 
 const Sidebar = () => {
   const [isShrinkView, setIsShrinkView] = useState(false)
