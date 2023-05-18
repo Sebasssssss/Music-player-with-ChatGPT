@@ -67,13 +67,14 @@ export const IcoPlay = () => (
 
 export const IcoSearch = () => (
   <svg
-    width="24px"
-    height="24px"
+    width="20px"
+    height="20px"
     viewBox="0 0 24 24"
     strokeWidth="1.5"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     color="currentColor"
+    className="sidebar-listIcon"
   >
     <path
       d="M17 17l4 4M3 11a8 8 0 1016 0 8 8 0 00-16 0z"
@@ -139,6 +140,26 @@ export const IcoPause = () => (
       d="M6 18.4V5.6a.6.6 0 01.6-.6h2.8a.6.6 0 01.6.6v12.8a.6.6 0 01-.6.6H6.6a.6.6 0 01-.6-.6zM14 18.4V5.6a.6.6 0 01.6-.6h2.8a.6.6 0 01.6.6v12.8a.6.6 0 01-.6.6h-2.8a.6.6 0 01-.6-.6z"
       stroke="currentColor"
       strokeWidth="1.5"
+    ></path>
+  </svg>
+)
+export const IcoHome = () => (
+  <svg
+    width="20px"
+    height="20px"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    color="currentColor"
+    className="sidebar-listIcon"
+  >
+    <path
+      d="M2 8l9.732-4.866a.6.6 0 01.536 0L22 8M20 11v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     ></path>
   </svg>
 )

@@ -1,3 +1,5 @@
+import { IcoHome, IcoSearch } from '../components/Icons'
+
 export const Songs = [
   {
     id: 1,
@@ -40,5 +42,28 @@ export const Songs = [
     name: "Let's See What The Night Can Do",
     duration: '4:05',
     isCurrentlyPlaying: false
+  }
+]
+
+interface ListItem {
+  element: React.ReactElement
+
+  svg: React.ReactElement
+}
+
+export const listData: ListItem[] = [
+  {
+    element: (
+      <input
+        className="sidebar-listItemText outline-none bg-transparent placeholder:text-[#00071d]"
+        placeholder="Search"
+      />
+    ),
+
+    svg: <IcoSearch />
+  },
+  {
+    element: <span className="sidebar-listItemText">Home</span>,
+    svg: <IcoHome />
   }
 ]
