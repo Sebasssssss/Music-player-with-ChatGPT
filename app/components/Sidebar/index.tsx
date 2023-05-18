@@ -2,7 +2,9 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { listData } from '@/app/lib/itemsList'
-import template from '../../../public/template.jpg'
+import { IcoChevron } from '../Icons'
+import { cn } from '@/app/lib/utils'
+import template from '../../../public/album.png'
 import './styles.css'
 
 const Sidebar = () => {
@@ -18,51 +20,54 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="absolute left-4 top-4 h-screen">
-      <div className={`sidebar-container${isShrinkView ? ' shrink' : ''}`}>
-        <button
-          className="sidebar-viewButton"
-          type="button"
-          aria-label={isShrinkView ? 'Expand Sidebar' : 'Shrink Sidebar'}
-          title={isShrinkView ? 'Expand' : 'Shrink'}
-          onClick={handleSidebarView}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="feather feather-chevron-left"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-        </button>
-        <div className="sidebar-wrapper">
-          <ul className="sidebar-list">
-            {listData.map((item, index) => (
-              <li
-                key={index}
-                onClick={() => handleIsActive(index)}
-                className={`${
-                  activeIndex === index ? 'active' : ''
-                } sidebar-listItem`}
-              >
-                <button className="w-full p-5 rounded inline-flex items-center">
-                  {item.svg}
-                  {item.element}
-                </button>
-              </li>
-            ))}
-          </ul>
-          <div className="sidebar-profileSection font-medium">
-            <Image src={template} width="40" height="40" alt="Monica Geller" />
-            <span>Sebass Rodriguez</span>
-          </div>
+    <div
+      className={cn(
+        'sidebar-container rounded-[10px] p-4 relative w-[240px] transition-all duration-300 ease-in-out bg-white',
+        {
+          shrink: isShrinkView
+        }
+      )}
+    >
+      <button
+        className="sidebar-viewButton absolute w-8 h-8 rounded-[50%] border-none -right-4 top-1 flex items-center cursor-pointer p-0 transition duration-300 ease-in-out text-white justify-center bg-black customShadowMedium hover:opacity-80"
+        type="button"
+        aria-label={isShrinkView ? 'Expand Sidebar' : 'Shrink Sidebar'}
+        title={isShrinkView ? 'Expand' : 'Shrink'}
+        onClick={handleSidebarView}
+      >
+        <IcoChevron className="w-4 h-4" />
+      </button>
+      <div className="flex flex-col h-full md:overflow-y-auto md:overflow-x-hidden overflow-x-visible">
+        <ul className="list-none p-0 mt-5">
+          {listData.map((item, index) => (
+            <li
+              key={index}
+              onClick={() => handleIsActive(index)}
+              className={cn(
+                'sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4',
+                {
+                  active: activeIndex === index
+                }
+              )}
+            >
+              <button className="w-full p-5 rounded inline-flex items-center">
+                {item.icon}
+                {item.element}
+              </button>
+            </li>
+          ))}
+        </ul>
+        <div className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb]">
+          <Image
+            src={template}
+            width="40"
+            height="40"
+            alt="Monica Geller"
+            className="w-10 h-10 rounded-[50%] object-cover flex-shrink-0"
+          />
+          <span className="whitespace-nowrap overflow-hidden text-ellipsis text-zinc-900">
+            Sebass Rodriguez
+          </span>
         </div>
       </div>
     </div>

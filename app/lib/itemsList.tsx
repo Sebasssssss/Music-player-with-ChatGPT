@@ -47,13 +47,17 @@ export const Songs = [
 
 interface ListItem {
   element: React.ReactElement
-  svg: React.ReactElement
+  icon: React.ReactElement
 }
 
 export const listData: ListItem[] = [
   {
-    element: <span className="sidebar-listItemText">Home</span>,
-    svg: <IcoHome />
+    element: (
+      <span className="sidebar-listItemText whitespace-nowrap overflow-hidden text-ellipsis leading-[20px]">
+        Home
+      </span>
+    ),
+    icon: <IcoHome className="w-5 h-5 inline-block mr-2 flex-shrink-0" />
   },
   {
     element: (
@@ -65,6 +69,8 @@ export const listData: ListItem[] = [
       </span>
     ),
 
-    svg: <IcoSearch />
+    icon: (
+      <IcoSearch className="w-5 h-5 inline-block mr-2 flex-shrink-0 sidebar-listIcon" />
+    )
   }
 ]

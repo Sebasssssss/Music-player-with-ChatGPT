@@ -6,32 +6,8 @@
   --text-color: #00071d;
 }
 
-body {
-  background-color: var(--main-bg);
-  transition: 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.sidebar-wrapper {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-@media screen and (max-height: 520px) {
-  .sidebar-wrapper {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-}
 .sidebar-container {
-  background-color: var(--main-container-bg);
   box-shadow: var(--container-shadow);
-  border-radius: 10px;
-  padding: 16px;
-  transition: width 0.3s ease-in-out;
-  position: relative;
-  width: 240px;
   height: 100vh;
   max-height: 960px;
 }
@@ -98,7 +74,6 @@ body {
   opacity: 1;
   left: calc(100% + 8px);
   visibility: visible;
-  color: var(--text-color);
 }
 .sidebar-listItem + li {
   border-top: 1px solid var(--item-hover);
@@ -150,12 +125,7 @@ body {
 .shrink .sidebar-profileSection {
   border-radius: 50%;
 }
-.sidebar-listItemText {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  line-height: 20px;
-}
+
 .shrink .sidebar-listItemText {
   position: absolute;
   padding: 8px;

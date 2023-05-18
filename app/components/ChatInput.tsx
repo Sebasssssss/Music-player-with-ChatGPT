@@ -2,12 +2,12 @@
 import { MessagesContext } from '@/app/context/messages'
 import { Message } from '@/app/lib/validators/message'
 import { useMutation } from '@tanstack/react-query'
-import { Loader2 } from 'lucide-react'
 import { nanoid } from 'nanoid'
 import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
 import { Toaster, toast } from 'sonner'
 import TextareaAutosize from 'react-textarea-autosize'
 import { IcoSend } from './Icons'
+import Loader from './Loader'
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -113,11 +113,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
 
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
           <kbd className="inline-flex items-center rounded px-1 font-sans text-xs text-gray-400">
-            {isLoading ? (
-              <Loader2 className="w-4 h-4 animate-spin" />
-            ) : (
-              <IcoSend />
-            )}
+            {isLoading ? <Loader /> : <IcoSend />}
           </kbd>
         </div>
 

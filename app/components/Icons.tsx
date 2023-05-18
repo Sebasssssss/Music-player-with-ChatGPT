@@ -1,3 +1,6 @@
+interface Props {
+  className?: string
+}
 export const IcoSend = () => (
   <svg
     width="24px"
@@ -65,7 +68,7 @@ export const IcoPlay = () => (
   </svg>
 )
 
-export const IcoSearch = () => (
+export const IcoSearch = ({ className }: Props) => (
   <svg
     width="20px"
     height="20px"
@@ -74,7 +77,7 @@ export const IcoSearch = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     color="currentColor"
-    className="sidebar-listIcon"
+    className={className}
   >
     <path
       d="M17 17l4 4M3 11a8 8 0 1016 0 8 8 0 00-16 0z"
@@ -143,7 +146,7 @@ export const IcoPause = () => (
     ></path>
   </svg>
 )
-export const IcoHome = () => (
+export const IcoHome = ({ className }: Props) => (
   <svg
     width="20px"
     height="20px"
@@ -152,10 +155,31 @@ export const IcoHome = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     color="currentColor"
-    className="sidebar-listIcon"
+    className={className}
   >
     <path
       d="M2 8l9.732-4.866a.6.6 0 01.536 0L22 8M20 11v8a2 2 0 01-2 2H6a2 2 0 01-2-2v-8"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    ></path>
+  </svg>
+)
+
+export const IcoChevron = ({ className }: Props) => (
+  <svg
+    width="16px"
+    height="16px"
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    color="currentColor"
+    className={className}
+  >
+    <path
+      d="M15 6l-6 6 6 6"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
