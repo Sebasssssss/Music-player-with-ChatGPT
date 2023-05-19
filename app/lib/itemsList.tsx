@@ -1,5 +1,4 @@
 import { Home, Search } from 'iconoir-react'
-import { PopoverDemo } from '../components/SearchPopover'
 
 export const Songs = [
   {

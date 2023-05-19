@@ -17,7 +17,6 @@ export default function Player() {
       </div>
       <div className="overflow-hidden w-full h-screen">
         <div className="flex h-screen items-center justify-center w-full gap-2">
-          <div className="glassmorphism w-full h-screen absolute ml-auto mr-auto right-0 left-0 text-center -z-10 bg-white/20"></div>
           <Image
             alt="albumCover"
             src={template}
@@ -51,15 +50,22 @@ export default function Player() {
                 <li
                   key={song.id}
                   className={cn(
-                    'inline-flex items-center justify-between w-full gap-8 rounded-xl px-6 py-3',
+                    'inline-flex items-center justify-between w-full gap-8 rounded-xl px-6 h-[4em]',
                     {
                       'bg-black text-white': song.isCurrentlyPlaying
                     }
                   )}
                 >
-                  <span className="inline-flex items-center">
-                    {song.isCurrentlyPlaying ? <Play /> : song.id}
-                  </span>
+                  {song.isCurrentlyPlaying ? (
+                    <div className="flex mt-[1em] ml-[0.3em] rotate-180">
+                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                    </div>
+                  ) : (
+                    song.id
+                  )}
                   <p>{song.name}</p>
                   <span>{song.duration}</span>
                 </li>
