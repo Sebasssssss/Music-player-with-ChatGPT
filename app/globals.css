@@ -227,7 +227,8 @@ body::before {
 
 .sidebar-container {
   box-shadow: var(--sidebar-container-shadow);
-  height: 100%;
+  height: 100vh;
+  max-height: 960px;
 }
 .sidebar-container.shrink {
   width: 92px;
