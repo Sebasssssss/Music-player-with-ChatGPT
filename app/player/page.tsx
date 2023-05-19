@@ -2,16 +2,11 @@
 import Image from 'next/image'
 import template from '../../public/album.png'
 import GrainyFilter from '../components/GrainyFilter'
-import {
-  IcoPause,
-  IcoPlay,
-  IcoSkipNext,
-  IcoSkipPrev
-} from '../components/Icons'
 import { cn } from '@/app/lib/utils'
 import { Songs } from '../lib/itemsList'
 import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
+import { Pause, Play, SkipNext, SkipPrev } from 'iconoir-react'
 
 export default function Player() {
   const [pause, setPause] = useState(false)
@@ -39,11 +34,11 @@ export default function Player() {
               className="rounded-[32px] hover:-translate-y-2 hover:shadow-2xl active:translate-y-0 active:shadow-sm transition-all duration-300"
             />
             <div className="inline-flex items-center justify-between w-80 p-12">
-              <IcoSkipPrev />
+              <SkipPrev />
               <button type="button" onClick={() => setPause(prev => !prev)}>
-                {pause ? <IcoPause /> : <IcoPlay />}
+                {pause ? <Pause /> : <Play />}
               </button>
-              <IcoSkipNext />
+              <SkipNext />
             </div>
           </div>
           <div>
@@ -63,8 +58,8 @@ export default function Player() {
                   )}
                 >
                   <span className="inline-flex items-center">
-                    {song.isCurrentlyPlaying ? <IcoPlay /> : song.id}
-                  </span>{' '}
+                    {song.isCurrentlyPlaying ? <Play /> : song.id}
+                  </span>
                   <p>{song.name}</p>
                   <span>{song.duration}</span>
                 </li>

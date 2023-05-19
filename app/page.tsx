@@ -1,6 +1,6 @@
 import GrainyFilter from './components/GrainyFilter'
 import Navbar from './components/Navbar'
-import { IcoSpotify } from './components/Icons'
+import { Spotify } from 'iconoir-react'
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
               </span>
             </h1>
             <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none customShadowButton text-white rounded-md font-semibold transition-all duration-200">
-              Login with Spotify <IcoSpotify />
+              Login with Spotify <Spotify />
             </button>
           </div>
         </div>

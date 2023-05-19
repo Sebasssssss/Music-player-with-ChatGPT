@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
 import { Toaster, toast } from 'sonner'
 import TextareaAutosize from 'react-textarea-autosize'
-import { IcoSend } from './Icons'
+import { Send } from 'iconoir-react'
 import Loader from './Loader'
 
 interface ChatInputProps extends HTMLAttributes<HTMLDivElement> {}
@@ -113,7 +113,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
 
         <div className="absolute inset-y-0 right-0 flex py-1.5 pr-1.5">
           <kbd className="inline-flex items-center rounded px-1 font-sans text-xs text-gray-400">
-            {isLoading ? <Loader /> : <IcoSend />}
+            {isLoading ? <Loader /> : <Send />}
           </kbd>
         </div>
 
