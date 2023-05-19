@@ -57,7 +57,7 @@ export default function Player() {
                   )}
                 >
                   {song.isCurrentlyPlaying ? (
-                    <div className="flex mt-[1em] ml-[0.3em] rotate-180">
+                    <div className="flex mt-[1em] ml-[0.3em] rotate-180 h-1">
                       <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
                       <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
                       <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
