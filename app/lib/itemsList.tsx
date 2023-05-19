@@ -63,7 +63,7 @@ export const listData: ListItem[] = [
     element: (
       <span className="sidebar-listItemText">
         <input
-          className="outline-none bg-transparent placeholder:text-[#00071d]"
+          className="outline-none bg-transparent placeholder:text-[#00071d] w-32"
           placeholder="Search"
         />
       </span>
