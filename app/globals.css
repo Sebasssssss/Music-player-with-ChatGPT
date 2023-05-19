@@ -2,63 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.input-container {
-  position: relative;
-}
-
-.input {
-  font-size: 1em;
-  padding: 0.6em 2em;
-  border: none;
-  border-radius: 6px;
-  background-color: #f8f8f8;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  max-width: 200px;
-  color: #333;
-}
-
-.input:hover {
-  background-color: #f2f2f2;
-}
-
-.input:focus {
-  outline: none;
-  background-color: #fff;
-}
-
-.input::placeholder {
-  color: #999;
-}
-
-.highlight {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #6c63ff;
-  transition: width 0.3s ease;
-}
-
-.input:focus + .highlight {
-  width: 100%;
-}
-
-/* Optional: Animation on focus */
-@keyframes input-focus {
-  from {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.1);
-  }
-
-  to {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-}
-
-.input:focus {
-  animation: input-focus 0.3s ease;
-}
-
 .scrollbar-w-2::-webkit-scrollbar {
   width: 0.25rem;
   height: 0.25rem;
@@ -81,6 +24,10 @@
 }
 
 :root {
+  --sidebar-bg: #f5f4fd;
+  --sidebar-item-hover: #f9f8fb;
+  --sidebar-main-container-bg: #fff;
+  --sidebar-container-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --bg: #f0dba5;
   --text: #151515;
   --yellow: #dbd5c4;
@@ -275,5 +222,84 @@ body::before {
 @keyframes rotate {
   100% {
     transform: rotate(1turn);
+  }
+}
+
+.sidebar-container {
+  box-shadow: var(--sidebar-container-shadow);
+  height: 100%;
+}
+.sidebar-container.shrink {
+  width: 92px;
+}
+
+.shrink .sidebar-viewButton {
+  transform: rotatey(-180deg);
+}
+.sidebar-listItem {
+  animation: fadeInItem 0.6s forwards;
+  transition: background 0.2s ease-in;
+  transform: translatex(-16px);
+}
+.shrink .sidebar-listItem span {
+  visibility: hidden;
+}
+.sidebar-listItem.active button {
+  background-color: var(--sidebar-bg);
+}
+.sidebar-listItem:not(.active) button:hover {
+  background-color: var(--sidebar-item-hover);
+}
+.sidebar-listItem + li {
+  border-top: 1px solid var(--sidebar-item-hover);
+}
+
+.sidebar-listIcon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.shrink .sidebar-listIcon {
+  margin-right: 0;
+}
+
+.shrink .sidebar-profileSection span {
+  display: none;
+}
+
+.shrink .sidebar-listItemText {
+  position: absolute;
+  padding: 8px;
+  left: 100%;
+  opacity: 0;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  transition: left 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.sidebar-listItem:nth-child(n + 0) {
+  animation-delay: 0s;
+}
+.sidebar-listItem:nth-child(n + 1) {
+  animation-delay: 0.2s;
+}
+.sidebar-listItem:nth-child(n + 2) {
+  animation-delay: 0.4s;
+}
+.sidebar-listItem:nth-child(n + 3) {
+  animation-delay: 0.6s;
+}
+.sidebar-listItem:nth-child(n + 4) {
+  animation-delay: 0.8s;
+}
+.sidebar-listItem:nth-child(n + 5) {
+  animation-delay: 1s;
+}
+@keyframes fadeInItem {
+  100% {
+    transform: translatex(0px);
+    opacity: 1;
   }
 }

@@ -28,7 +28,7 @@ import {
 export function DropDownMenu() {
   return (
     <DropDown>
-      <DropdownMenuTrigger className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb] outline-none">
+      <DropdownMenuTrigger className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb] hover:border-[#f9f8fb] outline-none transition-colors duration-300 ease-in-out">
         <Image
           src={template}
           width="40"

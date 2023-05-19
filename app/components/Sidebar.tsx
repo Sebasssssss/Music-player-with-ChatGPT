@@ -3,9 +3,8 @@ import { useState } from 'react'
 import { listData } from '@/app/lib/itemsList'
 import { NavArrowLeft } from 'iconoir-react'
 import { cn } from '@/app/lib/utils'
-import ListOfPlaylist from '../ListOfPlaylist'
-import { DropDownMenu } from '../DropDownMenu'
-import './styles.css'
+import ListOfPlaylist from './ListOfPlaylist'
+import { DropDownMenu } from './DropDownMenu'
 
 const Sidebar = () => {
   const [isShrinkView, setIsShrinkView] = useState(false)

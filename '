@@ -1,0 +1,40 @@
+'use client'
+import { Play, Pause } from 'iconoir-react'
+import { useState } from 'react'
+export default function AudioPlayer() {
+  const [pause, setPause] = useState(false)
+
+  const handlePause = () => {
+    setPause(!pause)
+  }
+  return (
+    <main className="" style={{ maxWidth: '1170px' }}>
+      <h1>
+        <span>fire</span>Player
+      </h1>
+      <div className="bg-white text-black h-20 m-5 rounded-lg font-[18px] firePlayer">
+        <div className="controls">
+          <audio
+            controls
+            src="http://www.bensound.org/bensound-music/bensound-dubstep.mp3"
+          ></audio>
+          <div className="button-wrap" onClick={handlePause}>
+            {pause ? (
+              <Play className="audio-play mx-2" />
+            ) : (
+              <Pause className="audio-pause mx-2" />
+            )}
+          </div>
+          <div className="progress-wrap">
+            <div className="audio-title">"Track Title"</div>
+            <div className="audio-current-time">0:00</div>
+            <div className="audio-seekbar" value="0" max="1">
+              <div className="audio-slide"></div>
+            </div>
+            <div className="audio-length">0:00</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  )
+}
