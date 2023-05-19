@@ -1,5 +1,5 @@
 import {
-  DropdownMenu,
+  DropdownMenu as DropDown,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
@@ -10,7 +10,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger
-} from '@/app/components/dropdown-menu'
+} from '@/app/components/ui/dropdown-menu'
 import Image from 'next/image'
 import template from '../../public/album.png'
 import Link from 'next/link'
@@ -25,9 +25,9 @@ import {
   Plus
 } from 'iconoir-react'
 
-export function DropdownMenuDemo() {
+export function DropDownMenu() {
   return (
-    <DropdownMenu>
+    <DropDown>
       <DropdownMenuTrigger className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb] outline-none">
         <Image
           src={template}
@@ -96,6 +96,6 @@ export function DropdownMenuDemo() {
           <span>Log out</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
-    </DropdownMenu>
+    </DropDown>
   )
 }

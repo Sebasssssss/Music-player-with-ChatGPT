@@ -4,7 +4,7 @@ import { listData } from '@/app/lib/itemsList'
 import { NavArrowLeft } from 'iconoir-react'
 import { cn } from '@/app/lib/utils'
 import ListOfPlaylist from '../ListOfPlaylist'
-import { DropdownMenuDemo } from '../Dropdown'
+import { DropDownMenu } from '../DropDownMenu'
 import './styles.css'
 
 const Sidebar = () => {
@@ -60,7 +60,7 @@ const Sidebar = () => {
           ))}
           <ListOfPlaylist />
         </ul>
-        <DropdownMenuDemo />
+        <DropDownMenu />
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import { Home, Search } from 'iconoir-react'
+import { PopoverDemo } from '../components/SearchPopover'
 
 export const Songs = [
   {
@@ -47,7 +48,7 @@ export const Songs = [
 
 interface ListItem {
   element: React.ReactElement
-  icon: React.ReactElement
+  icon: React.ReactElement | null
 }
 
 export const listData: ListItem[] = [
