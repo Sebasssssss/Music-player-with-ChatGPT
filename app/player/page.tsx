@@ -10,6 +10,12 @@ import { Pause, Play, SkipNext, SkipPrev } from 'iconoir-react'
 
 export default function Player() {
   const [pause, setPause] = useState(false)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
+  const handleIsActive = (index: number) => {
+    setActiveIndex(index)
+  }
+
   return (
     <>
       <div className="absolute left-4 top-4 h-screen">
@@ -46,26 +52,28 @@ export default function Player() {
               <span className="text-sm">Jason Mraz • 2018 • 10 songs</span>
             </h1>
             <ul className="font-semibold text-sm flex flex-col gap-2 overflow-hidden">
-              {Songs.map(song => (
+              {Songs.map((song, index) => (
                 <li
                   key={song.id}
                   className={cn(
                     'inline-flex items-center justify-between w-full gap-8 rounded-xl px-6 h-[4em]',
                     {
-                      'bg-black text-white': song.isCurrentlyPlaying
+                      'bg-black text-white': activeIndex === index
                     }
                   )}
                 >
-                  {song.isCurrentlyPlaying ? (
-                    <div className="flex mt-[1em] ml-[0.3em] rotate-180 h-1">
-                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                      <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                    </div>
-                  ) : (
-                    song.id
-                  )}
+                  <div onClick={() => handleIsActive(index)}>
+                    {activeIndex === index ? (
+                      <div className="flex mt-[1em] ml-[0.3em] rotate-180 h-1">
+                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                      </div>
+                    ) : (
+                      <span className="cursor-pointer">{song.id}</span>
+                    )}
+                  </div>
                   <p>{song.name}</p>
                   <span>{song.duration}</span>
                 </li>

@@ -4,44 +4,37 @@ export const Songs = [
   {
     id: 1,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: true
+    duration: '4:05'
   },
   {
     id: 2,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   },
   {
     id: 3,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   },
   {
     id: 4,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   },
   {
     id: 5,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   },
   {
     id: 6,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   },
   {
     id: 7,
     name: "Let's See What The Night Can Do",
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    duration: '4:05'
   }
 ]
 
