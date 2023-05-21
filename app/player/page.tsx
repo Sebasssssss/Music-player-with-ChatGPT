@@ -10,9 +10,12 @@ import { Pause, Play, SkipNext, SkipPrev } from 'iconoir-react'
 
 export default function Player() {
   const [pause, setPause] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const handleIsActive = (index: number) => {
+  const handlePlaySong = (index: number) => {
+    setPause(true)
+    setIsPlaying(true)
     setActiveIndex(index)
   }
 
@@ -49,31 +52,54 @@ export default function Player() {
           <div>
             <h1 className="text-xl font-bold flex flex-col py-4">
               Know
-              <span className="text-sm">Jason Mraz • 2018 • 10 songs</span>
+              <span className="text-sm">
+                Jason Mraz • 2018 • {Songs.length} songs
+              </span>
             </h1>
             <ul className="font-semibold text-sm flex flex-col gap-2 overflow-hidden">
               {Songs.map((song, index) => (
                 <li
                   key={song.id}
                   className={cn(
-                    'inline-flex items-center justify-between w-full gap-8 rounded-xl px-6 h-[4em]',
+                    'flex flex-row h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group hover:bg-white/80 transition-colors duration-200',
                     {
-                      'bg-black text-white': activeIndex === index
+                      'bg-white shadow': activeIndex === index
                     }
                   )}
                 >
-                  <div onClick={() => handleIsActive(index)}>
-                    {activeIndex === index ? (
-                      <div className="flex mt-[1em] ml-[0.3em] rotate-180 h-1">
-                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-8 bg-white rounded-[5px] m-[0.1em]"></div>
+                  {activeIndex === index ? (
+                    <>
+                      <button
+                        onClick={() => setIsPlaying(!isPlaying)}
+                        className="hidden group-hover:block"
+                      >
+                        {isPlaying ? (
+                          <Pause onClick={() => setIsPlaying(false)} />
+                        ) : (
+                          <Play onClick={() => handlePlaySong(index)} />
+                        )}
+                      </button>
+                      <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
+                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
                       </div>
-                    ) : (
-                      <span className="cursor-pointer">{song.id}</span>
-                    )}
-                  </div>
+                    </>
+                  ) : (
+                    <>
+                      <button className="hidden group-hover:block">
+                        {pause ? (
+                          <Play onClick={() => handlePlaySong(index)} />
+                        ) : (
+                          <Pause onClick={() => setPause(!pause)} />
+                        )}
+                      </button>
+                      <span className="cursor-pointer group-hover:hidden">
+                        {song.id}
+                      </span>
+                    </>
+                  )}
                   <p>{song.name}</p>
                   <span>{song.duration}</span>
                 </li>

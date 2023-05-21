@@ -23,6 +23,10 @@
   border-radius: 0.25rem;
 }
 
+.shados {
+  box-shadow: var(--sidebar-container-shadow);
+}
+
 :root {
   --sidebar-bg: #f5f4fd;
   --sidebar-item-hover: #f9f8fb;
