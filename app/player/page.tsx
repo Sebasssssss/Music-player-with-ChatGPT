@@ -2,28 +2,19 @@
 import Image from 'next/image'
 import template from '../../public/album.png'
 import GrainyFilter from '../components/GrainyFilter'
-import { cn } from '@/app/lib/utils'
 import { Songs } from '../lib/itemsList'
 import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
 import { Pause, Play, SkipNext, SkipPrev } from 'iconoir-react'
+import Audiobar from '../components/Audiobar'
+import ListOfSongs from '../components/ListOfSongs'
 
 export default function Player() {
   const [pause, setPause] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-
-  const handlePlaySong = (index: number) => {
-    setPause(true)
-    setIsPlaying(true)
-    setActiveIndex(index)
-  }
 
   return (
     <>
-      <div className="absolute left-4 top-4 h-screen">
-        <Sidebar />
-      </div>
+      <Sidebar />
       <div className="overflow-hidden w-full h-screen">
         <div className="flex h-screen items-center justify-center w-full gap-2">
           <Image
@@ -56,55 +47,7 @@ export default function Player() {
                 Jason Mraz • 2018 • {Songs.length} songs
               </span>
             </h1>
-            <ul className="font-semibold text-sm flex flex-col gap-2 overflow-hidden">
-              {Songs.map((song, index) => (
-                <li
-                  key={song.id}
-                  className={cn(
-                    'flex flex-row h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group hover:bg-white/80 transition-colors duration-200',
-                    {
-                      'bg-white shadow': activeIndex === index
-                    }
-                  )}
-                >
-                  {activeIndex === index ? (
-                    <>
-                      <button
-                        onClick={() => setIsPlaying(!isPlaying)}
-                        className="hidden group-hover:block"
-                      >
-                        {isPlaying ? (
-                          <Pause onClick={() => setIsPlaying(false)} />
-                        ) : (
-                          <Play onClick={() => handlePlaySong(index)} />
-                        )}
-                      </button>
-                      <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
-                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                        <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <button className="hidden group-hover:block">
-                        {pause ? (
-                          <Play onClick={() => handlePlaySong(index)} />
-                        ) : (
-                          <Pause onClick={() => setPause(!pause)} />
-                        )}
-                      </button>
-                      <span className="cursor-pointer group-hover:hidden">
-                        {song.id}
-                      </span>
-                    </>
-                  )}
-                  <p>{song.name}</p>
-                  <span>{song.duration}</span>
-                </li>
-              ))}
-            </ul>
+            <ListOfSongs />
           </div>
         </div>
         <GrainyFilter />
