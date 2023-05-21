@@ -52,6 +52,7 @@ export default function Player() {
         </div>
         <GrainyFilter />
       </div>
+      <Audiobar />
     </>
   )
 }

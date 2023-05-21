@@ -29,7 +29,7 @@ const Sidebar = () => {
         )}
       >
         <button
-          className="sidebar-viewButton absolute w-8 h-8 rounded-[50%] border-none -right-4 top-1 flex items-center cursor-pointer p-0 transition duration-300 ease-in-out text-white justify-center bg-black customShadowMedium hover:opacity-80"
+          className="sidebar-viewButton outline-none absolute w-8 h-8 rounded-[50%] border-none -right-4 top-1 flex items-center cursor-pointer p-0 transition duration-300 ease-in-out text-white justify-center bg-black customShadowMedium hover:opacity-80"
           type="button"
           aria-label={isShrinkView ? 'Expand Sidebar' : 'Shrink Sidebar'}
           title={isShrinkView ? 'Expand' : 'Shrink'}
