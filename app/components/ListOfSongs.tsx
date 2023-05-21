@@ -128,7 +128,7 @@ function ListOfSongs() {
       <div
         id="menu-backdrop"
         className={`
-      absolute bg-white/20 backdrop-blur-lg rounded-[10px]
+      absolute bg-white backdrop-blur-lg rounded-[10px]
       translate-x-[var(--left)] translate-y-[var(--top)]
       left-0 top-0
       w-[var(--width)] h-[var(--height)]
