@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Songs } from '../lib/itemsList'
-import { cn } from '@/app/lib/utils'
 import { Pause, Play } from 'iconoir-react'
 
 function ListOfSongs() {
@@ -68,12 +67,7 @@ function ListOfSongs() {
         {Songs.map((song, index) => (
           <li
             key={song.id}
-            className={cn(
-              'flex flex-row h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group',
-              {
-                'bg-white shadow': activeIndex === index
-              }
-            )}
+            className="flex flex-row h-[4em] items-center justify-between w-96 gap-8 rounded-xl px-6 group"
           >
             {activeIndex === index ? (
               <>
@@ -82,15 +76,9 @@ function ListOfSongs() {
                   className="hidden group-hover:block"
                 >
                   {isPlaying ? (
-                    <Pause
-                      className="w-4 h-4"
-                      onClick={() => setIsPlaying(false)}
-                    />
+                    <Pause onClick={() => setIsPlaying(false)} />
                   ) : (
-                    <Play
-                      className="w-3 h-3"
-                      onClick={() => handlePlaySong(index)}
-                    />
+                    <Play onClick={() => handlePlaySong(index)} />
                   )}
                 </button>
                 <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
@@ -104,15 +92,9 @@ function ListOfSongs() {
               <>
                 <button className="hidden group-hover:block">
                   {pause ? (
-                    <Play
-                      className="w-4 h-4"
-                      onClick={() => handlePlaySong(index)}
-                    />
+                    <Play onClick={() => handlePlaySong(index)} />
                   ) : (
-                    <Pause
-                      className="w-4 h-4"
-                      onClick={() => setPause(!pause)}
-                    />
+                    <Pause onClick={() => setPause(!pause)} />
                   )}
                 </button>
                 <span className="cursor-pointer group-hover:hidden">
@@ -120,7 +102,7 @@ function ListOfSongs() {
                 </span>
               </>
             )}
-            <p>{song.name}</p>
+            <p className="whitespace-nowrap text-ellipsis">{song.name}</p>
             <span>{song.duration}</span>
           </li>
         ))}
@@ -132,7 +114,7 @@ function ListOfSongs() {
       translate-x-[var(--left)] translate-y-[var(--top)]
       left-0 top-0
       w-[var(--width)] h-[var(--height)]
-      transition-all duration-500
+      transition-all duration-300
       ease-in-out opacity-0 -z-10
     `}
       />

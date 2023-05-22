@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import template from '../../public/album.png'
+import template from '../../public/f5517cb156cf4176e929137e3363c08d.jpg'
 import GrainyFilter from '../components/GrainyFilter'
 import { Songs } from '../lib/itemsList'
 import { useState } from 'react'
@@ -41,7 +41,7 @@ export default function Player() {
             </div>
           </div>
           <div>
-            <h1 className="text-xl font-bold flex flex-col py-4">
+            <h1 className="text-xl font-bold flex flex-col py-4 px-6">
               Know
               <span className="text-sm">
                 Jason Mraz • 2018 • {Songs.length} songs

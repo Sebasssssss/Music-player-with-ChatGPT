@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 const ChatHeader: FC = () => {
   return (
-    <div className="w-full flex gap-3 justify-start items-center text-white">
+    <div className="w-full flex gap-3 justify-start items-center text-black">
       <div className="flex flex-col items-start text-sm">
         <p className="text-xs">Chat with</p>
         <div className="flex gap-1.5 items-center">
