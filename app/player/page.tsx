@@ -1,20 +1,16 @@
-'use client'
 import Image from 'next/image'
 import template from '../../public/f5517cb156cf4176e929137e3363c08d.jpg'
 import GrainyFilter from '../components/GrainyFilter'
-import { Songs } from '../lib/itemsList'
-import { useState } from 'react'
 import Sidebar from '../components/Sidebar'
-import { Pause, Play, SkipNext, SkipPrev } from 'iconoir-react'
 import Audiobar from '../components/Audiobar'
 import ListOfSongs from '../components/ListOfSongs'
+import { Songs } from '../lib/itemsList'
 
 export default function Player() {
-  const [pause, setPause] = useState(false)
-
   return (
     <>
       <Sidebar />
+      <Audiobar />
       <div className="overflow-hidden w-full h-screen">
         <div className="flex h-screen items-center justify-center w-full gap-2">
           <Image
@@ -32,13 +28,6 @@ export default function Player() {
               height={400}
               className="rounded-[32px] hover:-translate-y-2 hover:shadow-2xl active:translate-y-0 active:shadow-sm transition-all duration-300"
             />
-            <div className="inline-flex items-center justify-between w-80 p-12">
-              <SkipPrev />
-              <button type="button" onClick={() => setPause(prev => !prev)}>
-                {pause ? <Pause /> : <Play />}
-              </button>
-              <SkipNext />
-            </div>
           </div>
           <div>
             <h1 className="text-xl font-bold flex flex-col py-4 px-6">
@@ -52,7 +41,6 @@ export default function Player() {
         </div>
         <GrainyFilter />
       </div>
-      <Audiobar />
     </>
   )
 }

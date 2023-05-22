@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { Songs } from '../lib/itemsList'
 import { Pause, Play } from 'iconoir-react'
