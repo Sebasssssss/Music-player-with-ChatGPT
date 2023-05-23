@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 
 export default function useAudio() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -7,34 +7,19 @@ export default function useAudio() {
   const [duration, setDuration] = useState<number>(0)
   const [volume, setVolume] = useState<number>(1)
 
-  useEffect(() => {
+  const handleTimeUpdate = () => {
     const audioElement = audioRef.current
-
-    const handleTimeUpdate = () => {
-      if (audioElement) {
-        setCurrentTime(audioElement.currentTime)
-      }
+    if (audioElement) {
+      setCurrentTime(audioElement.currentTime)
     }
+  }
 
-    const handleLoadedData = () => {
-      if (audioElement) {
-        setDuration(audioElement.duration)
-      }
-    }
-
-    audioElement?.addEventListener('timeupdate', handleTimeUpdate)
-    audioElement?.addEventListener('loadeddata', handleLoadedData)
-
-    return () => {
-      audioElement?.removeEventListener('timeupdate', handleTimeUpdate)
-      audioElement?.removeEventListener('loadeddata', handleLoadedData)
-    }
-  }, [])
-
-  const handleSeek = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const seekTime = e.target.valueAsNumber
-    if (audioRef.current) {
-      audioRef.current.currentTime = (duration / 100) * seekTime
+  const handleSeek = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const time = parseFloat(event.target.value)
+    const audioElement = audioRef.current
+    if (audioElement) {
+      audioElement.currentTime = time
+      setCurrentTime(time)
     }
   }
 
@@ -57,6 +42,7 @@ export default function useAudio() {
   }
 
   return {
+    handleTimeUpdate,
     handleVolumeChange,
     handleSeek,
     currentTime,
