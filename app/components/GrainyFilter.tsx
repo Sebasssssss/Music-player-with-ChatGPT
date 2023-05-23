@@ -1,5 +1,5 @@
 const GrainyFilter = () => (
-  <svg>
+  <svg className="not-selectable">
     <filter id="noiseFilter">
       <feTurbulence
         type="fractalNoise"

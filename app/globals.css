@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.not-selectable {
+  user-select: none;
+}
+
 .range-slider::-webkit-slider-thumb {
   appearance: none;
   width: 20px;

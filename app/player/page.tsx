@@ -18,7 +18,7 @@ export default function Player() {
             src={template}
             width={100}
             height={100}
-            className="rounded-xl blur-2xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+            className="rounded-xl not-selectable blur-2xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
           />
           <div className="flex flex-col items-center px-12">
             <Image
