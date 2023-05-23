@@ -4,7 +4,6 @@ export default function useAudio() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [pause, setPause] = useState(false)
   const [currentTime, setCurrentTime] = useState<number>(0)
-  const [duration, setDuration] = useState<number>(0)
   const [volume, setVolume] = useState<number>(1)
 
   const handleTimeUpdate = () => {
@@ -46,7 +45,6 @@ export default function useAudio() {
     handleVolumeChange,
     handleSeek,
     currentTime,
-    duration,
     volume,
     handlePlay,
     handlePause,

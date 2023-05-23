@@ -8,7 +8,6 @@ export default function Audiobar() {
     handleVolumeChange,
     handleSeek,
     currentTime,
-    duration,
     volume,
     handlePlay,
     handlePause,
