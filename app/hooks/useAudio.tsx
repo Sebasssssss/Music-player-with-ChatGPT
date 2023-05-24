@@ -10,6 +10,10 @@ export default function useAudio() {
     const audioElement = audioRef.current
     if (audioElement) {
       setCurrentTime(audioElement.currentTime)
+      if (audioElement.currentTime === audioElement.duration) {
+        setCurrentTime(0)
+        setPause(true)
+      }
     }
   }
 

@@ -99,7 +99,7 @@ function ListOfSongs() {
                   )}
                 </button>
                 <span className="cursor-pointer group-hover:hidden">
-                  {song.id}
+                  {index + 1}
                 </span>
               </>
             )}
