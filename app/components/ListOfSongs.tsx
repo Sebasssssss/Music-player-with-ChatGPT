@@ -103,7 +103,9 @@ function ListOfSongs() {
                 </span>
               </>
             )}
-            <p className="whitespace-nowrap text-ellipsis">{song.name}</p>
+            <p className="whitespace-nowrap overflow-hidden w-max">
+              {song.name}
+            </p>
             <span>{song.duration}</span>
           </li>
         ))}
