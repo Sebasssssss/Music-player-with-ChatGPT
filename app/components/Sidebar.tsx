@@ -19,10 +19,10 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="absolute left-4 top-4 h-screen">
+    <div className="absolute left-0 top-0 h-screen">
       <div
         className={cn(
-          'sidebar-container rounded-[10px] p-4 relative w-[240px] transition-all duration-300 ease-in-out bg-white',
+          'sidebar-container rounded-br-[10px] rounded-tr-[10px] p-4 relative w-[240px] transition-all duration-300 ease-in-out bg-white',
           {
             shrink: isShrinkView
           }

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .not-selectable {
   user-select: none;
 }
@@ -241,7 +246,7 @@ body::before {
 .sidebar-container {
   box-shadow: var(--sidebar-container-shadow);
   height: 100vh;
-  max-height: 960px;
+  max-height: 100vh;
 }
 .sidebar-container.shrink {
   width: 92px;

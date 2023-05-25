@@ -6,7 +6,7 @@ import { Pause, Play } from 'iconoir-react'
 function ListOfSongs() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [pause, setPause] = useState(false)
+  const [pause, setPause] = useState(true)
 
   const handlePlaySong = (index: number) => {
     setPause(true)
