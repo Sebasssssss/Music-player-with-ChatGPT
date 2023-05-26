@@ -5,12 +5,14 @@ import Sidebar from '../components/Sidebar'
 import Audiobar from '../components/Audiobar'
 import ListOfSongs from '../components/ListOfSongs'
 import { Songs } from '../lib/itemsList'
+import ChatTrigger from '../components/ChatTrigger'
 
 export default function Player() {
   return (
     <>
       <Sidebar />
       <Audiobar />
+      <ChatTrigger />
       <div className="overflow-hidden w-full h-screen">
         <div className="flex h-screen items-center justify-center w-full gap-2">
           <Image
