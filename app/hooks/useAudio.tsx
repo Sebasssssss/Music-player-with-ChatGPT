@@ -50,6 +50,7 @@ export default function useAudio() {
     handleSeek,
     currentTime,
     volume,
+    setVolume,
     handlePlay,
     handlePause,
     audioRef,

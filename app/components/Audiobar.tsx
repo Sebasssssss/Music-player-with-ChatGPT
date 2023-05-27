@@ -1,5 +1,5 @@
 'use client'
-import { SoundHigh, Pause, Play } from 'iconoir-react'
+import { SoundHigh, Pause, Play, SoundOff } from 'iconoir-react'
 import useAudio from '../hooks/useAudio'
 
 export default function Audiobar() {
@@ -9,6 +9,7 @@ export default function Audiobar() {
     handleSeek,
     currentTime,
     volume,
+    setVolume,
     handlePlay,
     handlePause,
     audioRef,
@@ -38,7 +39,17 @@ export default function Audiobar() {
           className="range-slider w-full appearance-none bg-gray-200 h-1 rounded-lg focus:outline-none active:bg-gray-300"
         />
         <div className="group flex items-center gap-2">
-          <SoundHigh className="z-10" />
+          {volume === 0 ? (
+            <SoundOff
+              className="z-10 cursor-pointer"
+              onClick={() => setVolume(100)}
+            />
+          ) : (
+            <SoundHigh
+              className="z-10 cursor-pointer"
+              onClick={() => setVolume(0)}
+            />
+          )}
           <input
             type="range"
             min="0"
