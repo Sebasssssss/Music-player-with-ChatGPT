@@ -22,6 +22,10 @@ body {
   cursor: pointer;
 }
 
+.range-slider::-webkit-slider-thumb:hover {
+  border: 2px solid black;
+}
+
 .scrollbar-w-2::-webkit-scrollbar {
   width: 0.25rem;
   height: 0.25rem;
