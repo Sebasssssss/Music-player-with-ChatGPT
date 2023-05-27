@@ -1,5 +1,3 @@
-import { Home, Search } from 'iconoir-react'
-
 export const Songs = [
   {
     id: 1,
