@@ -45,36 +45,6 @@ export const Songs = [
   }
 ]
 
-interface ListItem {
-  element: React.ReactElement
-  icon: React.ReactElement | null
-}
-
-export const listData: ListItem[] = [
-  {
-    element: (
-      <span className="sidebar-listItemText whitespace-nowrap overflow-hidden text-ellipsis leading-[20px]">
-        Home
-      </span>
-    ),
-    icon: <Home className="w-5 h-5 inline-block mr-2 flex-shrink-0" />
-  },
-  {
-    element: (
-      <span className="sidebar-listItemText">
-        <input
-          className="outline-none bg-transparent placeholder:text-[#00071d] w-32"
-          placeholder="Search"
-        />
-      </span>
-    ),
-
-    icon: (
-      <Search className="w-5 h-5 inline-block mr-2 flex-shrink-0 sidebar-listIcon" />
-    )
-  }
-]
-
 interface Playlist {
   name: string
   image: string

@@ -1,21 +1,20 @@
 'use client'
 import { useState } from 'react'
-import { listData } from '@/app/lib/itemsList'
 import { NavArrowLeft } from 'iconoir-react'
 import { cn } from '@/app/lib/utils'
 import ListOfPlaylist from './ListOfPlaylist'
 import { DropDownMenu } from './DropDownMenu'
+import { Home, Search } from 'iconoir-react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 
 const Sidebar = () => {
   const [isShrinkView, setIsShrinkView] = useState(false)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const router = usePathname()
+  console.log(router)
 
   const handleSidebarView = () => {
     setIsShrinkView(!isShrinkView)
-  }
-
-  const handleIsActive = (index: number) => {
-    setActiveIndex(index)
   }
 
   return (
@@ -39,25 +38,32 @@ const Sidebar = () => {
         </button>
         <div className="flex flex-col h-full md:overflow-y-auto md:overflow-x-hidden overflow-x-visible">
           <ul className="list-none p-0 mt-5">
-            {listData.map((item, index) => (
-              <>
-                <li
-                  key={index}
-                  onClick={() => handleIsActive(index)}
-                  className={cn(
-                    'sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4',
-                    {
-                      active: activeIndex === index
-                    }
-                  )}
-                >
-                  <button className="w-full p-5 rounded inline-flex items-center">
-                    {item.icon}
-                    {item.element}
-                  </button>
-                </li>
-              </>
-            ))}
+            <Link
+              href="player/home"
+              className="sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4"
+            >
+              <button
+                className={cn('w-full p-5 rounded inline-flex items-center', {
+                  'bg-[#f5f4fd]': router === '/player'
+                })}
+              >
+                <Home className="w-5 h-5 inline-block mr-2 flex-shrink-0" />
+                <span className="sidebar-listItemText whitespace-nowrap overflow-hidden text-ellipsis leading-[20px]">
+                  Home
+                </span>
+              </button>
+            </Link>
+            <li className="sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4">
+              <button className="w-full p-5 rounded inline-flex items-center">
+                <Search className="w-5 h-5 inline-block mr-2 flex-shrink-0 sidebar-listIcon" />
+                <span className="sidebar-listItemText">
+                  <input
+                    className="outline-none bg-transparent placeholder:text-[#00071d] w-32"
+                    placeholder="Search"
+                  />
+                </span>
+              </button>
+            </li>
             <ListOfPlaylist />
           </ul>
           <DropDownMenu />

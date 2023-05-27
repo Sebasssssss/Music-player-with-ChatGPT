@@ -267,9 +267,6 @@ body::before {
 .shrink .sidebar-listItem span {
   visibility: hidden;
 }
-.sidebar-listItem.active button {
-  background-color: var(--sidebar-bg);
-}
 .sidebar-listItem:not(.active) button:hover {
   background-color: var(--sidebar-item-hover);
 }
