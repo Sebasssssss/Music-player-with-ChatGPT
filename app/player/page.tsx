@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import template from '../../public/f5517cb156cf4176e929137e3363c08d.jpg'
+import template from '../../public/yes.png'
 import GrainyFilter from '../components/GrainyFilter'
 import Sidebar from '../components/Sidebar'
 import Audiobar from '../components/Audiobar'
@@ -20,7 +20,7 @@ export default function Player() {
             src={template}
             width={100}
             height={100}
-            className="rounded-xl not-selectable blur-2xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+            className="not-selectable blur-2xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
           />
           <div className="flex flex-col items-center px-12">
             <Image
