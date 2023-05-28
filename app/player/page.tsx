@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import template from '../../public/yes.png'
-import GrainyFilter from '../components/GrainyFilter'
 import ListOfSongs from '../components/ListOfSongs'
 import { Songs } from '../lib/itemsList'
 
@@ -13,7 +12,7 @@ export default function Player() {
           src={template}
           width={100}
           height={100}
-          className="not-selectable blur-2xl -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+          className="not-selectable blur-2xl opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
         <div className="flex flex-col items-center px-12">
           <Image
@@ -34,7 +33,6 @@ export default function Player() {
           <ListOfSongs />
         </div>
       </div>
-      <GrainyFilter />
     </div>
   )
 }
