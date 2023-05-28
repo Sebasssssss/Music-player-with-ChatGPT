@@ -209,28 +209,6 @@ body {
   }
 }
 
-.icon {
-  position: absolute;
-  right: 10px;
-  top: calc(50% + 5px);
-  transform: translateY(calc(-50% - 5px));
-}
-
 .input:focus {
   box-shadow: -5px -5px 0px black;
-}
-
-.input-container:hover > .icon {
-  animation: anim 1s linear infinite;
-}
-
-@keyframes anim {
-  0%,
-  100% {
-    transform: translateY(calc(-50% - 5px)) scale(1);
-  }
-
-  50% {
-    transform: translateY(calc(-50% - 5px)) scale(1.1);
-  }
 }
