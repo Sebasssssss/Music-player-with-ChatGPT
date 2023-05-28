@@ -11,7 +11,6 @@ import Link from 'next/link'
 const Sidebar = () => {
   const [isShrinkView, setIsShrinkView] = useState(false)
   const router = usePathname()
-  console.log(router)
 
   const handleSidebarView = () => {
     setIsShrinkView(!isShrinkView)
@@ -39,7 +38,7 @@ const Sidebar = () => {
         <div className="flex flex-col h-full md:overflow-y-auto md:overflow-x-hidden overflow-x-visible">
           <ul className="list-none p-0 mt-5">
             <Link
-              href="player/home"
+              href="/player"
               className="sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4"
             >
               <button
@@ -54,15 +53,15 @@ const Sidebar = () => {
               </button>
             </Link>
             <li className="sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4">
-              <button className="w-full p-5 rounded inline-flex items-center">
+              <Link
+                href="player/ula"
+                className={cn('w-full p-5 rounded inline-flex items-center', {
+                  'bg-[#f5f4fd]': router === '/player/:keyword'
+                })}
+              >
                 <Search className="w-5 h-5 inline-block mr-2 flex-shrink-0 sidebar-listIcon" />
-                <span className="sidebar-listItemText">
-                  <input
-                    className="outline-none bg-transparent placeholder:text-[#00071d] w-32"
-                    placeholder="Search"
-                  />
-                </span>
-              </button>
+                <span className="sidebar-listItemText">Search</span>
+              </Link>
             </li>
             <ListOfPlaylist />
           </ul>
