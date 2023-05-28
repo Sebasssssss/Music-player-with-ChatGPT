@@ -2,6 +2,7 @@ import GrainyFilter from './components/GrainyFilter'
 import Navbar from './components/Navbar'
 import { Spotify } from 'iconoir-react'
 import './globals.css'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -21,9 +22,12 @@ export default function Home() {
                 - start streaming on our web player today.
               </span>
             </h1>
-            <button className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none shados text-white rounded-md font-semibold transition-all duration-200">
+            <Link
+              href="/player"
+              className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none shados text-white rounded-md font-semibold transition-all duration-200"
+            >
               Login with Spotify <Spotify />
-            </button>
+            </Link>
           </div>
         </div>
         <div />
