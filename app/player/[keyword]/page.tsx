@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useRef } from 'react'
 import { Search } from 'iconoir-react'
 import { Play } from 'iconoir-react'
 import template from '../../../public/album.png'
@@ -5,12 +7,18 @@ import Image from 'next/image'
 import ListOfSongs from '@/app/components/ListOfSongs'
 
 export default function Page() {
+  const ref = useRef(null)
+  useEffect(() => {
+    ref.current.focus()
+  }, [])
+
   return (
     <div className="grid gap-8 container mx-auto mt-8">
       <div className="w-[220px] relative">
         <input
           type="text"
           name="text"
+          ref={ref}
           className="input w-full h-10 p-[10px] transition duration-200 ease-linear border-[2.5px] border-black font-[14px] placeholder:uppercase placeholder:tracking-[2px] focus:outline-none focus:border-[0.5px] input"
           placeholder="search..."
         />
