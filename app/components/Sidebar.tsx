@@ -9,7 +9,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 const Sidebar = () => {
-  const [isShrinkView, setIsShrinkView] = useState(false)
+  const [isShrinkView, setIsShrinkView] = useState(true)
   const router = usePathname()
 
   const handleSidebarView = () => {
