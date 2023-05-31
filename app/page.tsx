@@ -1,8 +1,8 @@
 import GrainyFilter from './components/GrainyFilter'
 import Navbar from './components/Navbar'
 import { Spotify } from 'iconoir-react'
-import './globals.css'
 import Link from 'next/link'
+import './globals.css'
 
 export default function Home() {
   return (
