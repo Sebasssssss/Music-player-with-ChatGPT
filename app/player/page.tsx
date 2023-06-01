@@ -20,7 +20,7 @@ export default function Player() {
             src={template}
             width={400}
             height={400}
-            className="rounded-[32px] hover:-translate-y-2 hover:shadow-2xl active:translate-y-0 active:shadow-sm transition-all duration-300"
+            className="rounded-[32px]"
           />
         </div>
         <div>

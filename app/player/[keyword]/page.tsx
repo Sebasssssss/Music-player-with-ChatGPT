@@ -27,7 +27,7 @@ export default function Page() {
         </span>
       </div>
       <div className="grid grid-cols-2 gap-8 w-full mx-auto rounded-[10px]">
-        <div className="flex flex-col items-center justify-between gap-4 p-8 w-full group bg-gray-100 hover:bg-gray-200 transtion-all duration-300 cursor-pointer rounded-[10px] shados active:shadow-sm active:translate-y-1 relative">
+        <div className="flex flex-col items-center justify-between gap-4 p-8 w-full group bg-gray-200 hover:bg-gray-100 transition-colors duration-300 rounded-[10px] relative">
           <Image
             className="rounded-[10px] shados"
             src={template}
@@ -39,7 +39,9 @@ export default function Page() {
             <h1 className="font-bold text-4xl">Ghost</h1>
             <h1 className="text-zinc-400">Jaden Smith</h1>
           </div>
-          <Play className="w-8 h-8 absolute bottom-8 right-8 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300" />
+          <button className="absolute bottom-8 right-8 opacity-0 bg-white rounded-full hover:bg-gray-200 p-4 shadow group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+            <Play />
+          </button>
         </div>
         <div>
           <ListOfSongs />
