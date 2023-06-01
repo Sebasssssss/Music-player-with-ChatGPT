@@ -68,7 +68,7 @@ function ListOfSongs() {
         {Songs.map((song, index) => (
           <li
             key={song.id}
-            className="flex flex-row h-[4em] items-center justify-between w-96 gap-8 rounded-xl px-6 group"
+            className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
           >
             {activeIndex === index ? (
               <>

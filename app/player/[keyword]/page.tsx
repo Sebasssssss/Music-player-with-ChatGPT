@@ -27,7 +27,7 @@ export default function Page() {
         </span>
       </div>
       <div className="grid grid-cols-2 gap-8 w-full mx-auto rounded-[10px]">
-        <div className="flex flex-col items-center justify-between gap-4 p-8 w-full group bg-gray-200 hover:bg-gray-100 transition-colors duration-300 rounded-[10px] relative">
+        <div className="flex flex-col items-center justify-between shados gap-4 p-8 w-full group bg-gray-200 hover:bg-gray-100 transition-colors duration-300 rounded-[10px] relative">
           <Image
             className="rounded-[10px] shados"
             src={template}
