@@ -77,9 +77,15 @@ function ListOfSongs() {
                   className="hidden group-hover:block"
                 >
                   {isPlaying ? (
-                    <Pause onClick={() => setIsPlaying(false)} />
+                    <Pause
+                      className="w-5"
+                      onClick={() => setIsPlaying(false)}
+                    />
                   ) : (
-                    <Play onClick={() => handlePlaySong(index)} />
+                    <Play
+                      className="w-5"
+                      onClick={() => handlePlaySong(index)}
+                    />
                   )}
                 </button>
                 <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
@@ -90,18 +96,21 @@ function ListOfSongs() {
                 </div>
               </>
             ) : (
-              <>
+              <div className="w-8">
                 <button className="hidden group-hover:block">
                   {pause ? (
-                    <Play onClick={() => handlePlaySong(index)} />
+                    <Play
+                      className="w-5"
+                      onClick={() => handlePlaySong(index)}
+                    />
                   ) : (
-                    <Pause onClick={() => setPause(!pause)} />
+                    <Pause className="w-5" onClick={() => setPause(!pause)} />
                   )}
                 </button>
                 <span className="cursor-pointer group-hover:hidden">
                   {index + 1}
                 </span>
-              </>
+              </div>
             )}
             <p className="whitespace-nowrap overflow-hidden w-max">
               {song.name}
