@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { cn } from '@/app/lib/utils'
 import { playlists } from '../lib/itemsList'
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function ListOfPlaylist() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -14,7 +15,8 @@ export default function ListOfPlaylist() {
   return (
     <>
       {playlists.map((item, index) => (
-        <li
+        <Link
+          href={`/player/playlist/${item.href}`}
           key={index}
           onClick={() => handleIsActive(index)}
           className={cn(
@@ -36,7 +38,7 @@ export default function ListOfPlaylist() {
               {item.name}
             </span>
           </button>
-        </li>
+        </Link>
       ))}
     </>
   )

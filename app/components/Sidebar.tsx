@@ -54,9 +54,9 @@ const Sidebar = () => {
             </Link>
             <li className="sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4">
               <Link
-                href="player/ula"
+                href="player/search"
                 className={cn('w-full p-5 rounded inline-flex items-center', {
-                  'bg-[#f5f4fd]': router === '/player/:keyword'
+                  'bg-[#f5f4fd]': router === '/player/search'
                 })}
               >
                 <Search className="w-5 h-5 inline-block mr-2 flex-shrink-0 sidebar-listIcon" />
