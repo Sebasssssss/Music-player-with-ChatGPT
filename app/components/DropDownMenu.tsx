@@ -92,8 +92,10 @@ export function DropDownMenu() {
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem className="hover:bg-[#f9f8fb]">
-          <LogOut className="mr-2 h-4 w-4" />
-          <span>Log out</span>
+          <Link href="/" className="inline-flex items-center">
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Log out</span>
+          </Link>{' '}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropDown>
