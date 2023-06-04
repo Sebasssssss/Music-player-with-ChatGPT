@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useRef } from 'react'
 import { Search } from 'iconoir-react'
 import { Play } from 'iconoir-react'
 import template from '../../../public/album.png'
