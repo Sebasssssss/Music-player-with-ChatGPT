@@ -12,8 +12,9 @@ export default function Player() {
           src={template}
           width={100}
           height={100}
-          className="not-selectable blur-2xl opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+          className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
+        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-md bg-black/20 -z-10"></div>
         <div className="flex flex-col items-center px-12">
           <Image
             alt="albumCover"
