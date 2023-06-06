@@ -1,37 +1,33 @@
+'use client'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import template from '../../public/yes.png'
-import ListOfSongs from '../components/ListOfSongs'
-import { Songs } from '../lib/itemsList'
+import { Playlist, playlists } from '../lib/api-response'
 
 export default function Player() {
+  const [state, setState] = useState<Playlist[]>(playlists)
+
   return (
     <div className="overflow-hidden w-full h-screen">
-      <div className="flex h-screen items-center justify-center w-full gap-2">
-        <Image
-          alt="albumCover"
-          src={template}
-          width={100}
-          height={100}
-          className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
-        />
-        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-md bg-black/20 -z-10"></div>
-        <div className="flex flex-col items-center px-12">
-          <Image
-            alt="albumCover"
-            src={template}
-            width={400}
-            height={400}
-            className="rounded-[32px]"
-          />
-        </div>
-        <div>
-          <h1 className="text-xl font-bold flex flex-col py-4 px-6">
-            Know
-            <span className="text-sm">
-              Jason Mraz • 2018 • {Songs.length} songs
-            </span>
-          </h1>
-          <ListOfSongs />
+      <div className="container mx-auto">
+        <h1 className="font-medium py-8 text-lg">Recently Listened to</h1>
+        <div className="grid grid-cols-3 gap-8">
+          {state
+            .map(({ name, images }) => (
+              <div
+                key={name}
+                className="flex items-center gap-2 w-full rounded-[10px] shados"
+              >
+                <Image
+                  src={images[0].url}
+                  width={100}
+                  height={100}
+                  alt=""
+                  className="w-24 h-24 rounded-l-[10px]"
+                />
+                <h1 className="font-medium p-2">{name}</h1>
+              </div>
+            ))
+            .slice(0, 6)}
         </div>
       </div>
     </div>

@@ -1,6 +1,7 @@
 'use client'
 import Image from 'next/image'
-import template from '../../../../public/album.png'
+import template from '@/public/album.png'
+import background from '@/public/background.png'
 import ListOfSongs from '../../../components/ListOfSongs'
 import { Songs } from '../../../lib/itemsList'
 import { usePathname } from 'next/navigation'
@@ -17,9 +18,16 @@ export default function Player() {
           src={template}
           width={100}
           height={100}
-          className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+          className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 bottom-[128px] text-center"
         />
-        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-md bg-black/20 -z-10"></div>
+        <Image
+          alt="albumCover"
+          src={background}
+          width={100}
+          height={100}
+          className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+        />
+        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-md bg-gray-100/20 -z-10"></div>
         <div className="flex flex-col items-center px-12">
           <Image
             alt="albumCover"
@@ -31,7 +39,7 @@ export default function Player() {
         </div>
         <div>
           <h1 className="text-xl font-bold flex flex-col py-4 px-6">
-            {value}
+            {decodeURI(value)}
             <span className="text-sm">
               Jason Mraz • 2018 • {Songs.length} songs
             </span>
