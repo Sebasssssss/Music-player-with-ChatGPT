@@ -42,7 +42,7 @@ The following libraries were used in the development of this project:
 - [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing class names dynamically.
 - [licide-react](https://github.com/reiinakano/licide) - Icons
 - [nanoid](https://github.com/ai/nanoid) - A small and secure library for generating unique IDs.
-- [sonner](https://github.com/bpmn-io/sonner) - An opinionated toast component for React. 
+- [sonner](https://github.com/bpmn-io/sonner) - An opinionated toast component for React.
 - [tailwind-merge](https://github.com/benface/tailwindcss-merge) - A Tailwind CSS plugin for merging variants.
 - [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema validation library.
 
