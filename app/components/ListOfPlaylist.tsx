@@ -18,7 +18,7 @@ export default function ListOfPlaylist() {
     <>
       {state.map((item, index) => (
         <Link
-          href={`/player/playlist/${item.name}`}
+          href={`/player/playlist/${item.id}`}
           key={index}
           onClick={() => handleIsActive(index)}
           className={cn(
