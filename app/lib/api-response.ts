@@ -197,3 +197,175 @@ export const playlists: Playlist[] = [
     ]
   }
 ]
+interface Artist {
+  id: string
+  name: string
+  genres: string[]
+  followers: {
+    total: number
+  }
+  images: {
+    url: string
+    width: number
+    height: number
+  }[]
+}
+
+interface SpotifyApiResponse {
+  items: Artist[]
+}
+
+export const spotifyTopArtists: SpotifyApiResponse = {
+  items: [
+    {
+      id: '1',
+      name: 'Billie Eilish',
+      genres: ['pop', 'alternative'],
+      followers: {
+        total: 23874562
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1565227748061-b5935bb64665?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmlsbGllJTIwZWxpc2h8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '2',
+      name: 'Ed Sheeran',
+      genres: ['pop', 'folk'],
+      followers: {
+        total: 38215349
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1606158816714-95c4404e8c52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '3',
+      name: 'Taylor Swift',
+      genres: ['pop', 'country'],
+      followers: {
+        total: 43982357
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1548778052-311f4bc2b502?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8VGF5bG9yJTIwU3dpZnR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '4',
+      name: 'Post Malone',
+      genres: ['hip hop', 'pop'],
+      followers: {
+        total: 29836457
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1614892135411-53c6ac8ce882?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UG9zdCUyME1hbG9uZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '5',
+      name: 'Ariana Grande',
+      genres: ['pop', 'R&B'],
+      followers: {
+        total: 51482763
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1636616908191-d6b5cf8bd73c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QXJpYW5hJTIwR3JhbmRlfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '6',
+      name: 'Drake',
+      genres: ['hip hop', 'R&B'],
+      followers: {
+        total: 40321873
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RHJha2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '7',
+      name: 'Beyoncé',
+      genres: ['R&B', 'pop'],
+      followers: {
+        total: 28349531
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1529976961-17e52d247c69?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8QmV5b25jJUMzJUE5fGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '8',
+      name: 'Kendrick Lamar',
+      genres: ['hip hop'],
+      followers: {
+        total: 13254973
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1585794034386-a80c6ec1f4de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2VuZHJpY2slMjBMYW1hcnxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '9',
+      name: 'Rihanna',
+      genres: ['R&B', 'pop'],
+      followers: {
+        total: 28734692
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1621608559536-0846fd224dc2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8UmloYW5uYXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    },
+    {
+      id: '10',
+      name: 'The Weeknd',
+      genres: ['R&B', 'pop'],
+      followers: {
+        total: 31240986
+      },
+      images: [
+        {
+          url: 'https://images.unsplash.com/photo-1585700071807-1570bf0a9aab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VGhlJTIwV2Vla25kfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60',
+          width: 640,
+          height: 640
+        }
+      ]
+    }
+  ]
+}

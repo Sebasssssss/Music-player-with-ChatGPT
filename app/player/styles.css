@@ -212,3 +212,33 @@ body {
 .input:focus {
   box-shadow: -5px -5px 0px black;
 }
+
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+/* Webkit (Chrome, Safari) */
+.scrollbar-hide::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Firefox */
+.scrollbar-hide {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.scrollbar-hide::-moz-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+.scrollbar-hide::-moz-scrollbar-thumb {
+  background-color: transparent;
+}
