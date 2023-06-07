@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import template from '@/public/album.png'
+import template from '@/public/malone.jpg'
 import background from '@/public/background.png'
 import ListOfSongs from '../../../components/ListOfSongs'
 import { Songs } from '../../../lib/itemsList'
@@ -27,7 +27,7 @@ export default function Player() {
           height={100}
           className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
-        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-md bg-gray-100/20 -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-gray-100/20 -z-10"></div>
         <div className="flex flex-col items-center px-12">
           <Image
             alt="albumCover"
