@@ -43,7 +43,7 @@ export default function Player() {
           className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
         <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-gray-100/20 -z-10"></div>
-        <div className="flex flex-col items-center px-12">
+        <div className="flex flex-col items-center px-12 relative">
           <Image
             alt="albumCover"
             src={selectedPlaylist?.images[0]?.url}
@@ -51,7 +51,17 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-700 ease-in-out rounded-[32px] shados aspect-square`}
+            } duration-700 ease-in-out rounded-[32px] aspect-square z-10`}
+            onLoadingComplete={() => setIsLoading(false)}
+          />
+          <Image
+            alt="albumCover"
+            src={selectedPlaylist?.images[0]?.url}
+            width={400}
+            height={400}
+            className={`${
+              isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
+            } duration-700 ease-in-out rounded-[32px] aspect-square absolute bottom-0 blur-2xl opacity-60`}
             onLoadingComplete={() => setIsLoading(false)}
           />
         </div>
