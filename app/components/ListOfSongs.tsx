@@ -60,10 +60,10 @@ function ListOfSongs() {
   }, [])
 
   return (
-    <div>
+    <div className="h-96 overflow-y-scroll overflow-x-hidden scrollbar-hidden masked-overflow">
       <ul
         id="landing-header"
-        className="font-semibold text-sm flex flex-col gap-2 overflow-hidden relative"
+        className="font-semibold text-sm flex flex-col gap-2 relative"
       >
         {Songs.map((song, index) => (
           <li

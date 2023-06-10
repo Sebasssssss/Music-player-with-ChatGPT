@@ -213,32 +213,52 @@ body {
   box-shadow: -5px -5px 0px black;
 }
 
-.scrollbar-hide {
+.scrollbar-hidden {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
 /* Webkit (Chrome, Safari) */
-.scrollbar-hide::-webkit-scrollbar {
+.scrollbar-hidden::-webkit-scrollbar {
   width: 6px;
   background-color: transparent;
 }
 
-.scrollbar-hide::-webkit-scrollbar-thumb {
+.scrollbar-hidden::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
 
 /* Firefox */
-.scrollbar-hide {
+.scrollbar-hidden {
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
 
-.scrollbar-hide::-moz-scrollbar {
+.scrollbar-hidden::-moz-scrollbar {
   width: 6px;
   background-color: transparent;
 }
 
-.scrollbar-hide::-moz-scrollbar-thumb {
+.scrollbar-hidden::-moz-scrollbar-thumb {
   background-color: transparent;
+}
+
+.masked-overflow {
+  --scrollbar-width: 8px;
+  --mask-height: 150px;
+  padding-bottom: var(--mask-height);
+  --mask-image-content: linear-gradient(
+    black var(--mask-height),
+    black calc(100% - var(--mask-height)),
+    transparent
+  );
+  --mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
+
+  --mask-image-scrollbar: linear-gradient(black, black);
+  --mask-size-scrollbar: var(--scrollbar-width) 100%;
+  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+
+  mask-position: 0 0, 100% 0;
+  mask-repeat: no-repeat, no-repeat;
 }

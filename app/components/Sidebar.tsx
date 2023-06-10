@@ -35,7 +35,7 @@ const Sidebar = () => {
         >
           <NavArrowLeft className="w-4 h-4" />
         </button>
-        <div className="flex flex-col h-full md:overflow-y-auto md:overflow-x-hidden overflow-x-visible scrollbar-hide">
+        <div className="flex flex-col h-full md:overflow-y-auto md:overflow-x-hidden overflow-x-visible scrollbar-hidden">
           <ul className="list-none p-0 mt-5">
             <Link
               href="/player"

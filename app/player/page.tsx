@@ -14,7 +14,7 @@ export default function Player() {
     <div className="overflow-hidden w-full h-screen bg-gradient-to-b from-[#ffeddf] to-[#ecdff7]">
       <div className="container mx-auto flex flex-col gap-8">
         <div>
-          <h1 className="font-semibold py-8 text-xl">Top artists</h1>
+          <h1 className="font-semibold pt-8 pb-2 text-xl">Top artists</h1>
           <div className="flex items-center w-full gap-8">
             {state.items
               .map(({ name, images }) => (
@@ -24,19 +24,19 @@ export default function Player() {
                     width={500}
                     height={500}
                     alt=""
-                    className="w-56 h-56 rounded-[10px] aspect-square shados z-10"
+                    className="w-48 h-48 rounded-[10px] aspect-square shados z-10"
                   />
                   <Image
                     src={images[0].url}
                     width={500}
                     height={500}
                     alt=""
-                    className="w-52 h-52 rounded-[10px] aspect-square absolute bottom-8 blur-2xl opacity-60"
+                    className="w-44 h-44 rounded-[10px] aspect-square absolute bottom-8 blur-2xl opacity-60"
                   />
                   <h1 className="font-medium">{name}</h1>
                 </div>
               ))
-              .slice(0, 6)}
+              .slice(0, 7)}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-8">
