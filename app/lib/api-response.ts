@@ -1,3 +1,9 @@
+export interface Song {
+  id: number
+  name: string
+  duration: string
+  isCurrentlyPlaying: boolean
+}
 export interface Playlist {
   id: string
   name: string
@@ -13,6 +19,7 @@ export interface Playlist {
     width: number
     height: number
   }[]
+  songs: Song[]
 }
 
 export const playlists: Playlist[] = [
@@ -32,6 +39,74 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 1,
+        name: 'Midnight Magic',
+        duration: '3:45',
+        isCurrentlyPlaying: true
+      },
+      {
+        id: 2,
+        name: 'Dancing in the Moonlight',
+        duration: '3:15',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 3,
+        name: 'Nighttime Serenade',
+        duration: '4:30',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 4,
+        name: 'Nocturnal Groove',
+        duration: '4:10',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 5,
+        name: 'Moonlit Melody',
+        duration: '3:50',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 6,
+        name: 'Silent Nightfall',
+        duration: '4:20',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 7,
+        name: 'Nighttime Reverie',
+        duration: '4:05',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 8,
+        name: 'Starry Night Jam',
+        duration: '3:55',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 9,
+        name: 'Moonbeam Sonata',
+        duration: '4:25',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 10,
+        name: 'Dreamy Nocturne',
+        duration: '4:00',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 11,
+        name: 'Nightfall Rendezvous',
+        duration: '4:15',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
@@ -50,6 +125,26 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 4,
+        name: 'Nocturnal Groove',
+        duration: '4:10',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 5,
+        name: 'Moonlit Melody',
+        duration: '3:50',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 6,
+        name: 'Silent Nightfall',
+        duration: '4:20',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
@@ -64,21 +159,41 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1686007576593-e246e858a383?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+        url: 'https://images.unsplash.com/photo-1686007576593-e246e858a383?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
         width: 640,
         height: 640
+      }
+    ],
+    songs: [
+      {
+        id: 7,
+        name: 'Nighttime Reverie',
+        duration: '4:05',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 8,
+        name: 'Starry Night Jam',
+        duration: '3:55',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 9,
+        name: 'Moonbeam Sonata',
+        duration: '4:25',
+        isCurrentlyPlaying: false
       }
     ]
   },
   {
     id: '4',
-    name: 'Workout Motivation',
-    description: 'Energize your workouts with these high-energy tracks.',
+    name: 'Road Trip Mix',
+    description: 'Hit the road with these energetic tunes.',
     tracks: {
       total: 64
     },
     followers: {
-      total: 3897
+      total: 1987
     },
     images: [
       {
@@ -86,17 +201,37 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 10,
+        name: 'Dreamy Nocturne',
+        duration: '4:00',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 11,
+        name: 'Nightfall Rendezvous',
+        duration: '4:15',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 12,
+        name: 'Midnight Magic',
+        duration: '3:45',
+        isCurrentlyPlaying: true
+      }
     ]
   },
   {
     id: '5',
-    name: 'Indie Discoveries',
-    description: 'Explore the best independent music of the moment.',
+    name: 'Morning Motivation',
+    description: 'Start your day right with these uplifting tracks.',
     tracks: {
-      total: 120
+      total: 32
     },
     followers: {
-      total: 2156
+      total: 972
     },
     images: [
       {
@@ -104,17 +239,37 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 13,
+        name: 'Moonlit Dance',
+        duration: '3:25',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 13,
+        name: 'Moonlit Dance',
+        duration: '3:25',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 14,
+        name: 'Nighttime Whispers',
+        duration: '4:12',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
     id: '6',
-    name: 'Late Night Drive',
-    description: 'The perfect soundtrack for a midnight road trip.',
+    name: 'Party Mix',
+    description: 'Get the party started with these upbeat bangers.',
     tracks: {
-      total: 42
+      total: 57
     },
     followers: {
-      total: 1073
+      total: 3045
     },
     images: [
       {
@@ -122,17 +277,38 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 15,
+        name: 'Celestial Harmony',
+        duration: '4:18',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 16,
+        name: 'Midnight Serenade',
+        duration: '3:48',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 17,
+        name: 'Starlit Symphony',
+        duration: '4:02',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
     id: '7',
-    name: 'Acoustic Relaxation',
-    description: 'Unplugged and soothing tunes for ultimate relaxation.',
+    name: 'Workout Mix',
+    description:
+      'Stay motivated during your workout with these high-energy tracks.',
     tracks: {
-      total: 68
+      total: 42
     },
     followers: {
-      total: 3145
+      total: 1823
     },
     images: [
       {
@@ -140,17 +316,38 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 18,
+        name: 'Nocturne of Dreams',
+        duration: '4:35',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 19,
+        name: 'Moonshine Melodies',
+        duration: '3:55',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 20,
+        name: 'Nighttime Reflections',
+        duration: '4:22',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
     id: '8',
-    name: 'Party Mix',
-    description: 'Get the party started with these upbeat tracks.',
+    name: 'Relaxation Zone',
+    description:
+      'Unwind and find your inner peace with these calming melodies.',
     tracks: {
-      total: 84
+      total: 26
     },
     followers: {
-      total: 4762
+      total: 645
     },
     images: [
       {
@@ -158,17 +355,37 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 21,
+        name: 'Midnight Magic II',
+        duration: '3:45',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 22,
+        name: 'Dancing in the Moonlight II',
+        duration: '3:15',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 23,
+        name: 'Nighttime Serenade II',
+        duration: '4:30',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
     id: '9',
-    name: 'Focus and Study',
-    description: 'Boost your concentration with these instrumental tracks.',
+    name: 'Romantic Evening',
+    description: 'Set the mood with these romantic ballads.',
     tracks: {
-      total: 105
+      total: 37
     },
     followers: {
-      total: 1984
+      total: 1245
     },
     images: [
       {
@@ -176,17 +393,37 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 24,
+        name: 'Nocturnal Groove II',
+        duration: '4:10',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 25,
+        name: 'Moonlit Melody II',
+        duration: '3:50',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 26,
+        name: 'Silent Nightfall II',
+        duration: '4:20',
+        isCurrentlyPlaying: false
+      }
     ]
   },
   {
     id: '10',
-    name: 'R&B Grooves',
-    description: 'Smooth and soulful rhythm and blues tracks.',
+    name: 'Indie Favorites',
+    description: 'Discover the best indie tracks from emerging artists.',
     tracks: {
-      total: 93
+      total: 63
     },
     followers: {
-      total: 3412
+      total: 2038
     },
     images: [
       {
@@ -194,9 +431,42 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
+    ],
+    songs: [
+      {
+        id: 27,
+        name: 'Nighttime Reverie II',
+        duration: '4:05',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 28,
+        name: 'Starry Night Jam II',
+        duration: '3:55',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 29,
+        name: 'Moonbeam Sonata II',
+        duration: '4:25',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 30,
+        name: 'Dreamy Nocturne II',
+        duration: '4:00',
+        isCurrentlyPlaying: false
+      },
+      {
+        id: 31,
+        name: 'Nightfall Rendezvous II',
+        duration: '4:15',
+        isCurrentlyPlaying: false
+      }
     ]
   }
 ]
+
 interface Artist {
   id: string
   name: string

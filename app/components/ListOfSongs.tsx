@@ -1,9 +1,8 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
-import { Songs } from '../lib/itemsList'
 import { Pause, Play } from 'iconoir-react'
 
-function ListOfSongs() {
+function ListOfSongs({ songs }) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [pause, setPause] = useState(true)
@@ -65,7 +64,7 @@ function ListOfSongs() {
         id="landing-header"
         className="font-semibold text-sm flex flex-col gap-2 relative"
       >
-        {Songs.map((song, index) => (
+        {songs?.map((song, index) => (
           <li
             key={song.id}
             className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"

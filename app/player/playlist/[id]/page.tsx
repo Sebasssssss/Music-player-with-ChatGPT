@@ -2,7 +2,6 @@
 import Image from 'next/image'
 import background from '@/public/background.png'
 import ListOfSongs from '../../../components/ListOfSongs'
-import { Songs } from '../../../lib/itemsList'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Playlist, playlists } from '@/app/lib/api-response'
@@ -65,9 +64,12 @@ export default function Player() {
         <div>
           <h1 className="text-xl font-bold flex flex-col py-4 px-6">
             {decodeURI(selectedPlaylist?.name)}
-            <span className="text-sm">2018 • {Songs.length} songs</span>
+            <span className="text-xs">
+              {selectedPlaylist?.description}
+              <br /> 2018 • {selectedPlaylist?.songs.length} songs
+            </span>
           </h1>
-          <ListOfSongs />
+          <ListOfSongs songs={selectedPlaylist?.songs} />
         </div>
       </div>
     </div>

@@ -3,7 +3,6 @@ import { Search } from 'iconoir-react'
 import { Play } from 'iconoir-react'
 import template from '../../../public/album.png'
 import Image from 'next/image'
-import ListOfSongs from '@/app/components/ListOfSongs'
 
 export default function Page() {
   return (
@@ -37,9 +36,7 @@ export default function Page() {
             <Play />
           </button>
         </div>
-        <div>
-          <ListOfSongs />
-        </div>
+        <div></div>
       </div>
     </div>
   )

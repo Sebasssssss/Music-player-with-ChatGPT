@@ -3,11 +3,10 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { spotifyTopArtists } from '../lib/api-response'
 import template from '@/public/album.png'
-import ListOfSongs from '../components/ListOfSongs'
 import useAudio from '../hooks/useAudio'
 
 export default function Player() {
-  const [state, setState] = useState(spotifyTopArtists)
+  const [topArtists, setTopArtists] = useState(spotifyTopArtists)
   const { handleSeek, currentTime, audioRef } = useAudio()
 
   return (
@@ -16,7 +15,7 @@ export default function Player() {
         <div>
           <h1 className="font-semibold pt-8 pb-2 text-xl">Top artists</h1>
           <div className="flex items-center w-full gap-8">
-            {state.items
+            {topArtists.items
               .map(({ name, images }) => (
                 <div key={name} className="flex flex-col gap-2 w-full relative">
                   <Image
@@ -71,7 +70,6 @@ export default function Player() {
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="font-semibold text-xl">Most played</h1>
-            <ListOfSongs />
           </div>
         </div>
       </div>
