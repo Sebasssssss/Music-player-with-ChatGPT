@@ -246,6 +246,7 @@ body {
 .masked-overflow {
   --scrollbar-width: 8px;
   --mask-height: 150px;
+  padding-right: 10px;
   padding-bottom: var(--mask-height);
   --mask-image-content: linear-gradient(
     black var(--mask-height),
