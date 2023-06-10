@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Songs } from '../lib/itemsList'
 import { Pause, Play } from 'iconoir-react'
 
-function ListOfSongs({ backgroundColor = 'transparent' }) {
+function ListOfSongs() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [pause, setPause] = useState(true)
@@ -68,7 +68,7 @@ function ListOfSongs({ backgroundColor = 'transparent' }) {
         {Songs.map((song, index) => (
           <li
             key={song.id}
-            className={`flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group bg-${backgroundColor}`}
+            className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
           >
             {activeIndex === index ? (
               <>

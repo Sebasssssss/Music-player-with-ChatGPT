@@ -30,10 +30,7 @@ export default function Player() {
           src={selectedPlaylist?.images[0]?.url}
           width={100}
           height={100}
-          className={`${
-            isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-          } duration-700 ease-in-out not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 bottom-[128px] text-center`}
-          onLoadingComplete={() => setIsLoading(false)}
+          className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 bottom-[128px] text-center"
         />
         <Image
           alt="albumCover"

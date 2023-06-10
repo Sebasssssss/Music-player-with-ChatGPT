@@ -71,7 +71,7 @@ export default function Player() {
           </div>
           <div className="flex flex-col gap-2">
             <h1 className="font-semibold text-xl">Most played</h1>
-            <ListOfSongs backgroundColor="white" />
+            <ListOfSongs />
           </div>
         </div>
       </div>
