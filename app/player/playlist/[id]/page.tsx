@@ -5,8 +5,10 @@ import ListOfSongs from '../../../components/ListOfSongs'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Playlist, playlists } from '@/app/lib/api-response'
+import { Play, Pause, SkipNext, SkipPrev } from 'iconoir-react'
 
 export default function Player() {
+  const [pause, setPause] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
   const value = pathname.split('/').pop()
@@ -23,10 +25,10 @@ export default function Player() {
 
   return (
     <div className="overflow-hidden w-full h-screen">
-      <div className="flex h-screen items-center justify-center w-full gap-2">
+      <div className="flex flex-col lg:flex-row h-screen items-center justify-center w-full gap-2">
         <Image
           alt="albumCover"
-          src={selectedPlaylist?.images[0]?.url}
+          src={selectedPlaylist?.images[0]?.url || ''}
           width={100}
           height={100}
           className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 bottom-[128px] text-center"
@@ -42,7 +44,7 @@ export default function Player() {
         <div className="flex flex-col items-center px-12 relative">
           <Image
             alt="albumCover"
-            src={selectedPlaylist?.images[0]?.url}
+            src={selectedPlaylist?.images[0]?.url || ''}
             width={400}
             height={400}
             className={`${
@@ -52,7 +54,7 @@ export default function Player() {
           />
           <Image
             alt="albumCover"
-            src={selectedPlaylist?.images[0]?.url}
+            src={selectedPlaylist?.images[0]?.url || ''}
             width={400}
             height={400}
             className={`${
@@ -60,6 +62,20 @@ export default function Player() {
             } duration-700 ease-in-out rounded-[32px] aspect-square absolute bottom-0 blur-2xl opacity-60`}
             onLoadingComplete={() => setIsLoading(false)}
           />
+          <div className="absolute -bottom-16 inline-flex items-center gap-12">
+            <SkipPrev />
+            <button
+              onClick={() => setPause(!pause)}
+              className="hover:opacity-80 transition-opacity duration-200"
+            >
+              {pause ? (
+                <Play className="w-8 h-8" />
+              ) : (
+                <Pause className="w-8 h-8" />
+              )}
+            </button>
+            <SkipNext />
+          </div>
         </div>
         <div>
           <h1 className="text-xl font-bold flex flex-col py-4 px-6">

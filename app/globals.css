@@ -16,15 +16,6 @@
   --shadow-button: 336deg 16% 42%;
 }
 
-body {
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .gradient {
   position: absolute;
   border-radius: 100%;
@@ -133,8 +124,8 @@ body {
   }
 }
 
-body::before,
-body::after {
+.loginBody::before,
+.loginBody::after {
   position: absolute;
   left: 0;
   top: 0;
@@ -145,7 +136,7 @@ body::after {
   opacity: 40%;
 }
 
-body::before {
+.loginBody::before {
   background: #8c8c8c;
   filter: url(#noiseFilter);
 }

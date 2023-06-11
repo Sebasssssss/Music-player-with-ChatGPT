@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 export default function Navbar() {
   return (
-    <header className="inline-flex items-center gap-4 w-full justify-between p-3">
+    <header className="absolute top-0 left-0 inline-flex items-center gap-4 w-full justify-between p-3">
       <Link href="/" className="text-xl font-bold ml-8">
         BeatBrain
       </Link>
