@@ -23,7 +23,7 @@ export default function ModalContent({
               <input
                 autoFocus={true}
                 placeholder="Search..."
-                className="w-full md:w-96 h-12 px-3 shados rounded-[10px] border-2 focus:border-zinc-100 hover:bg-gray-100 focus:bg-white transition duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-300"
+                className="w-full md:w-96 h-12 px-3 shados rounded-[10px] border-2 hover:border-black/40  active:shadow-none focus:border-black/40 hover:bg-gray-100 transition duration-300 focus:outline-none input"
               />
               <button className="absolute right-[10px] top-3">
                 <Search className="text-gray-500" />

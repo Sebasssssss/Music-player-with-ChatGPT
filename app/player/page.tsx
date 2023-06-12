@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
-import { spotifyTopArtists } from '../lib/api-response'
+import { playlists, spotifyTopArtists } from '../lib/api-response'
 import template from '@/public/album.png'
 import { useAudioContext } from '../providers/AppState'
+import { Play } from 'iconoir-react'
 
 export default function Player() {
   const [topArtists, setTopArtists] = useState(spotifyTopArtists)
@@ -38,39 +39,27 @@ export default function Player() {
               .slice(0, 7)}
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-8">
-          <div className="flex flex-col gap-2">
-            <h1 className="font-semibold text-xl">Now Playing</h1>
-            <div className="rounded-[20px] grid place-items-center gap-4 bg-white py-8 shados">
-              <Image
-                src={template}
-                width={250}
-                height={250}
-                alt=""
-                className="aspect-square rounded-[20px] shados"
-              />
-              <div className="grid gap-2 text-center">
-                <h1 className="text-lg font-semibold">Saint-Tropez</h1>
-                <p className="text-gray-500 font-medium">Post Malone</p>
-              </div>
-              <div className="relative">
-                <input
-                  type="range"
-                  min="0"
-                  step="0.1"
-                  max={audioRef.current?.duration || 0}
-                  value={currentTime}
-                  onChange={handleSeek}
-                  className="range-slider w-80 appearance-none bg-gray-200 h-1 rounded-lg focus:outline-none active:bg-gray-300"
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {playlists
+            .map(playlist => (
+              <div
+                key={playlist.id}
+                className="flex items-center gap-4 bg-white rounded-[10px] shados group relative"
+              >
+                <Image
+                  src={playlist.images[0].url}
+                  width={150}
+                  height={150}
+                  alt={playlist.name}
+                  className="aspect-square rounded-l-[10px]"
                 />
-                <p className="absolute left-0 top-7 text-sm">2:10</p>
-                <p className="absolute right-0 top-7 text-sm">-3:56</p>
+                <h1 className="font-medium">{playlist.name}</h1>
+                <button className="opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 absolute bottom-4 right-4 transition duration-300">
+                  <Play className="w-8 h-8" />
+                </button>
               </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-semibold text-xl">Most played</h1>
-          </div>
+            ))
+            .slice(0, 6)}
         </div>
       </div>
     </div>

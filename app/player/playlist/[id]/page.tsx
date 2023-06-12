@@ -79,14 +79,35 @@ export default function Player() {
           </div>
         </div>
         <div>
-          <h1 className="text-xl font-bold flex flex-col py-4 px-6">
-            {decodeURI(selectedPlaylist?.name)}
-            <span className="text-xs">
-              {selectedPlaylist?.description}
-              <br /> 2018 • {Songs.length} songs
-            </span>
-          </h1>
-
+          <div className="flex w-full justify-between py-4 px-6">
+            <h1 className="text-xl font-bold flex flex-col">
+              {decodeURI(selectedPlaylist?.name)}
+              <span className="text-xs">
+                {selectedPlaylist?.description}
+                <br /> 2018 • {Songs.length} songs
+              </span>
+            </h1>
+            <label className="ui-like h-max">
+              <input type="checkbox" />
+              <div className="like">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill=""
+                >
+                  <g stroke-width="0" id="SVGRepo_bgCarrier"></g>
+                  <g
+                    stroke-linejoin="round"
+                    stroke-linecap="round"
+                    id="SVGRepo_tracerCarrier"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path d="M20.808,11.079C19.829,16.132,12,20.5,12,20.5s-7.829-4.368-8.808-9.421C2.227,6.1,5.066,3.5,8,3.5a4.444,4.444,0,0,1,4,2,4.444,4.444,0,0,1,4-2C18.934,3.5,21.773,6.1,20.808,11.079Z"></path>
+                  </g>
+                </svg>
+              </div>
+            </label>
+          </div>
           <ListOfSongs />
         </div>
       </div>
