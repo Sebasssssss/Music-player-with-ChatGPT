@@ -4,11 +4,12 @@ import background from '@/public/background.png'
 import ListOfSongs from '../../../components/ListOfSongs'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Playlist, playlists } from '@/app/lib/api-response'
+import { Playlist, Songs, playlists } from '@/app/lib/api-response'
 import { Play, Pause, SkipNext, SkipPrev } from 'iconoir-react'
+import { useAudioContext } from '@/app/providers/AppState'
 
 export default function Player() {
-  const [pause, setPause] = useState(true)
+  const { handleTogglePlay, pause } = useAudioContext()
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
   const value = pathname.split('/').pop()
@@ -49,23 +50,23 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-700 ease-in-out rounded-[32px] aspect-square z-10`}
+            } duration-700 ease-in-out rounded-[32px] aspect-square z-10 not-selectable`}
             onLoadingComplete={() => setIsLoading(false)}
           />
           <Image
-            alt="albumCover"
+            alt="Blurred Shadow albumCover"
             src={selectedPlaylist?.images[0]?.url || ''}
             width={400}
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-700 ease-in-out rounded-[32px] aspect-square absolute bottom-0 blur-2xl opacity-60`}
+            } duration-700 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60`}
             onLoadingComplete={() => setIsLoading(false)}
           />
           <div className="absolute -bottom-16 inline-flex items-center gap-12">
             <SkipPrev />
             <button
-              onClick={() => setPause(!pause)}
+              onClick={handleTogglePlay}
               className="hover:opacity-80 transition-opacity duration-200"
             >
               {pause ? (
@@ -82,10 +83,11 @@ export default function Player() {
             {decodeURI(selectedPlaylist?.name)}
             <span className="text-xs">
               {selectedPlaylist?.description}
-              <br /> 2018 • {selectedPlaylist?.songs.length} songs
+              <br /> 2018 • {Songs.length} songs
             </span>
           </h1>
-          <ListOfSongs songs={selectedPlaylist?.songs} />
+
+          <ListOfSongs />
         </div>
       </div>
     </div>

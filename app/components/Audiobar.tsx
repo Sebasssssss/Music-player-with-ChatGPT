@@ -1,6 +1,6 @@
 'use client'
 import { SoundHigh, Pause, Play, SoundOff } from 'iconoir-react'
-import useAudio from '../hooks/useAudio'
+import { useAudioContext } from '../providers/AppState'
 
 export default function Audiobar() {
   const {
@@ -10,11 +10,10 @@ export default function Audiobar() {
     currentTime,
     volume,
     setVolume,
-    handlePlay,
-    handlePause,
+    handleTogglePlay,
     audioRef,
     pause
-  } = useAudio()
+  } = useAudioContext()
 
   return (
     <div className="w-full shados container absolute bottom-6 left-12 right-0 ml-auto mr-auto py-9 px-8 bg-white rounded-[10px] z-10">
@@ -22,12 +21,8 @@ export default function Audiobar() {
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>
       <div className="w-full flex items-center gap-8">
-        <button type="button">
-          {pause ? (
-            <Pause onClick={handlePause} />
-          ) : (
-            <Play onClick={handlePlay} />
-          )}
+        <button type="button" onClick={handleTogglePlay}>
+          {pause ? <Play /> : <Pause />}
         </button>
         <input
           type="range"

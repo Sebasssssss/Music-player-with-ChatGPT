@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
+import GrainyFilter from './GrainyFilter'
 
 interface BackdropProps {
   children: ReactNode
@@ -40,15 +41,12 @@ const variants: Variants = {
   }
 }
 
-interface SearchModalProps {
+interface ModalProps {
   handleClose: () => void
   children: ReactNode
 }
 
-export default function SearchModal({
-  handleClose,
-  children
-}: SearchModalProps) {
+export default function Modal({ handleClose, children }: ModalProps) {
   return (
     <>
       <Backdrop onClick={handleClose}>

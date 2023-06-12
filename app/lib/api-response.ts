@@ -18,7 +18,6 @@ export interface Playlist {
     width: number
     height: number
   }[]
-  songs: Song[]
 }
 
 export const playlists: Playlist[] = [
@@ -38,63 +37,6 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 1,
-        name: 'Midnight Magic',
-        duration: '3:45'
-      },
-      {
-        id: 2,
-        name: 'Dancing in the Moonlight',
-        duration: '3:15'
-      },
-      {
-        id: 3,
-        name: 'Nighttime Serenade',
-        duration: '4:30'
-      },
-      {
-        id: 4,
-        name: 'Nocturnal Groove',
-        duration: '4:10'
-      },
-      {
-        id: 5,
-        name: 'Moonlit Melody',
-        duration: '3:50'
-      },
-      {
-        id: 6,
-        name: 'Silent Nightfall',
-        duration: '4:20'
-      },
-      {
-        id: 7,
-        name: 'Nighttime Reverie',
-        duration: '4:05'
-      },
-      {
-        id: 8,
-        name: 'Starry Night Jam',
-        duration: '3:55'
-      },
-      {
-        id: 9,
-        name: 'Moonbeam Sonata',
-        duration: '4:25'
-      },
-      {
-        id: 10,
-        name: 'Dreamy Nocturne',
-        duration: '4:00'
-      },
-      {
-        id: 11,
-        name: 'Nightfall Rendezvous',
-        duration: '4:15'
-      }
     ]
   },
   {
@@ -112,23 +54,6 @@ export const playlists: Playlist[] = [
         url: 'https://images.unsplash.com/photo-1531361171768-37170e369163?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80',
         width: 640,
         height: 640
-      }
-    ],
-    songs: [
-      {
-        id: 4,
-        name: 'Nocturnal Groove',
-        duration: '4:10'
-      },
-      {
-        id: 5,
-        name: 'Moonlit Melody',
-        duration: '3:50'
-      },
-      {
-        id: 6,
-        name: 'Silent Nightfall',
-        duration: '4:20'
       }
     ]
   },
@@ -148,23 +73,6 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 7,
-        name: 'Nighttime Reverie',
-        duration: '4:05'
-      },
-      {
-        id: 8,
-        name: 'Starry Night Jam',
-        duration: '3:55'
-      },
-      {
-        id: 9,
-        name: 'Moonbeam Sonata',
-        duration: '4:25'
-      }
     ]
   },
   {
@@ -182,23 +90,6 @@ export const playlists: Playlist[] = [
         url: 'https://images.unsplash.com/photo-1685857011630-cef679285c9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
         width: 640,
         height: 640
-      }
-    ],
-    songs: [
-      {
-        id: 10,
-        name: 'Dreamy Nocturne',
-        duration: '4:00'
-      },
-      {
-        id: 11,
-        name: 'Nightfall Rendezvous',
-        duration: '4:15'
-      },
-      {
-        id: 12,
-        name: 'Midnight Magic',
-        duration: '3:45'
       }
     ]
   },
@@ -218,23 +109,6 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 13,
-        name: 'Moonlit Dance',
-        duration: '3:25'
-      },
-      {
-        id: 13,
-        name: 'Moonlit Dance',
-        duration: '3:25'
-      },
-      {
-        id: 14,
-        name: 'Nighttime Whispers',
-        duration: '4:12'
-      }
     ]
   },
   {
@@ -252,23 +126,6 @@ export const playlists: Playlist[] = [
         url: 'https://images.unsplash.com/photo-1685648042030-01dc295c1530?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw3fHx8ZW58MHx8fHx8&auto=format&fit=crop&w=500&q=60',
         width: 640,
         height: 640
-      }
-    ],
-    songs: [
-      {
-        id: 15,
-        name: 'Celestial Harmony',
-        duration: '4:18'
-      },
-      {
-        id: 16,
-        name: 'Midnight Serenade',
-        duration: '3:48'
-      },
-      {
-        id: 17,
-        name: 'Starlit Symphony',
-        duration: '4:02'
       }
     ]
   },
@@ -289,23 +146,6 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 18,
-        name: 'Nocturne of Dreams',
-        duration: '4:35'
-      },
-      {
-        id: 19,
-        name: 'Moonshine Melodies',
-        duration: '3:55'
-      },
-      {
-        id: 20,
-        name: 'Nighttime Reflections',
-        duration: '4:22'
-      }
     ]
   },
   {
@@ -325,23 +165,6 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 21,
-        name: 'Midnight Magic II',
-        duration: '3:45'
-      },
-      {
-        id: 22,
-        name: 'Dancing in the Moonlight II',
-        duration: '3:15'
-      },
-      {
-        id: 23,
-        name: 'Nighttime Serenade II',
-        duration: '4:30'
-      }
     ]
   },
   {
@@ -359,23 +182,6 @@ export const playlists: Playlist[] = [
         url: 'https://images.unsplash.com/photo-1685959329143-0b2c9d27c167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
         width: 640,
         height: 640
-      }
-    ],
-    songs: [
-      {
-        id: 24,
-        name: 'Nocturnal Groove II',
-        duration: '4:10'
-      },
-      {
-        id: 25,
-        name: 'Moonlit Melody II',
-        duration: '3:50'
-      },
-      {
-        id: 26,
-        name: 'Silent Nightfall II',
-        duration: '4:20'
       }
     ]
   },
@@ -395,34 +201,76 @@ export const playlists: Playlist[] = [
         width: 640,
         height: 640
       }
-    ],
-    songs: [
-      {
-        id: 27,
-        name: 'Nighttime Reverie II',
-        duration: '4:05'
-      },
-      {
-        id: 28,
-        name: 'Starry Night Jam II',
-        duration: '3:55'
-      },
-      {
-        id: 29,
-        name: 'Moonbeam Sonata II',
-        duration: '4:25'
-      },
-      {
-        id: 30,
-        name: 'Dreamy Nocturne II',
-        duration: '4:00'
-      },
-      {
-        id: 31,
-        name: 'Nightfall Rendezvous II',
-        duration: '4:15'
-      }
     ]
+  }
+]
+
+export const Songs = [
+  {
+    id: 1,
+    name: 'Midnight Magic',
+    duration: '3:45',
+    isCurrentlyPlaying: true
+  },
+  {
+    id: 2,
+    name: 'Dancing in the Moonlight',
+    duration: '3:15',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 3,
+    name: 'Nighttime Serenade',
+    duration: '4:30',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 4,
+    name: 'Nocturnal Groove',
+    duration: '4:10',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 5,
+    name: 'Moonlit Melody',
+    duration: '3:50',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 6,
+    name: 'Silent Nightfall',
+    duration: '4:20',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 7,
+    name: 'Nighttime Reverie',
+    duration: '4:05',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 8,
+    name: 'Starry Night Jam',
+    duration: '3:55',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 9,
+    name: 'Moonbeam Sonata',
+    duration: '4:25',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 10,
+    name: 'Dreamy Nocturne',
+    duration: '4:00',
+    isCurrentlyPlaying: false
+  },
+  {
+    id: 11,
+    name: 'Nightfall Rendezvous',
+    duration: '4:15',
+    isCurrentlyPlaying: false
   }
 ]
 

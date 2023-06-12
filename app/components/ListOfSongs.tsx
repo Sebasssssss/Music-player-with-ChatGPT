@@ -1,8 +1,9 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'iconoir-react'
+import { Songs } from '../lib/api-response'
 
-function ListOfSongs({ songs }) {
+function ListOfSongs() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const [pause, setPause] = useState(true)
@@ -62,9 +63,9 @@ function ListOfSongs({ songs }) {
     <div className="h-96 overflow-y-scroll overflow-x-hidden scrollbar-hidden masked-overflow">
       <ul
         id="landing-header"
-        className="font-semibold text-sm flex flex-col gap-2 relative"
+        className="font-semibold text-sm flex flex-col gap-2"
       >
-        {songs?.map((song, index) => (
+        {Songs.map((song, index) => (
           <li
             key={song.id}
             className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
@@ -117,18 +118,18 @@ function ListOfSongs({ songs }) {
             <span>{song.duration}</span>
           </li>
         ))}
-      </ul>
-      <div
-        id="menu-backdrop"
-        className={`
+        <div
+          id="menu-backdrop"
+          className="
       absolute bg-black/20 backdrop-blur-lg rounded-[10px]
       translate-x-[var(--left)] translate-y-[var(--top)]
       left-0 top-0
       w-[var(--width)] h-[var(--height)]
       transition-all duration-300
       ease-in-out opacity-0 -z-10
-    `}
-      />
+    "
+        />
+      </ul>
     </div>
   )
 }

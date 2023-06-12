@@ -1,6 +1,7 @@
 import Audiobar from '../components/Audiobar'
 import ChatTrigger from '../components/ChatTrigger'
 import Sidebar from '../components/Sidebar'
+import { AudioProvider } from '../providers/AppState'
 import './styles.css'
 
 export default function RootLayout({
@@ -10,10 +11,12 @@ export default function RootLayout({
 }) {
   return (
     <div>
-      <Sidebar />
-      {children}
-      <ChatTrigger />
-      <Audiobar />
+      <AudioProvider>
+        <Sidebar />
+        {children}
+        <ChatTrigger />
+        <Audiobar />
+      </AudioProvider>
     </div>
   )
 }
