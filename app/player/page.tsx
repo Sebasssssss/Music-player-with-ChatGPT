@@ -2,13 +2,10 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import { playlists, spotifyTopArtists } from '../lib/api-response'
-import template from '@/public/album.png'
-import { useAudioContext } from '../providers/AppState'
 import { Play } from 'iconoir-react'
 
 export default function Player() {
   const [topArtists, setTopArtists] = useState(spotifyTopArtists)
-  const { handleSeek, currentTime, audioRef } = useAudioContext()
 
   return (
     <div className="overflow-hidden w-full h-screen bg-gradient-to-b from-[#ffeddf] to-[#ecdff7]">
