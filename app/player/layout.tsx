@@ -12,10 +12,12 @@ export default function RootLayout({
   return (
     <div>
       <AudioProvider>
-        <Sidebar />
-        {children}
-        <ChatTrigger />
+        <div className="flex w-full h-screen transition duration-500">
+          <Sidebar />
+          {children}
+        </div>
         <Audiobar />
+        <ChatTrigger />
       </AudioProvider>
     </div>
   )
