@@ -13,6 +13,7 @@ svg #main-circ {
 #checkbox {
   display: none;
 }
+
 #checkbox:checked + label svg #heart {
   transform: scale(0.2);
   fill: #450a0a;
@@ -202,11 +203,58 @@ svg #main-circ {
     transform: scale(1);
   }
 }
+
 @keyframes animateHeartOut {
   0% {
-    transform: scale(1.4);
+    transform: rotate(45deg);
+    transform: translateX(6px);
+    fill: #450a0a;
+    stroke-width: 0;
+  }
+  25% {
+    transform: rotate(-45deg);
+    transform: translateX(-6px);
+    opacity: 1;
+    fill: #7f1d1d;
+    stroke-width: 0.1;
+  }
+  50% {
+    transform: rotate(45deg);
+    opacity: 1;
+    transform: translateX(6px);
+    fill: #991b1b;
+    stroke-width: 0.2;
+  }
+  75% {
+    transform: rotate(-45deg);
+    opacity: 1;
+    transform: translateX(-6px);
+    fill: transparent;
+    stroke: #991b1b;
+    stroke-width: 0.5;
+  }
+  85% {
+    transform: rotate(45deg);
+    opacity: 1;
+    transform: translateX(6px);
+    fill: transparent;
+    stroke: #7f1d1d;
+    stroke-width: 1;
+  }
+  95% {
+    transform: rotate(-45deg);
+    transform: translateX(-6px);
+    opacity: 1;
+    fill: transparent;
+    stroke: #450a0a;
+    stroke-width: 2;
   }
   100% {
-    transform: scale(1);
+    transform: rotate(0deg);
+    transform: translateX(0px);
+    opacity: 1;
+    fill: transparent;
+    stroke: #450a0a;
+    stroke-width: 3;
   }
 }
