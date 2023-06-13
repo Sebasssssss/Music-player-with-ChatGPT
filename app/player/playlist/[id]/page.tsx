@@ -79,7 +79,7 @@ export default function Player() {
             <SkipNext />
           </div>
         </div>
-        <div>
+        <div className="flex flex-col">
           <div className="flex w-full justify-between py-4 px-6">
             <h1 className="text-xl font-bold flex flex-col">
               {decodeURI(selectedPlaylist?.name)}
