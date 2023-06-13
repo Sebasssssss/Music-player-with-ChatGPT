@@ -11,7 +11,7 @@ import logo from '../../public/beatbrain.jpg'
 
 export default function ChatTrigger() {
   return (
-    <div className="absolute right-12 bottom-6 z-20">
+    <div className="absolute right-12 bottom-6 z-20 not-selectable">
       <Popover>
         <PopoverTrigger>
           <Image

@@ -18,13 +18,13 @@ export default function LikeButton() {
             <path
               d="M29.144 20.773c-.063-.13-4.227-8.67-11.44-2.59C7.63 28.795 28.94 43.256 29.143 43.394c.204-.138 21.513-14.6 11.44-25.213-7.214-6.08-11.377 2.46-11.44 2.59z"
               id="heart"
-              stroke="#450a0a"
+              stroke="#27272a"
               strokeWidth={3}
               fill="none"
             />
             <circle
               id="main-circ"
-              fill="#18181b"
+              fill="#450a0a"
               opacity="0"
               cx="29.5"
               cy="29.5"
