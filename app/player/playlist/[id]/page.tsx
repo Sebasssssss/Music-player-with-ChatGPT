@@ -29,20 +29,20 @@ export default function Player() {
     <div className="overflow-hidden w-full h-screen">
       <div className="flex flex-col lg:flex-row h-screen items-center justify-center w-full gap-2">
         <Image
-          alt="albumCover"
+          alt="albumCover background"
           src={selectedPlaylist?.images[0]?.url || ''}
           width={100}
           height={100}
           className="not-selectable opacity-80 -z-20 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 bottom-[128px] text-center"
         />
         <Image
-          alt="albumCover"
+          alt="white background"
           src={background}
           width={100}
           height={100}
           className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
-        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-gray-100/20 -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 -z-10"></div>
         <div className="flex flex-col items-center px-12 relative">
           <Image
             alt="albumCover"
@@ -55,7 +55,7 @@ export default function Player() {
             onLoadingComplete={() => setIsLoading(false)}
           />
           <Image
-            alt="Blurred Shadow albumCover"
+            alt="albumCover Shadow"
             src={selectedPlaylist?.images[0]?.url || ''}
             width={400}
             height={400}

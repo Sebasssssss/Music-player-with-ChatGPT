@@ -1,5 +1,12 @@
 'use client'
-import React, { createContext, useContext, useRef, useState } from 'react'
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react'
 
 interface AudioContextValue {
   audioRef?: React.RefObject<HTMLAudioElement | null>
@@ -48,7 +55,7 @@ export const AudioProvider = ({ children }) => {
     }
   }
 
-  const handleTogglePlay = () => {
+  const handleTogglePlay = useCallback(() => {
     if (pause) {
       setPause(false)
       audioRef.current?.play()
@@ -56,7 +63,21 @@ export const AudioProvider = ({ children }) => {
       setPause(true)
       audioRef.current?.pause()
     }
-  }
+  }, [pause])
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === 'Space') {
+        handleTogglePlay()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [handleTogglePlay])
 
   const contextValue: AudioContextValue = {
     audioRef,
