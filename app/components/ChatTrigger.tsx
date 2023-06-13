@@ -11,7 +11,7 @@ import logo from '../../public/beatbrain.jpg'
 
 export default function ChatTrigger() {
   return (
-    <div className="absolute right-12 bottom-6 z-20 not-selectable">
+    <div className="z-20 not-selectable">
       <Popover>
         <PopoverTrigger>
           <Image
@@ -22,7 +22,7 @@ export default function ChatTrigger() {
             className="rounded-full w-20 h-20 hover:-translate-y-1 active:translate-y-0 transition-transform duration-200 shados"
           />
         </PopoverTrigger>
-        <PopoverContent className="w-80 bg-white mr-8 rounded-[10px] flex flex-col gap-4">
+        <PopoverContent className="w-80 bg-white mr-8 rounded-[10px] flex flex-col gap-4 shados">
           <header className="w-full flex gap-3 justify-start items-center">
             <div className="flex flex-col items-start text-sm">
               <p className="text-xs">Chat with</p>
