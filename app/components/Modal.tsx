@@ -15,7 +15,7 @@ function Backdrop({ children, onClick }: BackdropProps) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="fixed top-0 left-0 z-10 grid h-full w-full justify-center bg-black/10 backdrop-blur-md"
+      className="fixed top-0 left-0 z-40 grid h-full w-full justify-center bg-black/10 backdrop-blur-md"
     >
       {children}
     </motion.div>

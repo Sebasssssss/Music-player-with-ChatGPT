@@ -15,7 +15,7 @@ export default function Audiobar() {
   } = useAudioContext()
 
   return (
-    <div className="w-full shados container py-9 px-8 bg-white rounded-[10px] z-40">
+    <div className="w-full shados container py-9 px-8 bg-white rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>

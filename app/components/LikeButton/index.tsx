@@ -3,7 +3,7 @@ export default function LikeButton() {
   return (
     <button className="w-max h-max outline-none">
       <input type="checkbox" id="checkbox" />
-      <label for="checkbox">
+      <label htmlFor="checkbox">
         <svg
           id="heart-svg"
           viewBox="467 392 58 57"
