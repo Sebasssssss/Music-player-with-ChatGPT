@@ -1,8 +1,21 @@
+'use client'
+import { useState } from 'react'
 import './styles.css'
 export default function LikeButton() {
+  const [isChecked, setIsChecked] = useState(false)
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked)
+  }
+
   return (
     <button className="w-max h-max outline-none">
-      <input type="checkbox" id="checkbox" />
+      <input
+        onChange={handleCheckboxChange}
+        checked={isChecked}
+        type="checkbox"
+        id="checkbox"
+      />
       <label htmlFor="checkbox">
         <svg
           id="heart-svg"
