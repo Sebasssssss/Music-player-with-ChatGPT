@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react'
 import { nanoid } from 'nanoid'
-import { Message } from '@/lib/validators/message'
+import { Message } from '@/app/lib/validators/message'
 
 const defaultValue = [
   {
