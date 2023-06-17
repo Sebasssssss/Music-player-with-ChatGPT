@@ -5,7 +5,7 @@ export const getGreeting = () => {
     return 'Morning'
   }
 
-  if (currentHour >= 12 && currentHour < 17) {
+  if (currentHour >= 12 && currentHour < 18) {
     return 'Afternoon'
   }
 
