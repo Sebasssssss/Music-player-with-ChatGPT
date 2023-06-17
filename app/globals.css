@@ -29,7 +29,7 @@
   background: rgb(255, 0, 128);
   width: 700px;
   height: 700px;
-  animation-duration: 17s;
+  animation-duration: 10s;
   opacity: 0.3;
   left: 60%;
   top: 40%;
@@ -40,7 +40,7 @@
   background: rgb(74, 37, 96);
   width: 600px;
   height: 600px;
-  animation-duration: 19s;
+  animation-duration: 10s;
   opacity: 0.79;
   left: 40%;
   top: 60%;
@@ -51,7 +51,7 @@
   background: rgb(193, 119, 16);
   width: 500px;
   height: 500px;
-  animation-duration: 19s;
+  animation-duration: 10s;
   opacity: 0.46;
   left: 50%;
   top: 50%;
