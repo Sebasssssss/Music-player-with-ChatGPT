@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'iconoir-react'
 import { Songs } from '../lib/api-response'
+import ContextMenu from './ContextMenu'
 
 function ListOfSongs() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -65,6 +66,7 @@ function ListOfSongs() {
         id="landing-header"
         className="font-semibold text-sm flex flex-col gap-2"
       >
+        <ContextMenu />
         {Songs.map((song, index) => (
           <li
             key={song.id}
