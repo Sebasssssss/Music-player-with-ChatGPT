@@ -66,59 +66,57 @@ function ListOfSongs() {
         id="landing-header"
         className="font-semibold text-sm flex flex-col gap-2"
       >
-        <ContextMenu />
         {Songs.map((song, index) => (
-          <li
-            key={song.id}
-            className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
-          >
-            {activeIndex === index ? (
-              <>
-                <button
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="hidden group-hover:block"
-                >
-                  {isPlaying ? (
-                    <Pause
-                      className="w-5"
-                      onClick={() => setIsPlaying(false)}
-                    />
-                  ) : (
-                    <Play
-                      className="w-5"
-                      onClick={() => handlePlaySong(index)}
-                    />
-                  )}
-                </button>
-                <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
-                  <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                  <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                  <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                  <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+          <ContextMenu key={song.id} name={song.name}>
+            <li className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group">
+              {activeIndex === index ? (
+                <>
+                  <button
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    className="hidden group-hover:block"
+                  >
+                    {isPlaying ? (
+                      <Pause
+                        className="w-5"
+                        onClick={() => setIsPlaying(false)}
+                      />
+                    ) : (
+                      <Play
+                        className="w-5"
+                        onClick={() => handlePlaySong(index)}
+                      />
+                    )}
+                  </button>
+                  <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                  </div>
+                </>
+              ) : (
+                <div className="w-8">
+                  <button className="hidden group-hover:block">
+                    {pause ? (
+                      <Play
+                        className="w-5"
+                        onClick={() => handlePlaySong(index)}
+                      />
+                    ) : (
+                      <Pause className="w-5" onClick={() => setPause(!pause)} />
+                    )}
+                  </button>
+                  <span className="cursor-pointer group-hover:hidden">
+                    {index + 1}
+                  </span>
                 </div>
-              </>
-            ) : (
-              <div className="w-8">
-                <button className="hidden group-hover:block">
-                  {pause ? (
-                    <Play
-                      className="w-5"
-                      onClick={() => handlePlaySong(index)}
-                    />
-                  ) : (
-                    <Pause className="w-5" onClick={() => setPause(!pause)} />
-                  )}
-                </button>
-                <span className="cursor-pointer group-hover:hidden">
-                  {index + 1}
-                </span>
-              </div>
-            )}
-            <p className="whitespace-nowrap overflow-hidden w-max">
-              {song.name}
-            </p>
-            <span>{song.duration}</span>
-          </li>
+              )}
+              <p className="whitespace-nowrap overflow-hidden w-max">
+                {song.name}
+              </p>
+              <span>{song.duration}</span>
+            </li>
+          </ContextMenu>
         ))}
         <div
           id="menu-backdrop"
