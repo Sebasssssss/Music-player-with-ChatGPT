@@ -1,6 +1,7 @@
 'use client'
-import { SoundHigh, Pause, Play, SoundOff } from 'iconoir-react'
+import { SoundHigh, Pause, Play, SoundOff, Playlist } from 'iconoir-react'
 import { useAudioContext } from '../providers/AppState'
+import ChatTrigger from './ChatTrigger'
 
 export default function Audiobar() {
   const {
@@ -15,7 +16,7 @@ export default function Audiobar() {
   } = useAudioContext()
 
   return (
-    <div className="w-full shados container py-9 px-8 bg-white rounded-[10px] z-20">
+    <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-9 px-8 bg-white rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>
@@ -40,7 +41,9 @@ export default function Audiobar() {
           />
           <p className="font-medium text-xs">3:30</p>
         </div>
-        <div className="group flex items-center gap-2">
+        <div className="flex items-center gap-2">
+          <Playlist className="w-5 opacity-40" />
+          <ChatTrigger />
           <button className="z-10">
             {volume === 0 ? <SoundOff /> : <SoundHigh />}
           </button>

@@ -41,7 +41,7 @@ export function DropDownMenu() {
         </span>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56 bg-white ml-8">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>Sebass</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem className="hover:bg-[#f9f8fb]">

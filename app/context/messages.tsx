@@ -1,13 +1,14 @@
 import { createContext, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { Message } from '@/app/lib/validators/message'
+import { getGreeting } from '../lib/getGreeting'
 
 const defaultValue = [
   {
     id: nanoid(),
-    text: 'Hello, how can I help you?',
-    isUserMessage: false,
-  },
+    text: `Good ${getGreeting()} Sebass, how can I help you today?`,
+    isUserMessage: false
+  }
 ]
 export const MessagesContext = createContext<{
   messages: Message[]
@@ -22,7 +23,7 @@ export const MessagesContext = createContext<{
   addMessage: () => {},
   removeMessage: () => {},
   updateMessage: () => {},
-  setIsMessageUpdating: () => {},
+  setIsMessageUpdating: () => {}
 })
 
 export function MessagesProvider({ children }: { children: React.ReactNode }) {
@@ -30,19 +31,19 @@ export function MessagesProvider({ children }: { children: React.ReactNode }) {
   const [isMessageUpdating, setIsMessageUpdating] = useState<boolean>(false)
 
   const addMessage = (message: Message) => {
-    setMessages((prev) => [...prev, message])
+    setMessages(prev => [...prev, message])
   }
 
   const removeMessage = (id: string) => {
-    setMessages((prev) => prev.filter((message) => message.id !== id))
+    setMessages(prev => prev.filter(message => message.id !== id))
   }
 
   const updateMessage = (
     id: string,
     updateFn: (prevText: string) => string
   ) => {
-    setMessages((prev) =>
-      prev.map((message) => {
+    setMessages(prev =>
+      prev.map(message => {
         if (message.id === id) {
           return { ...message, text: updateFn(message.text) }
         }
@@ -59,8 +60,9 @@ export function MessagesProvider({ children }: { children: React.ReactNode }) {
         addMessage,
         removeMessage,
         updateMessage,
-        setIsMessageUpdating,
-      }}>
+        setIsMessageUpdating
+      }}
+    >
       {children}
     </MessagesContext.Provider>
   )
