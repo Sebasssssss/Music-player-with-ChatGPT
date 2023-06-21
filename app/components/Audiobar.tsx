@@ -42,8 +42,10 @@ export default function Audiobar() {
           <p className="font-medium text-xs">3:30</p>
         </div>
         <div className="flex items-center gap-2">
-          <Playlist className="w-5 opacity-40" />
           <ChatTrigger />
+          <button className="disabled:opacity-40" disabled>
+            <Playlist />
+          </button>
           <button className="z-10">
             {volume === 0 ? <SoundOff /> : <SoundHigh />}
           </button>
