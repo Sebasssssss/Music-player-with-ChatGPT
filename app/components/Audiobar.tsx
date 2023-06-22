@@ -24,8 +24,14 @@ export default function Audiobar() {
     pause
   } = useAudioContext()
 
+  const formatTime = timeInSeconds => {
+    const minutes = Math.floor(timeInSeconds / 60)
+    const seconds = Math.floor(timeInSeconds % 60)
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
+  }
+
   return (
-    <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-9 px-8 bg-white rounded-[10px] z-20">
+    <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>
@@ -48,7 +54,7 @@ export default function Audiobar() {
             <SkipNext />
           </div>
           <div className="w-full flex items-center gap-2">
-            <p className="font-medium text-xs">0:00</p>
+            <p className="font-medium text-xs">{formatTime(currentTime)}</p>
             <input
               type="range"
               min="0"
@@ -56,7 +62,7 @@ export default function Audiobar() {
               max={audioRef.current?.duration || 0}
               value={currentTime}
               onChange={handleSeek}
-              className="range-slider w-full appearance-none bg-gray-200 h-1 rounded-lg focus:outline-none active:bg-gray-300"
+              className="w-full range-slider appearance-none bg-gray-300 h-1 rounded-lg focus:outline-none focus:bg-gray-500 transition-all duration-300"
             />
             <p className="font-medium text-xs">3:30</p>
           </div>
