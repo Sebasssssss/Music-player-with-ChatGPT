@@ -1,64 +1,19 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
 import { Pause, Play } from 'iconoir-react'
 import { Songs } from '../lib/api-response'
 import ContextMenu from './ContextMenu'
+import useSongs from '../hooks/useSongs'
 
-function ListOfSongs() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [pause, setPause] = useState(true)
-
-  const handlePlaySong = (index: number) => {
-    setPause(true)
-    setIsPlaying(true)
-    setActiveIndex(index)
-  }
-  const listItemRef = useRef<NodeListOf<HTMLLIElement> | null>(null)
-  const menuBackDropRef = useRef<HTMLElement | null>(null)
-
-  useEffect(() => {
-    listItemRef.current = document.querySelectorAll('#landing-header li')
-    menuBackDropRef.current = document.querySelector('#menu-backdrop')
-
-    const handleMouseEnter = (event: Event) => {
-      const item = event.currentTarget as HTMLLIElement
-      const { left, top, width, height } = item.getBoundingClientRect()
-
-      if (menuBackDropRef.current) {
-        menuBackDropRef.current.style.setProperty('--left', `${left}px`)
-        menuBackDropRef.current.style.setProperty('--top', `${top}px`)
-        menuBackDropRef.current.style.setProperty('--width', `${width}px`)
-        menuBackDropRef.current.style.setProperty('--height', `${height}px`)
-
-        menuBackDropRef.current.style.opacity = '1'
-        menuBackDropRef.current.style.visibility = 'visible'
-      }
-    }
-
-    const handleMouseLeave = () => {
-      if (menuBackDropRef.current) {
-        menuBackDropRef.current.style.opacity = '0'
-        menuBackDropRef.current.style.visibility = 'hidden'
-      }
-    }
-
-    if (listItemRef.current) {
-      listItemRef.current.forEach(item => {
-        item.addEventListener('mouseenter', handleMouseEnter)
-        item.addEventListener('mouseleave', handleMouseLeave)
-      })
-    }
-
-    return () => {
-      if (listItemRef.current) {
-        listItemRef.current.forEach(item => {
-          item.removeEventListener('mouseenter', handleMouseEnter)
-          item.removeEventListener('mouseleave', handleMouseLeave)
-        })
-      }
-    }
-  }, [])
+export default function ListOfSongs() {
+  const {
+    isPlaying,
+    setIsPlaying,
+    handlePlaySong,
+    handleDoubleClick,
+    activeIndex,
+    pause,
+    setPause
+  } = useSongs()
 
   return (
     <div className="h-96 overflow-y-scroll overflow-x-hidden scrollbar-hidden masked-overflow">
@@ -68,7 +23,10 @@ function ListOfSongs() {
       >
         {Songs.map((song, index) => (
           <ContextMenu key={song.id} name={song.name}>
-            <li className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group">
+            <li
+              onDoubleClick={() => handleDoubleClick(index)}
+              className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
+            >
               {activeIndex === index ? (
                 <>
                   <button
@@ -133,5 +91,3 @@ function ListOfSongs() {
     </div>
   )
 }
-
-export default ListOfSongs
