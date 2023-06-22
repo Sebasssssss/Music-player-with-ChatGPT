@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import { AnimatePresence, motion, Variants } from 'framer-motion'
-import GrainyFilter from './GrainyFilter'
 
 interface BackdropProps {
   children: ReactNode
