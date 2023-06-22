@@ -11,6 +11,7 @@ export default function Audiobar() {
     currentTime,
     volume,
     handleTogglePlay,
+    handleVolumeToggle,
     audioRef,
     pause
   } = useAudioContext()
@@ -46,7 +47,7 @@ export default function Audiobar() {
           <button className="disabled:opacity-40" disabled>
             <Playlist />
           </button>
-          <button className="z-10">
+          <button className="z-10" onClick={handleVolumeToggle}>
             {volume === 0 ? <SoundOff /> : <SoundHigh />}
           </button>
           <input

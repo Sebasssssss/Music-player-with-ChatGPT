@@ -18,6 +18,7 @@ interface AudioContextValue {
   handleSeek?: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleVolumeChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleTogglePlay?: () => void
+  handleVolumeToggle?: () => void
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
@@ -49,9 +50,28 @@ export const AudioProvider = ({ children }) => {
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const volumeLevel = e.target.valueAsNumber
+    localStorage.setItem('volume', volumeLevel)
     if (audioRef.current) {
       audioRef.current.volume = volumeLevel
       setVolume(volumeLevel)
+    }
+  }
+
+  const handleVolumeToggle = () => {
+    const localStorageVolume = localStorage.getItem('volume')
+    if (volume === 0 && localStorageVolume !== '0') {
+      if (localStorageVolume !== null) {
+        const parsedVolume = parseFloat(localStorageVolume)
+        setVolume(parsedVolume)
+        if (audioRef.current) {
+          audioRef.current.volume = parsedVolume
+        }
+      }
+    } else {
+      setVolume(0)
+      if (audioRef.current) {
+        audioRef.current.volume = 0
+      }
     }
   }
 
@@ -88,6 +108,7 @@ export const AudioProvider = ({ children }) => {
     handleTimeUpdate,
     handleSeek,
     handleVolumeChange,
+    handleVolumeToggle,
     handleTogglePlay
   }
 
