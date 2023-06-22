@@ -7,11 +7,11 @@ export default function Audiobar() {
   const {
     handleTimeUpdate,
     handleVolumeChange,
+    handleVolumeToggle,
     handleSeek,
     currentTime,
     volume,
     handleTogglePlay,
-    handleVolumeToggle,
     audioRef,
     pause
   } = useAudioContext()

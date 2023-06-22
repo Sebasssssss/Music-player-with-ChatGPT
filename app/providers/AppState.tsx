@@ -50,7 +50,7 @@ export const AudioProvider = ({ children }) => {
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const volumeLevel = e.target.valueAsNumber
-    localStorage.setItem('volume', volumeLevel)
+    setTimeout(() => localStorage.setItem('volume', volumeLevel), 1000)
     if (audioRef.current) {
       audioRef.current.volume = volumeLevel
       setVolume(volumeLevel)
