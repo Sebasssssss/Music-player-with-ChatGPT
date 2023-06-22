@@ -43,7 +43,7 @@ export default function Audiobar() {
             <button
               type="button"
               onClick={handleTogglePlay}
-              className="outline-none hover:bg-gray-200"
+              className="outline-none"
             >
               {pause ? (
                 <Play className="w-8 h-8" />
