@@ -79,13 +79,13 @@ export default function ListOfSongs() {
         <div
           id="menu-backdrop"
           className="
-      absolute bg-black/20 backdrop-blur-lg rounded-[10px]
-      translate-x-[var(--left)] translate-y-[var(--top)]
-      left-0 top-0
-      w-[var(--width)] h-[var(--height)]
-      transition-all duration-300
-      ease-in-out opacity-0 -z-10
-    "
+          absolute bg-black/20 backdrop-blur-lg rounded-[10px]
+          translate-x-[var(--left)] translate-y-[var(--top)]
+          left-0 top-0
+          w-[var(--width)] h-[var(--height)]
+          transition-all duration-300
+          ease-in-out opacity-0 -z-10
+        "
         />
       </ul>
     </div>
