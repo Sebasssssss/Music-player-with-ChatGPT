@@ -43,7 +43,10 @@ export default function Player() {
           className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
         <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 -z-10"></div>
-        <div className="flex flex-col items-center px-12 relative">
+        <div
+          onClick={handleTogglePlay}
+          className="flex flex-col items-center mx-12 relative group cursor-pointer"
+        >
           <Image
             alt="albumCover"
             src={selectedPlaylist?.images[0]?.url || ''}
@@ -51,7 +54,7 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-700 ease-in-out rounded-[32px] aspect-square z-10 not-selectable`}
+            } duration-300 ease-in-out rounded-[32px] aspect-square z-10 not-selectable group-hover:grayscale group-hover:opacity-90`}
             onLoadingComplete={() => setIsLoading(false)}
           />
           <Image
@@ -61,23 +64,16 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-700 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60`}
+            } duration-300 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60`}
             onLoadingComplete={() => setIsLoading(false)}
           />
-          <div className="absolute -bottom-16 inline-flex items-center gap-12">
-            <SkipPrev />
-            <button
-              onClick={handleTogglePlay}
-              className="hover:opacity-80 transition-opacity duration-200"
-            >
-              {pause ? (
-                <Play className="w-8 h-8" />
-              ) : (
-                <Pause className="w-8 h-8" />
-              )}
-            </button>
-            <SkipNext />
-          </div>
+          <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-max opacity-0 group-hover:opacity-100 z-20 transition-opacity duration-300">
+            {pause ? (
+              <Play className="w-32 h-32" />
+            ) : (
+              <Pause className="w-32 h-32" />
+            )}
+          </button>
         </div>
         <div className="flex flex-col">
           <div className="flex w-full justify-between py-4 px-6">
