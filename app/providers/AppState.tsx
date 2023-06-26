@@ -26,7 +26,10 @@ const AudioContext = createContext<AudioContextValue | undefined>(undefined)
 export const AudioProvider = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [currentTime, setCurrentTime] = useState(0)
-  const [volume, setVolume] = useState(1)
+  const [volume, setVolume] = useState(() => {
+    const savedVolume = localStorage.getItem('volume')
+    return savedVolume !== null ? parseFloat(savedVolume) : 1
+  })
   const [pause, setPause] = useState(true)
   const audioElement = audioRef.current
 
@@ -50,7 +53,7 @@ export const AudioProvider = ({ children }) => {
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const volumeLevel = e.target.valueAsNumber
-    setTimeout(() => localStorage.setItem('volume', volumeLevel), 1000)
+    setTimeout(() => localStorage.setItem('volume', volumeLevel), 500)
     if (audioRef.current) {
       audioRef.current.volume = volumeLevel
       setVolume(volumeLevel)
