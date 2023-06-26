@@ -11,10 +11,8 @@ export default function RootLayout({
   return (
     <div>
       <AudioProvider>
-        <div className="flex w-full h-screen transition duration-500">
-          <Sidebar />
-          {children}
-        </div>
+        <Sidebar />
+        {children}
         <Audiobar />
       </AudioProvider>
     </div>

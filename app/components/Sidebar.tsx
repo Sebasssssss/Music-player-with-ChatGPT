@@ -21,7 +21,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="h-screen z-30">
+    <div className="h-screen z-30 absolute left-0 top-0">
       <ModalContent isModalOpen={isModalOpen} close={close} />
       <div
         className={cn(
