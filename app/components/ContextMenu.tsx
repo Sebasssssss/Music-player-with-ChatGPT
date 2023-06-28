@@ -60,6 +60,9 @@ export default function ContextMenu({ children, name }) {
         <ContextMenuItem inset disabled>
           Show credits
         </ContextMenuItem>
+        <ContextMenuItem inset className="hover:bg-[#f1f5f9]">
+          Recommendations
+        </ContextMenuItem>
         <ContextMenuSeparator />
         <ContextMenuSub>
           <ContextMenuSubTrigger inset className="hover:bg-[#f1f5f9]">

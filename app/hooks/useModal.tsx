@@ -3,11 +3,15 @@ import { useState, useEffect } from 'react'
 export default function useModal() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const close = () => setIsModalOpen(false)
-  const open = () => setIsModalOpen(true)
+  const close = (): void => setIsModalOpen(false)
+  const open = (): void => setIsModalOpen(true)
 
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent): void => {
+      if (e.ctrlKey && e.key === 'f') {
+        e.preventDefault()
+        open()
+      }
       if (e.key === 'Escape') {
         close()
       }
