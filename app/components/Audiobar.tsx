@@ -6,7 +6,9 @@ import {
   SoundOff,
   Playlist,
   SkipPrev,
-  SkipNext
+  SkipNext,
+  Shuffle,
+  Repeat
 } from 'iconoir-react'
 import { useAudioContext } from '../providers/AppState'
 import ChatTrigger from './ChatTrigger'
@@ -39,6 +41,7 @@ export default function Audiobar() {
         <div />
         <div className="w-full flex flex-col gap-2 items-center justify-center">
           <div className="flex items-center gap-4">
+            <Shuffle />
             <SkipPrev />
             <button
               type="button"
@@ -52,6 +55,7 @@ export default function Audiobar() {
               )}
             </button>
             <SkipNext />
+            <Repeat />
           </div>
           <div className="w-full flex items-center gap-2">
             <p className="font-medium text-xs">{formatTime(currentTime)}</p>

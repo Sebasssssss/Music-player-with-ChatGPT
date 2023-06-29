@@ -67,20 +67,6 @@ export default function Player() {
             } duration-300 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60`}
             onLoadingComplete={() => setIsLoading(false)}
           />
-          <div className="absolute -bottom-16 inline-flex items-center gap-12">
-            <SkipPrev />
-            <button
-              onClick={handleTogglePlay}
-              className="hover:opacity-80 transition-opacity duration-200"
-            >
-              {pause ? (
-                <Play className="w-8 h-8" />
-              ) : (
-                <Pause className="w-8 h-8" />
-              )}
-            </button>
-            <SkipNext />
-          </div>
         </div>
         <div className="flex flex-col">
           <div className="flex w-full justify-between py-4 px-6">
