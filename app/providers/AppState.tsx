@@ -27,8 +27,11 @@ export const AudioProvider = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [currentTime, setCurrentTime] = useState(0)
   const [volume, setVolume] = useState(() => {
-    const savedVolume = localStorage.getItem('volume')
-    return savedVolume !== null ? parseFloat(savedVolume) : 1
+    if (typeof localStorage !== 'undefined') {
+      const savedVolume = localStorage.getItem('volume')
+      return savedVolume !== null ? parseFloat(savedVolume) : 1
+    }
+    return 1
   })
   const [pause, setPause] = useState(true)
   const audioElement = audioRef.current
