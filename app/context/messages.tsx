@@ -6,7 +6,7 @@ import { getGreeting } from '../lib/getGreeting'
 const defaultValue = [
   {
     id: nanoid(),
-    text: `Good ${getGreeting()} Sebass, how can I help you today?`,
+    text: `Good ${getGreeting()}, how can I help you today?`,
     isUserMessage: false
   }
 ]
