@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Search, Cancel } from 'iconoir-react'
 import { AnimatePresence } from 'framer-motion'
 import template from '@/public/album.png'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 interface ModalContentProps {
@@ -24,9 +24,17 @@ export default function ModalContent({
 }: ModalContentProps) {
   const [input, setInput] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+  const ref = useRef<HTMLInputElement>(null)
 
-  const handleChange = e => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTimeout(() => setInput(e.target.value), 500)
+  }
+
+  const handleClearInput = () => {
+    setInput('')
+    if (ref.current) {
+      ref.current.value = ''
+    }
   }
 
   useEffect(() => {
@@ -47,11 +55,20 @@ export default function ModalContent({
                 autoFocus={true}
                 onChange={handleChange}
                 placeholder="Search..."
+                ref={ref}
                 className="w-full md:w-96 h-12 px-3 shados rounded-[10px] border-2 hover:border-black/40  active:shadow-none focus:border-black/40 hover:bg-gray-100 transition duration-300 focus:outline-none input"
               />
-              <button className="absolute right-[10px] top-3">
-                <Search className="text-gray-500" />
-              </button>
+              <div className="flex items-center absolute right-[10px] top-3">
+                {input !== '' ? (
+                  <button onClick={handleClearInput}>
+                    <Cancel className="text-gray-500" />
+                  </button>
+                ) : null}
+
+                <button>
+                  <Search className="text-gray-500" />
+                </button>
+              </div>
             </div>
             <AnimatePresence mode="wait">
               {isTyping ? (
