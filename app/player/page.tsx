@@ -52,7 +52,7 @@ export default function Player() {
                     width={500}
                     height={500}
                     alt=""
-                    className="w-44 h-44 rounded-[10px] aspect-square absolute bottom-8 blur-2xl opacity-60"
+                    className="w-44 h-44 rounded-[10px] aspect-square absolute bottom-8 blur-xl opacity-60"
                   />
                   <h1 className="font-medium">{name}</h1>
                 </div>
