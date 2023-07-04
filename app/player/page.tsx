@@ -17,17 +17,19 @@ export default function Player() {
             .map(playlist => (
               <div
                 key={playlist.id}
-                className="flex items-center gap-4 bg-white rounded-[10px] shados group relative"
+                className="flex justify-between w-full bg-white rounded-[10px] shados group relative"
               >
-                <Image
-                  src={playlist.images[0].url}
-                  width={150}
-                  height={150}
-                  alt={playlist.name}
-                  className="aspect-square rounded-l-[10px]"
-                />
-                <h1 className="font-medium">{playlist.name}</h1>
-                <button className="opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 absolute bottom-4 right-4 transition duration-300">
+                <div className="flex items-center gap-4">
+                  <Image
+                    src={playlist.images[0].url}
+                    width={100}
+                    height={100}
+                    alt={playlist.name}
+                    className="aspect-square rounded-l-[10px]"
+                  />
+                  <h1 className="font-medium">{playlist.name}</h1>
+                </div>
+                <button className="mr-8 opacity-0 group-hover:opacity-100 translate-y-1 group-hover:translate-y-0 transition duration-300">
                   <Play className="w-8 h-8" />
                 </button>
               </div>

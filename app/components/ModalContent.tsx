@@ -3,9 +3,9 @@ import Modal from './Modal'
 import Image from 'next/image'
 import { Search, Cancel } from 'iconoir-react'
 import { AnimatePresence } from 'framer-motion'
-import template from '@/public/album.png'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import template from '@/public/album.png'
 
 interface ModalContentProps {
   isModalOpen: boolean
