@@ -8,10 +8,12 @@ import {
   SkipPrev,
   SkipNext,
   Shuffle,
-  Repeat
+  Repeat,
+  RepeatOnce
 } from 'iconoir-react'
 import { useAudioContext } from '../providers/AppState'
 import ChatTrigger from './ChatTrigger'
+import { useState } from 'react'
 
 export default function Audiobar() {
   const {
@@ -25,6 +27,12 @@ export default function Audiobar() {
     audioRef,
     pause
   } = useAudioContext()
+
+  const [repeat, setRepeat] = useState(false)
+
+  const handleRepeat = () => {
+    setRepeat(!repeat)
+  }
 
   const formatTime = timeInSeconds => {
     const minutes = Math.floor(timeInSeconds / 60)
@@ -55,7 +63,9 @@ export default function Audiobar() {
               )}
             </button>
             <SkipNext />
-            <Repeat />
+            <button onClick={handleRepeat}>
+              {repeat ? <RepeatOnce /> : <Repeat />}
+            </button>
           </div>
           <div className="w-full flex items-center gap-2">
             <p className="font-medium text-xs">{formatTime(currentTime)}</p>
