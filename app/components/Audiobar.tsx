@@ -14,6 +14,7 @@ import {
 import { useAudioContext } from '../providers/AppState'
 import ChatTrigger from './ChatTrigger'
 import { useState } from 'react'
+import { cn } from '@/app/lib/utils'
 
 export default function Audiobar() {
   const {
@@ -28,7 +29,12 @@ export default function Audiobar() {
     pause
   } = useAudioContext()
 
-  const [repeat, setRepeat] = useState(false)
+  const [repeat, setRepeat] = useState(true)
+  const [shuffle, setShuffle] = useState(false)
+
+  const handleShuffle = () => {
+    setShuffle(!shuffle)
+  }
 
   const handleRepeat = () => {
     setRepeat(!repeat)
@@ -49,7 +55,15 @@ export default function Audiobar() {
         <div />
         <div className="w-full flex flex-col gap-2 items-center justify-center">
           <div className="flex items-center gap-4">
-            <Shuffle />
+            <Shuffle
+              onClick={handleShuffle}
+              className={cn(
+                'opacity-70 hover:opacity-90 transition-colors duration-300',
+                {
+                  'opacity-100': shuffle
+                }
+              )}
+            />
             <SkipPrev />
             <button
               type="button"
@@ -64,7 +78,11 @@ export default function Audiobar() {
             </button>
             <SkipNext />
             <button onClick={handleRepeat}>
-              {repeat ? <RepeatOnce /> : <Repeat />}
+              {repeat ? (
+                <Repeat className="opacity-70 hover:opacity-100 transition-colors duration-300" />
+              ) : (
+                <RepeatOnce />
+              )}
             </button>
           </div>
           <div className="w-full flex items-center gap-2">
