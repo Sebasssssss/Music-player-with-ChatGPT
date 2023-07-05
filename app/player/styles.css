@@ -23,7 +23,7 @@
 }
 
 .range-slider::-webkit-slider-thumb:active {
-  border: 6px solid black;
+  border: 5px solid black;
 }
 
 .scrollbar-w-2::-webkit-scrollbar {
