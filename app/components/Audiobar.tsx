@@ -58,7 +58,7 @@ export default function Audiobar() {
             <Shuffle
               onClick={handleShuffle}
               className={cn(
-                'opacity-70 hover:opacity-90 transition-colors duration-300',
+                'opacity-50 hover:opacity-90 transition-opacity duration-300',
                 {
                   'opacity-100': shuffle
                 }
@@ -79,7 +79,7 @@ export default function Audiobar() {
             <SkipNext />
             <button onClick={handleRepeat}>
               {repeat ? (
-                <Repeat className="opacity-70 hover:opacity-100 transition-colors duration-300" />
+                <Repeat className="opacity-50 hover:opacity-100 transition-opacity duration-300" />
               ) : (
                 <RepeatOnce />
               )}
