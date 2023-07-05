@@ -34,9 +34,13 @@ export default function ListOfPlaylist() {
               width={50}
               height={50}
               alt={item.name}
-              className={`${
-                isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-              } duration-700 ease-in-out rounded-md w-10 h-10 inline-block mr-2 flex-shrink-0`}
+              className={cn(
+                'duration-700 ease-in-out rounded-md w-10 h-10 inline-block mr-2 flex-shrink-0',
+                {
+                  'grayscale blur-sm': isLoading,
+                  'grayscale-0 blur-0': !isLoading
+                }
+              )}
               onLoadingComplete={() => setIsLoading(false)}
             />
             <span className="sidebar-listItemText whitespace-nowrap overflow-hidden text-ellipsis leading-[20px] text-sm font-medium">
