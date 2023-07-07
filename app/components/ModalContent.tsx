@@ -37,6 +37,10 @@ export default function ModalContent({
     }
   }
 
+  const handleFocus = () => {
+    ref.current?.focus()
+  }
+
   useEffect(() => {
     setIsTyping(false)
 
@@ -60,7 +64,12 @@ export default function ModalContent({
               />
               <div className="flex items-center absolute right-[10px] top-3">
                 {input !== '' ? (
-                  <button onClick={handleClearInput}>
+                  <button
+                    onClick={() => {
+                      handleClearInput()
+                      handleFocus()
+                    }}
+                  >
                     <Cancel className="text-gray-500" />
                   </button>
                 ) : null}
@@ -96,7 +105,10 @@ export default function ModalContent({
                     <ListOfSongs />
                   </div>
                   <Cancel
-                    onClick={close}
+                    onClick={() => {
+                      close()
+                      handleClearInput()
+                    }}
                     className="absolute top-4 right-4 cursor-pointer"
                   />
                 </motion.div>

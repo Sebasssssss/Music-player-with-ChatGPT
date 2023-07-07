@@ -1,4 +1,4 @@
-import Audiobar from '../components/Audiobar'
+import PlayerBar from '../components/PlayerBar'
 import Sidebar from '../components/Sidebar'
 import { AudioProvider } from '../providers/AppState'
 import './styles.css'
@@ -13,7 +13,7 @@ export default function RootLayout({
       <AudioProvider>
         <Sidebar />
         {children}
-        <Audiobar />
+        <PlayerBar />
       </AudioProvider>
     </div>
   )

@@ -267,3 +267,56 @@ body {
 input:hover {
   box-shadow: 0 0 0 4px rgb(0 0 0 / 10%);
 }
+
+.audio-container {
+  height: 20px;
+  display: flex;
+  gap: 0.2rem;
+  justify-content: space-between;
+}
+
+.audio-container:hover {
+  cursor: pointer;
+}
+
+.audio-container div {
+  width: 2px;
+  background: #9696a0;
+  transition: transform 250ms ease, background 200ms ease;
+}
+
+.audiobar {
+  transform-origin: center;
+  border-radius: 100%;
+}
+
+.audio-bar {
+  width: 96px;
+  height: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  grid-column: 2;
+}
+
+.audio-progress {
+  height: 5px;
+  width: 0;
+  border-radius: 4px;
+  position: relative;
+}
+
+.audio-one {
+  display: flex;
+  grid-column: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.audio-play,
+.audio-current {
+  margin-right: 0.4rem;
+}
+
+.audio-duration {
+  margin-left: 0.4rem;
+}

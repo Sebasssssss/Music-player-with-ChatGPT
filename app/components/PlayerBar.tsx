@@ -1,8 +1,9 @@
 'use client'
+import { useState } from 'react'
+import ChatTrigger from './ChatTrigger'
+import ProgressBar from './ProgressBar'
 import {
   SoundHigh,
-  Pause,
-  Play,
   SoundOff,
   Playlist,
   SkipPrev,
@@ -12,16 +13,14 @@ import {
   RepeatOnce
 } from 'iconoir-react'
 import { useAudioContext } from '../providers/AppState'
-import ChatTrigger from './ChatTrigger'
-import { useState } from 'react'
 import { cn } from '@/app/lib/utils'
+import AudioPlayer from './AudioPlayer'
 
-export default function Audiobar() {
+export default function PlayerBar() {
   const {
     handleTimeUpdate,
     handleVolumeChange,
     handleVolumeToggle,
-    handleSeek,
     currentTime,
     volume,
     handleTogglePlay,
@@ -40,7 +39,7 @@ export default function Audiobar() {
     setRepeat(!repeat)
   }
 
-  const formatTime = timeInSeconds => {
+  const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60)
     const seconds = Math.floor(timeInSeconds % 60)
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
@@ -53,53 +52,40 @@ export default function Audiobar() {
       </audio>
       <div className="w-full grid grid-cols-3 gap-8">
         <div />
-        <div className="w-full flex flex-col gap-2 items-center justify-center">
-          <div className="flex items-center gap-4">
-            <Shuffle
-              onClick={handleShuffle}
-              className={cn(
-                'opacity-50 hover:opacity-90 transition-opacity duration-300',
-                {
-                  'opacity-100': shuffle
-                }
-              )}
-            />
-            <SkipPrev />
-            <button
-              type="button"
-              onClick={handleTogglePlay}
-              className="outline-none"
-            >
-              {pause ? (
-                <Play className="w-8 h-8" />
-              ) : (
-                <Pause className="w-8 h-8" />
-              )}
-            </button>
-            <SkipNext />
-            <button onClick={handleRepeat}>
-              {repeat ? (
-                <Repeat className="opacity-50 hover:opacity-100 transition-opacity duration-300" />
-              ) : (
-                <RepeatOnce />
-              )}
-            </button>
+        <div className="w-full flex flex-col gap-4 items-center justify-center">
+          <div className="w-full flex flex-col gap-2 items-center justify-center">
+            <p className="font-medium text-xs">
+              {formatTime(currentTime ?? 0)}
+            </p>
+            <div className="w-full flex items-center justify-center gap-4 relative">
+              <SkipPrev className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
+              <ProgressBar
+                audioRef={audioRef}
+                onClick={handleTogglePlay}
+                pause={pause}
+              />
+              <SkipNext className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
+            </div>
           </div>
-          <div className="w-full flex items-center gap-2">
-            <p className="font-medium text-xs">{formatTime(currentTime)}</p>
-            <input
-              type="range"
-              min="0"
-              step="0.1"
-              max={audioRef.current?.duration || 0}
-              value={currentTime}
-              onChange={handleSeek}
-              className="w-full range-slider appearance-none bg-gray-300 h-1 rounded-lg focus:outline-none focus:bg-gray-500 transition-all duration-300"
-            />
-            <p className="font-medium text-xs">3:30</p>
-          </div>
+          <AudioPlayer audioRef={audioRef} />
         </div>
         <div className="flex items-center gap-2 justify-end">
+          <Shuffle
+            onClick={handleShuffle}
+            className={cn(
+              'opacity-70 hover:opacity-90 transition-opacity duration-300',
+              {
+                'opacity-100': shuffle
+              }
+            )}
+          />
+          <button onClick={handleRepeat}>
+            {repeat ? (
+              <Repeat className="opacity-70 hover:opacity-100 transition-opacity duration-300" />
+            ) : (
+              <RepeatOnce />
+            )}
+          </button>
           <ChatTrigger />
           <button className="disabled:opacity-40" disabled>
             <Playlist />
