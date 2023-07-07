@@ -5,12 +5,11 @@ import ListOfSongs from '../../../components/ListOfSongs'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Playlist, Songs, playlists } from '@/app/lib/api-response'
-import { Play, Pause, SkipNext, SkipPrev } from 'iconoir-react'
 import { useAudioContext } from '@/app/providers/AppState'
 import LikeButton from '@/app/components/LikeButton'
 
 export default function Player() {
-  const { handleTogglePlay, pause } = useAudioContext()
+  const { handleTogglePlay } = useAudioContext()
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
   const value = pathname.split('/').pop()

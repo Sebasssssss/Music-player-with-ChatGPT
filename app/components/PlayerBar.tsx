@@ -15,6 +15,7 @@ import {
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
 import AudioPlayer from './AudioPlayer'
+import QueueTrigger from './QueueTrigger'
 
 export default function PlayerBar() {
   const {
@@ -87,9 +88,7 @@ export default function PlayerBar() {
             )}
           </button>
           <ChatTrigger />
-          <button className="disabled:opacity-40" disabled>
-            <Playlist />
-          </button>
+          <QueueTrigger />
           <button className="z-10" onClick={handleVolumeToggle}>
             {volume === 0 ? <SoundOff /> : <SoundHigh />}
           </button>

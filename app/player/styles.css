@@ -305,18 +305,15 @@ input:hover {
   position: relative;
 }
 
-.audio-one {
-  display: flex;
-  grid-column: 1;
-  justify-content: center;
-  align-items: center;
+.carousel {
+  perspective: 120px;
+  transform-style: preserve-3d;
 }
 
-.audio-play,
-.audio-current {
-  margin-right: 0.4rem;
-}
-
-.audio-duration {
-  margin-left: 0.4rem;
+.card-container {
+  transform: rotateY(calc(var(--offset) * 50deg))
+    scaleY(calc(1 + var(--abs-offset) * -0.4))
+    translateZ(calc(var(--abs-offset) * -30rem))
+    translateX(calc(var(--direction) * -5rem));
+  filter: blur(calc(var(--abs-offset) * 1rem));
 }
