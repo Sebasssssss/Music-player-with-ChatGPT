@@ -285,17 +285,17 @@ input:hover {
   transition: transform 250ms ease, background 200ms ease;
 }
 
-.audiobar {
-  transform-origin: center;
-  border-radius: 100%;
-}
-
 .audio-bar {
   width: 96px;
   height: 2px;
   border-radius: 4px;
   overflow: hidden;
   grid-column: 2;
+  transition: all 0.1s;
+}
+
+.audio-bar:hover {
+  height: 5px;
 }
 
 .audio-progress {
@@ -316,4 +316,46 @@ input:hover {
     translateZ(calc(var(--abs-offset) * -30rem))
     translateX(calc(var(--direction) * -5rem));
   filter: blur(calc(var(--abs-offset) * 1rem));
+}
+
+.reflection {
+  -webkit-box-reflect: below 3px
+    linear-gradient(transparent, transparent, #0004);
+  transform: perspective(800px) rotateY(24deg);
+}
+
+.player-cover__item {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.player-cover__item:before {
+  content: '';
+  background: inherit;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
+  display: block;
+  z-index: 1;
+  position: absolute;
+  top: 30px;
+  transform: scale(0.9);
+  filter: blur(10px);
+  opacity: 0.9;
+  border-radius: 15px;
+}
+.player-cover__item:after {
+  content: '';
+  background: inherit;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 10px 40px 0px rgba(76, 70, 124, 0.5);
+  display: block;
+  z-index: 2;
+  position: absolute;
+  border-radius: 15px;
 }

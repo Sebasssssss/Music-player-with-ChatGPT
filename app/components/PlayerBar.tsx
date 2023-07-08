@@ -5,7 +5,6 @@ import ProgressBar from './ProgressBar'
 import {
   SoundHigh,
   SoundOff,
-  Playlist,
   SkipPrev,
   SkipNext,
   Shuffle,

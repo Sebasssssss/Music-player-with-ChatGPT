@@ -53,7 +53,7 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-300 ease-in-out rounded-[32px] aspect-square z-10 not-selectable`}
+            } duration-300 ease-in-out rounded-[32px] aspect-square z-10 not-selectable reflection`}
             onLoadingComplete={() => setIsLoading(false)}
           />
           <Image
@@ -63,7 +63,7 @@ export default function Player() {
             height={400}
             className={`${
               isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-300 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60`}
+            } duration-300 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60 reflection`}
             onLoadingComplete={() => setIsLoading(false)}
           />
         </div>
