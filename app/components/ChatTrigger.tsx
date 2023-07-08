@@ -9,11 +9,11 @@ import ChatInput from './ChatInput'
 
 export default function ChatTrigger() {
   return (
-    <div className="z-20 not-selectable">
+    <div className="z-20 not-selectable grid place-items-center">
       <Popover>
         <PopoverTrigger>
           <svg
-            className="mt-1 hover:opacity-70 active:translate-y-0.5 transition-all duration-300"
+            className="hover:opacity-70 active:translate-y-0.5 transition-all duration-300"
             version="1.0"
             width="20"
             height="20"
