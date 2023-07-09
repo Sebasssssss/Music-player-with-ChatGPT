@@ -1,7 +1,6 @@
 import React, { useState, useRef, ReactNode } from 'react'
-import { ArrowLeft, ArrowRight } from 'iconoir-react'
-import Image from 'next/image'
 import { playlists } from '../lib/api-response'
+import { Play } from 'iconoir-react'
 
 const MAX_VISIBILITY = 3
 
@@ -81,16 +80,17 @@ const Carousel = () => {
             key={playlist.id}
             className="card w-full h-full flex flex-col items-center justify-center gap-2 p-[2rem] transition-all duration-300 ease-out text-black"
           >
-            <Image
-              className="w-40 h-40 rounded-[10px] shados"
-              width={200}
-              height={200}
-              src={playlist.images[0].url}
-              alt={playlist.name}
-              onMouseDown={handleMouseDown}
-            />
-
             <p className="font-medium">{playlist.name}</p>
+            <div className="relative group">
+              <div
+                className="w-40 h-40 rounded-[10px] albumShadow group-hover:blur-sm group-hover:opacity-90 transition-all duration-300"
+                style={{ backgroundImage: `url(${playlist.images[0].url})` }}
+                onMouseDown={handleMouseDown}
+              />
+              <button className="absolute inset-0 flex items-center justify-center invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
+                <Play className="w-12 h-12" />
+              </button>
+            </div>
           </div>
         ))}
       </CarouselContent>

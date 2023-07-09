@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      content: {
+        'empty-space': "''"
+      },
       keyframes: {
         'accordion-down': {
           from: { height: 0 },

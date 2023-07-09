@@ -42,10 +42,20 @@ export default function Player() {
             {topArtists.items
               .map(({ name, images }) => (
                 <div key={name} className="flex flex-col gap-2 w-full relative">
-                  <div
-                    className="w-48 h-48 rounded-[10px] aspect-square shados z-10 player-cover__item"
-                    style={{ backgroundImage: `url(${images[0].url})` }}
-                  ></div>
+                  <Image
+                    src={images[0].url}
+                    width={500}
+                    height={500}
+                    alt=""
+                    className="w-48 h-48 rounded-[10px] aspect-square shados z-10"
+                  />
+                  <Image
+                    src={images[0].url}
+                    width={500}
+                    height={500}
+                    alt=""
+                    className="w-44 h-44 rounded-[10px] aspect-square absolute bottom-8 blur-xl opacity-60"
+                  />
                   <h1 className="font-medium">{name}</h1>
                 </div>
               ))
