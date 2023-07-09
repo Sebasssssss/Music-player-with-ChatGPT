@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 type ProgressBarProps = {
   audioRef: React.RefObject<HTMLAudioElement | null>
@@ -7,6 +7,7 @@ type ProgressBarProps = {
 const ProgressBar: React.FC<ProgressBarProps> = ({ audioRef }) => {
   const audioBarFillRef = useRef<HTMLDivElement>(null)
   const audioBarRef = useRef<HTMLDivElement>(null)
+  const [isDragging, setIsDragging] = useState(false)
 
   useEffect(() => {
     const audio = audioRef.current
@@ -23,6 +24,22 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ audioRef }) => {
       }
     }
 
+    const handleMouseDown = () => {
+      setIsDragging(true)
+    }
+
+    const handleMouseUp = () => {
+      setIsDragging(false)
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging && audio && audioBar && audioBarFill) {
+        const percent = e.offsetX / audioBar.offsetWidth
+        audio.currentTime = percent * audio.duration
+        audioBarFill.style.width = `${percent * 100}%`
+      }
+    }
+
     const handleClick = (e: MouseEvent) => {
       if (audio && audioBar && audioBarFill) {
         const percent = e.offsetX / audioBar.offsetWidth
@@ -33,14 +50,20 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ audioRef }) => {
 
     if (audio && audioBarFill && audioBar) {
       audio.addEventListener('timeupdate', handleTimeUpdate)
+      audioBar.addEventListener('mousedown', handleMouseDown)
+      audioBar.addEventListener('mouseup', handleMouseUp)
+      audioBar.addEventListener('mousemove', handleMouseMove)
       audioBar.addEventListener('click', handleClick)
 
       return () => {
         audio.removeEventListener('timeupdate', handleTimeUpdate)
+        audioBar.removeEventListener('mousedown', handleMouseDown)
+        audioBar.removeEventListener('mouseup', handleMouseUp)
+        audioBar.removeEventListener('mousemove', handleMouseMove)
         audioBar.removeEventListener('click', handleClick)
       }
     }
-  }, [audioRef])
+  }, [audioRef, isDragging])
 
   return (
     <>
