@@ -17,7 +17,7 @@ export function Tooltip() {
             </div>
           </TooltipTrigger>
           <TooltipContent className="w-52 text-left">
-            <p>The song that is selected is the one to be reproduce next</p>
+            <p>The song that is selected is the one to be reproduce next.</p>
           </TooltipContent>
         </Tip>
       </TooltipProvider>

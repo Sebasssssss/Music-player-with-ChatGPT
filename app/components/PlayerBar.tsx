@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import ChatTrigger from './ChatTrigger'
-import ProgressBar from './ProgressBar'
+import VisualizerBar from './VisualizerBar'
 import {
   SoundHigh,
   SoundOff,
@@ -11,10 +11,10 @@ import {
   Repeat,
   RepeatOnce
 } from 'iconoir-react'
+import ProgressBar from './ProgressBar'
+import QueueTrigger from './QueueTrigger'
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
-import AudioPlayer from './AudioPlayer'
-import QueueTrigger from './QueueTrigger'
 
 export default function PlayerBar() {
   const {
@@ -59,15 +59,11 @@ export default function PlayerBar() {
             </p>
             <div className="w-full flex items-center justify-center gap-4 relative">
               <SkipPrev className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
-              <ProgressBar
-                audioRef={audioRef}
-                onClick={handleTogglePlay}
-                pause={pause}
-              />
+              <VisualizerBar audioRef={audioRef} onClick={handleTogglePlay} />
               <SkipNext className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
-          <AudioPlayer audioRef={audioRef} />
+          <ProgressBar audioRef={audioRef} />
         </div>
         <div className="flex items-center gap-2 justify-end">
           <Shuffle

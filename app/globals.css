@@ -444,18 +444,18 @@ input:hover {
   box-shadow: 0 0 0 4px rgb(0 0 0 / 10%);
 }
 
-.audio-container {
+.visualizer-container {
   height: 20px;
   display: flex;
   gap: 0.2rem;
   justify-content: space-between;
 }
 
-.audio-container:hover {
+.visualizer-container:hover {
   cursor: pointer;
 }
 
-.audio-container div {
+.visualizer-container div {
   width: 2px;
   background: #9696a0;
   transition: transform 250ms ease, background 200ms ease;
@@ -496,7 +496,7 @@ input:hover {
 
 .reflection {
   -webkit-box-reflect: below 3px
-    linear-gradient(transparent, transparent, #0004);
+    linear-gradient(transparent, transparent, #fff4);
   transform: perspective(800px) rotateY(24deg);
 }
 

@@ -1,63 +1,54 @@
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
-export default function ProgressBar({ audioRef, onClick, pause }) {
-  const barsRef = useRef<NodeListOf<HTMLElement> | null>(null)
-  const audioContainerRef = useRef<HTMLDivElement | null>(null)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+type ProgressBarProps = {
+  audioRef: React.RefObject<HTMLAudioElement | null>
+}
+
+const ProgressBar: React.FC<ProgressBarProps> = ({ audioRef }) => {
+  const audioBarFillRef = useRef<HTMLDivElement>(null)
+  const audioBarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    barsRef.current = document.querySelectorAll('.audiobar')
-    audioContainerRef.current = document.querySelector('.audio-container')
-    audioRef.current = document.querySelector('audio')
+    const audio = audioRef.current
+    const audioBarFill = audioBarFillRef.current
+    const audioBar = audioBarRef.current
 
-    barsRef.current?.forEach(bar => {
-      let size = Math.random()
-      bar.style.transform = `scaleY(${size})`
-    })
-
-    const handleClick = () => {
-      const bars = barsRef.current
-      const audio = audioRef.current
-
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current)
-        if (audio) audio.pause()
-        intervalRef.current = null
-
-        bars?.forEach(bar => {
-          bar.style.background = '#9696a0'
-        })
-        return
-      } else {
-        if (audio) audio.play()
-        intervalRef.current = setInterval(() => {
-          bars?.forEach(bar => {
-            let size = Math.random()
-            bar.style.transform = `scaleY(${size})`
-            bar.style.background = 'black'
-          })
-        }, 150)
+    const handleTimeUpdate = () => {
+      if (audio && audioBarFill) {
+        const juicePos = audio.currentTime / audio.duration
+        audioBarFill.style.width = `${juicePos * 100}%`
+        if (audio.currentTime === audio.duration) {
+          audioBarFill.style.width = '0'
+        }
       }
     }
 
-    const handleAudioEnded = () => {
-      clearInterval(intervalRef.current as NodeJS.Timeout)
+    const handleClick = (e: MouseEvent) => {
+      if (audio && audioBar && audioBarFill) {
+        const percent = e.offsetX / audioBar.offsetWidth
+        audio.currentTime = percent * audio.duration
+        audioBarFill.style.width = `${percent * 100}%`
+      }
     }
 
-    audioContainerRef.current?.addEventListener('click', handleClick)
-    audioRef.current?.addEventListener('ended', handleAudioEnded)
+    if (audio && audioBarFill && audioBar) {
+      audio.addEventListener('timeupdate', handleTimeUpdate)
+      audioBar.addEventListener('click', handleClick)
 
-    return () => {
-      audioContainerRef.current?.removeEventListener('click', handleClick)
-      audioRef.current?.removeEventListener('ended', handleAudioEnded)
+      return () => {
+        audio.removeEventListener('timeupdate', handleTimeUpdate)
+        audioBar.removeEventListener('click', handleClick)
+      }
     }
   }, [audioRef])
 
   return (
-    <div className="audio-container" onClick={onClick}>
-      {Array.from({ length: 50 }).map((_, index) => (
-        <div key={index} className="audiobar"></div>
-      ))}
-    </div>
+    <>
+      <div className="audio-bar bg-black/30" ref={audioBarRef}>
+        <div className="audio-progress bg-black" ref={audioBarFillRef}></div>
+      </div>
+    </>
   )
 }
+
+export default ProgressBar
