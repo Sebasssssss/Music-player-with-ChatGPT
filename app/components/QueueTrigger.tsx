@@ -4,8 +4,9 @@ import {
   PopoverContent,
   PopoverTrigger
 } from '@/app/components/ui/popover'
-import { InfoEmpty, Playlist } from 'iconoir-react'
+import { Playlist } from 'iconoir-react'
 import Carousel from './Carousel'
+import { Tooltip } from './Tooltip'
 
 export default function QueueTrigger() {
   return (
@@ -15,9 +16,7 @@ export default function QueueTrigger() {
           <Playlist />
         </PopoverTrigger>
         <PopoverContent className="h-80 w-80 bg-white rounded-[10px] grid place-items-center gap-4 shados overflow-hidden px-8">
-          <div className="absolute top-2 left-2">
-            <InfoEmpty className="opacity-70 hover:opacity-90 transition-opacity duration-300" />
-          </div>
+          <Tooltip />
           <h1 className="absolute top-4 text-lg font-medium">
             Comming next...
           </h1>

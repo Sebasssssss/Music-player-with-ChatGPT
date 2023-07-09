@@ -1,6 +1,6 @@
 import React, { useState, useRef, ReactNode } from 'react'
 import { playlists } from '../lib/api-response'
-import { Play } from 'iconoir-react'
+import { NavArrowLeft, NavArrowRight } from 'iconoir-react'
 
 const MAX_VISIBILITY = 3
 
@@ -40,11 +40,23 @@ const CarouselContent: React.FC<CarouselProps> = ({ children }) => {
     document.removeEventListener('mouseup', handleMouseUp)
   }
 
+  const handleMouseDownLeft = () => {
+    setActive(prevActive => Math.max(prevActive - 1, 0))
+  }
+
+  const handleMouseDownRight = () => {
+    setActive(prevActive => Math.min(prevActive + 1, count - 1))
+  }
+
   return (
     <div
       className="carousel relative w-full h-full grid place-items-center"
       ref={containerRef}
     >
+      <NavArrowLeft
+        className="absolute -left-8 w-16 h-16"
+        onMouseDown={handleMouseDownLeft}
+      />
       {React.Children.map(children, (child, i) => (
         <div
           className="card-container absolute w-full h-full transition-all duration-300 ease-out"
@@ -63,6 +75,10 @@ const CarouselContent: React.FC<CarouselProps> = ({ children }) => {
           })}
         </div>
       ))}
+      <NavArrowRight
+        className="absolute -right-8 w-16 h-16"
+        onMouseDown={handleMouseDownRight}
+      />
     </div>
   )
 }
@@ -83,13 +99,10 @@ const Carousel = () => {
             <p className="font-medium">{playlist.name}</p>
             <div className="relative group">
               <div
-                className="w-40 h-40 rounded-[10px] albumShadow group-hover:blur-sm group-hover:opacity-90 transition-all duration-300"
+                className="w-40 h-40 rounded-[10px] albumShadow"
                 style={{ backgroundImage: `url(${playlist.images[0].url})` }}
                 onMouseDown={handleMouseDown}
               />
-              <button className="absolute inset-0 flex items-center justify-center invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-300">
-                <Play className="w-12 h-12" />
-              </button>
             </div>
           </div>
         ))}
