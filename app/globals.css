@@ -68,15 +68,6 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 :root {
   --bg: #f0dba5;
   --text: #151515;
