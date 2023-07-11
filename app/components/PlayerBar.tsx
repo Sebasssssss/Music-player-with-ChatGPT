@@ -24,8 +24,7 @@ export default function PlayerBar() {
     currentTime,
     volume,
     handleTogglePlay,
-    audioRef,
-    pause
+    audioRef
   } = useAudioContext()
 
   const [repeat, setRepeat] = useState(true)
