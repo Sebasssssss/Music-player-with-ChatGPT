@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import ChatTrigger from './ChatTrigger'
 import VisualizerBar from './VisualizerBar'
 import {
@@ -16,9 +16,12 @@ import QueueTrigger from './QueueTrigger'
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
 import Image from 'next/image'
-import template from '@/public/album.png'
+import template from '../../public/malone.jpg'
 
 export default function PlayerBar() {
+  const songTitleRef = useRef<HTMLHeadingElement>(null)
+  const [isMarquee, setIsMarquee] = useState(false)
+
   const {
     handleTimeUpdate,
     handleVolumeChange,
@@ -47,6 +50,25 @@ export default function PlayerBar() {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
   }
 
+  useEffect(() => {
+    const songTitle = songTitleRef.current
+    const observer = new ResizeObserver(() => {
+      const containerWidth = songTitle?.offsetWidth ?? 0
+      const textWidth = songTitle?.scrollWidth ?? 0
+      setIsMarquee(textWidth > containerWidth)
+    })
+
+    if (songTitle) {
+      observer.observe(songTitle)
+    }
+
+    return () => {
+      if (songTitle) {
+        observer.unobserve(songTitle)
+      }
+    }
+  }, [])
+
   return (
     <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
@@ -54,23 +76,26 @@ export default function PlayerBar() {
       </audio>
       <div className="w-full grid grid-cols-3 gap-8 relative">
         <div />
-        <div className="absolute left-4 bottom-4 inline-flex items-baseline gap-2">
+
+        <div className="absolute left-4 bottom-4 gap-2 flex items-end">
           <div className="relative">
             <Image
-              className={cn('rounded-full shados', {
-                'animate-spin': !pause
-              })}
+              className="rounded-full shados"
               src={template}
               alt=""
-              height={100}
-              width={100}
-              style={{ animationDuration: '5s' }}
+              height={120}
+              width={120}
             />
-            <div className="w-6 h-6 rounded-full bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            <div className="w-8 h-8 rounded-full bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
-          <div className="flex flex-col">
-            <h1 className="font-medium">Midnight Magic</h1>
-            <p className="opacity-70 text-xs">Sanam Marufkhani</p>
+          <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden">
+            <h1
+              className={`font-medium max-w-full ${isMarquee ? 'marquee' : ''}`}
+              ref={songTitleRef}
+            >
+              Sunflower - Spider-Man
+            </h1>
+            <p className="opacity-70 text-xs">Post Malone</p>
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 items-center justify-center">
