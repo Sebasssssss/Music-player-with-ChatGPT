@@ -15,6 +15,8 @@ import ProgressBar from './ProgressBar'
 import QueueTrigger from './QueueTrigger'
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
+import Image from 'next/image'
+import template from '@/public/album.png'
 
 export default function PlayerBar() {
   const {
@@ -23,6 +25,7 @@ export default function PlayerBar() {
     handleVolumeToggle,
     currentTime,
     volume,
+    pause,
     handleTogglePlay,
     audioRef
   } = useAudioContext()
@@ -49,8 +52,27 @@ export default function PlayerBar() {
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>
-      <div className="w-full grid grid-cols-3 gap-8">
+      <div className="w-full grid grid-cols-3 gap-8 relative">
         <div />
+        <div className="absolute left-4 bottom-4 inline-flex items-baseline gap-2">
+          <div className="relative">
+            <Image
+              className={cn('rounded-full shados', {
+                'animate-spin': !pause
+              })}
+              src={template}
+              alt=""
+              height={100}
+              width={100}
+              style={{ animationDuration: '5s' }}
+            />
+            <div className="w-6 h-6 rounded-full bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+          </div>
+          <div className="flex flex-col">
+            <h1 className="font-medium">Midnight Magic</h1>
+            <p className="opacity-70 text-xs">Sanam Marufkhani</p>
+          </div>
+        </div>
         <div className="w-full flex flex-col gap-4 items-center justify-center">
           <div className="w-full flex flex-col gap-2 items-center justify-center">
             <p className="font-medium text-xs">
