@@ -80,13 +80,13 @@ export default function PlayerBar() {
         <div className="absolute left-4 bottom-4 gap-2 flex items-end">
           <div className="relative">
             <Image
-              className="rounded-full shados"
+              className="rounded-full shadow-2xl border-2 border-white"
               src={template}
               alt=""
               height={120}
               width={120}
             />
-            <div className="w-8 h-8 rounded-full bg-black absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden">
             <h1

@@ -1,13 +1,11 @@
 'use client'
-import { useState } from 'react'
 import Image from 'next/image'
-import { playlists, spotifyTopArtists } from '../lib/api-response'
+import AlbumVinyl from '../components/AlbumVinyl'
+import { playlists } from '../lib/api-response'
 import { Play } from 'iconoir-react'
 import { getGreeting } from '../lib/getGreeting'
 
 export default function Player() {
-  const [topArtists, setTopArtists] = useState(spotifyTopArtists)
-
   return (
     <div className="overflow-hidden w-full h-screen bg-gradient-to-b from-[#ffeddf] to-[#ecdff7]">
       <div className="container mx-auto flex flex-col gap-8">
@@ -36,32 +34,7 @@ export default function Player() {
             ))
             .slice(0, 6)}
         </div>
-        <div>
-          <h1 className="font-semibold pt-8 pb-2 text-xl">Top artists</h1>
-          <div className="flex items-center w-full gap-8">
-            {topArtists.items
-              .map(({ name, images }) => (
-                <div key={name} className="flex flex-col gap-2 w-full relative">
-                  <Image
-                    src={images[0].url}
-                    width={500}
-                    height={500}
-                    alt=""
-                    className="w-48 h-48 rounded-[10px] aspect-square shados z-10"
-                  />
-                  <Image
-                    src={images[0].url}
-                    width={500}
-                    height={500}
-                    alt=""
-                    className="w-44 h-44 rounded-[10px] aspect-square absolute bottom-8 blur-xl opacity-60"
-                  />
-                  <h1 className="font-medium">{name}</h1>
-                </div>
-              ))
-              .slice(0, 7)}
-          </div>
-        </div>
+        <AlbumVinyl />
       </div>
     </div>
   )
