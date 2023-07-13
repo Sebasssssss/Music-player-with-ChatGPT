@@ -19,8 +19,6 @@ import Image from 'next/image'
 import { Songs } from '../lib/api-response'
 
 export default function PlayerBar() {
-  const songTitleRef = useRef<HTMLHeadingElement>(null)
-
   const {
     handleTimeUpdate,
     handleVolumeChange,
@@ -96,7 +94,7 @@ export default function PlayerBar() {
             <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
-            <h1 className="font-medium max-w-full" ref={songTitleRef}>
+            <h1 className="font-medium max-w-full">
               {Songs[currentSongIndexState].name}
             </h1>
             <p className="opacity-70 text-xs">

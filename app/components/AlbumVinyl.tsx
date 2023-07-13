@@ -15,7 +15,7 @@ export default function AlbumVinyl() {
                        url('https://hiphop-n-more.com/wp-content/uploads/2016/11/post-malone-stoney-768x768.jpg')`
           }}
           className={cn(
-            'vinyl rounded-full w-[300px] h-[300px] absolute top-[5px] left-0',
+            'vinyl rounded-full w-[300px] h-[300px] absolute top-[5px] left-2',
             {
               'is-playing': !pause
             }
