@@ -17,6 +17,7 @@ import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
 import Image from 'next/image'
 import { Songs } from '../lib/api-response'
+import ContextMenu from './ContextMenu'
 
 export default function PlayerBar() {
   const {
@@ -94,9 +95,11 @@ export default function PlayerBar() {
             <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
-            <h1 className="font-medium max-w-full">
-              {Songs[currentSongIndexState].name}
-            </h1>
+            <ContextMenu name={Songs[currentSongIndexState].name}>
+              <h1 className="font-medium max-w-full">
+                {Songs[currentSongIndexState].name}
+              </h1>
+            </ContextMenu>
             <p className="opacity-70 text-xs">
               {Songs[currentSongIndexState].artists}
             </p>
