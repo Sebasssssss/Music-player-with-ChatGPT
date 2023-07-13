@@ -453,23 +453,7 @@ input:hover {
 }
 
 .audio-bar {
-  width: 96px;
-  height: 2px;
-  border-radius: 4px;
-  overflow: hidden;
   grid-column: 2;
-  transition: all 0.1s;
-}
-
-.audio-bar:hover {
-  height: 5px;
-}
-
-.audio-progress {
-  height: 5px;
-  width: 0;
-  border-radius: 4px;
-  position: relative;
 }
 
 .carousel {
