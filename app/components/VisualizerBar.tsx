@@ -1,14 +1,11 @@
 import { useEffect, useRef } from 'react'
 
-export default function VisualizerBar({ audioRef, onClick }) {
+export default function VisualizerBar({ onClick, pause }) {
   const barsRef = useRef<NodeListOf<HTMLElement> | null>(null)
-  const audioContainerRef = useRef<HTMLDivElement | null>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     barsRef.current = document.querySelectorAll('.bars')
-    audioContainerRef.current = document.querySelector('.visualizer-container')
-    audioRef.current = document.querySelector('audio')
 
     barsRef.current?.forEach(bar => {
       let size = Math.random()
@@ -17,19 +14,18 @@ export default function VisualizerBar({ audioRef, onClick }) {
 
     const handleClick = () => {
       const bars = barsRef.current
-      const audio = audioRef.current
 
       if (intervalRef.current) {
         clearInterval(intervalRef.current)
-        if (audio) audio.pause()
-        intervalRef.current = null
 
         bars?.forEach(bar => {
           bar.style.background = '#9696a0'
         })
+
+        intervalRef.current = null
+
         return
       } else {
-        if (audio) audio.play()
         intervalRef.current = setInterval(() => {
           bars?.forEach(bar => {
             let size = Math.random()
@@ -40,18 +36,38 @@ export default function VisualizerBar({ audioRef, onClick }) {
       }
     }
 
-    const handleAudioEnded = () => {
-      clearInterval(intervalRef.current as NodeJS.Timeout)
-    }
-
-    audioContainerRef.current?.addEventListener('click', handleClick)
-    audioRef.current?.addEventListener('ended', handleAudioEnded)
+    const audioContainerRef = document.querySelector('.visualizer-container')
+    audioContainerRef?.addEventListener('click', handleClick)
 
     return () => {
-      audioContainerRef.current?.removeEventListener('click', handleClick)
-      audioRef.current?.removeEventListener('ended', handleAudioEnded)
+      audioContainerRef?.removeEventListener('click', handleClick)
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current)
+      }
     }
-  }, [audioRef])
+  }, [])
+
+  useEffect(() => {
+    const bars = barsRef.current
+
+    if (pause && intervalRef.current) {
+      clearInterval(intervalRef.current)
+
+      bars?.forEach(bar => {
+        bar.style.background = '#9696a0'
+      })
+
+      intervalRef.current = null
+    } else if (!pause && !intervalRef.current) {
+      intervalRef.current = setInterval(() => {
+        bars?.forEach(bar => {
+          let size = Math.random()
+          bar.style.transform = `scaleY(${size})`
+          bar.style.background = 'black'
+        })
+      }, 150)
+    }
+  }, [pause])
 
   return (
     <div className="visualizer-container" onClick={onClick}>

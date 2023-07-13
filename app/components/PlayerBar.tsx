@@ -105,7 +105,7 @@ export default function PlayerBar() {
             </p>
             <div className="w-full flex items-center justify-center gap-4 relative">
               <SkipPrev className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
-              <VisualizerBar audioRef={audioRef} onClick={handleTogglePlay} />
+              <VisualizerBar onClick={handleTogglePlay} pause={pause} />
               <SkipNext className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
