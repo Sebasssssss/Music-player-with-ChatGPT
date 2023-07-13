@@ -16,11 +16,10 @@ import QueueTrigger from './QueueTrigger'
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
 import Image from 'next/image'
-import template from '../../public/malone.jpg'
+import { Songs } from '../lib/api-response'
 
 export default function PlayerBar() {
   const songTitleRef = useRef<HTMLHeadingElement>(null)
-  const [isMarquee, setIsMarquee] = useState(false)
 
   const {
     handleTimeUpdate,
@@ -30,18 +29,29 @@ export default function PlayerBar() {
     volume,
     pause,
     handleTogglePlay,
-    audioRef
+    audioRef,
+    shuffle,
+    repeat,
+    handleShuffle,
+    handleRepeat
   } = useAudioContext()
 
-  const [repeat, setRepeat] = useState(true)
-  const [shuffle, setShuffle] = useState(false)
+  const [currentSongIndexState, setCurrentSongIndexState] = useState(() => {
+    const savedIndex = localStorage.getItem('currentSongIndex')
+    return savedIndex ? Number(savedIndex) : 0
+  })
 
-  const handleShuffle = () => {
-    setShuffle(!shuffle)
-  }
-
-  const handleRepeat = () => {
-    setRepeat(!repeat)
+  const handleSkipNext = () => {
+    setCurrentSongIndexState(prevIndex => {
+      let newIndex = prevIndex + 1
+      if (shuffle) {
+        newIndex = Math.floor(Math.random() * Songs.length)
+      }
+      if (newIndex >= Songs.length) {
+        newIndex = 0
+      }
+      return newIndex
+    })
   }
 
   const formatTime = (timeInSeconds: number) => {
@@ -50,24 +60,22 @@ export default function PlayerBar() {
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
   }
 
-  useEffect(() => {
-    const songTitle = songTitleRef.current
-    const observer = new ResizeObserver(() => {
-      const containerWidth = songTitle?.offsetWidth ?? 0
-      const textWidth = songTitle?.scrollWidth ?? 0
-      setIsMarquee(textWidth > containerWidth)
-    })
-
-    if (songTitle) {
-      observer.observe(songTitle)
-    }
-
-    return () => {
-      if (songTitle) {
-        observer.unobserve(songTitle)
+  const handleSkipPrev = () => {
+    setCurrentSongIndexState(prevIndex => {
+      let newIndex = prevIndex - 1
+      if (shuffle) {
+        newIndex = Math.floor(Math.random() * Songs.length)
       }
-    }
-  }, [])
+      if (newIndex < 0) {
+        newIndex = Songs.length - 1
+      }
+      return newIndex
+    })
+  }
+
+  useEffect(() => {
+    localStorage.setItem('currentSongIndex', String(currentSongIndexState))
+  }, [currentSongIndexState])
 
   return (
     <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white rounded-[10px] z-20">
@@ -76,26 +84,24 @@ export default function PlayerBar() {
       </audio>
       <div className="w-full grid grid-cols-3 gap-8 relative">
         <div />
-
         <div className="absolute left-4 bottom-4 gap-2 flex items-end">
           <div className="relative">
             <Image
               className="rounded-full shadow-2xl border-2 border-white"
-              src={template}
+              src={Songs[currentSongIndexState].image}
               alt=""
               height={120}
               width={120}
             />
             <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
-          <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden">
-            <h1
-              className={`font-medium max-w-full ${isMarquee ? 'marquee' : ''}`}
-              ref={songTitleRef}
-            >
-              Sunflower - Spider-Man
+          <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
+            <h1 className="font-medium max-w-full" ref={songTitleRef}>
+              {Songs[currentSongIndexState].name}
             </h1>
-            <p className="opacity-70 text-xs">Post Malone</p>
+            <p className="opacity-70 text-xs">
+              {Songs[currentSongIndexState].artists}
+            </p>
           </div>
         </div>
         <div className="w-full flex flex-col gap-4 items-center justify-center">
@@ -104,9 +110,15 @@ export default function PlayerBar() {
               {formatTime(currentTime ?? 0)}
             </p>
             <div className="w-full flex items-center justify-center gap-4 relative">
-              <SkipPrev className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
+              <SkipPrev
+                onClick={handleSkipPrev}
+                className="hover:opacity-70 active:opacity-100 transition-opacity duration-300"
+              />
               <VisualizerBar onClick={handleTogglePlay} pause={pause} />
-              <SkipNext className="hover:opacity-70 active:opacity-100 transition-opacity duration-300" />
+              <SkipNext
+                onClick={handleSkipNext}
+                className="hover:opacity-70 active:opacity-100 transition-opacity duration-300"
+              />
             </div>
           </div>
           <ProgressBar audioRef={audioRef} />

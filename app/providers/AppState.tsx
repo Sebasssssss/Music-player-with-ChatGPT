@@ -19,6 +19,10 @@ interface AudioContextValue {
   handleVolumeChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleTogglePlay?: () => void
   handleVolumeToggle?: () => void
+  handleShuffle?: () => void
+  handleRepeat?: () => void
+  shuffle?: boolean
+  repeat?: boolean
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
@@ -35,6 +39,16 @@ export const AudioProvider = ({ children }) => {
   })
   const [pause, setPause] = useState(true)
   const audioElement = audioRef.current
+  const [repeat, setRepeat] = useState(true)
+  const [shuffle, setShuffle] = useState(false)
+
+  const handleShuffle = () => {
+    setShuffle(!shuffle)
+  }
+
+  const handleRepeat = () => {
+    setRepeat(!repeat)
+  }
 
   const handleTimeUpdate = () => {
     if (audioElement) {
@@ -115,7 +129,11 @@ export const AudioProvider = ({ children }) => {
     handleSeek,
     handleVolumeChange,
     handleVolumeToggle,
-    handleTogglePlay
+    handleTogglePlay,
+    handleShuffle,
+    handleRepeat,
+    shuffle,
+    repeat
   }
 
   return (

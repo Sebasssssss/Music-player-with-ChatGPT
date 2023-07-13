@@ -25,7 +25,7 @@ export default function ListOfSongs() {
           <ContextMenu key={song.id} name={song.name}>
             <li
               onDoubleClick={() => handleDoubleClick(index)}
-              className="flex h-[4em] items-center justify-between w-full gap-8 rounded-xl px-6 group"
+              className="flex h-[4em] items-center justify-between w-96 gap-8 rounded-xl px-6 group"
             >
               {activeIndex === index ? (
                 <>
@@ -69,7 +69,7 @@ export default function ListOfSongs() {
                   </span>
                 </div>
               )}
-              <p className="whitespace-nowrap overflow-hidden w-max">
+              <p className="whitespace-nowrap overflow-hidden w-max text-ellipsis">
                 {song.name}
               </p>
               <span>{song.duration}</span>

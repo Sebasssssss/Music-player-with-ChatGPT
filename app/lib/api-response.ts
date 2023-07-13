@@ -1,8 +1,3 @@
-export interface Song {
-  id: number
-  name: string
-  duration: string
-}
 export interface Playlist {
   id: string
   name: string
@@ -208,68 +203,90 @@ export const playlists: Playlist[] = [
 export const Songs = [
   {
     id: 1,
-    name: 'Midnight Magic',
+    name: 'Sunflower - Spider-Man: Into the Spider-Verse',
+    artists: 'Post Malone',
     duration: '3:45',
-    isCurrentlyPlaying: true
+    image:
+      'https://i.pinimg.com/736x/1d/aa/7c/1daa7c3e64211cdde091c4f882ad4309.jpg'
   },
   {
     id: 2,
-    name: 'Dancing in the Moonlight',
+    name: 'No Lie',
+    artists: 'Sean Paul, Dual Lipa',
     duration: '3:15',
-    isCurrentlyPlaying: false
+    image:
+      'https://t2.genius.com/unsafe/252x252/https%3A%2F%2Fimages.genius.com%2Fe26e8a411e1477de88fd1b2011556839.1000x1000x1.jpg'
   },
   {
     id: 3,
-    name: 'Nighttime Serenade',
+    name: 'Bohemian Rhapsody',
+    artists: 'Queen',
     duration: '4:30',
-    isCurrentlyPlaying: false
+    image:
+      'https://www.udiscovermusic.com/wp-content/uploads/2018/09/Queen-Bohemian-Rhapsody-The-Original-Soundtrack-Cover-Art.jpeg.jpg'
   },
   {
     id: 4,
-    name: 'Nocturnal Groove',
-    duration: '4:10',
-    isCurrentlyPlaying: false
+    name: 'Hotel California',
+    artists: 'Eagles',
+    duration: '6:30',
+    image:
+      'https://th.bing.com/th/id/R.4143ea7be494564e7dfd4e8f042d2fa3?rik=emCTRMrdP8J2Ww&pid=ImgRaw&r=0'
   },
   {
     id: 5,
-    name: 'Moonlit Melody',
-    duration: '3:50',
-    isCurrentlyPlaying: false
+    name: 'Thriller',
+    artists: 'Michael Jackson',
+    duration: '5:57',
+    image:
+      'https://th.bing.com/th/id/OIP.1ZlrWgVh4RUr_hX3mvq-egHaHa?pid=ImgDet&rs=1'
   },
   {
     id: 6,
-    name: 'Silent Nightfall',
-    duration: '4:20',
-    isCurrentlyPlaying: false
+    name: 'Imagine',
+    artists: 'John Lennon',
+    duration: '3:03',
+    image:
+      'https://th.bing.com/th/id/R.d97abbf6ca4ab4e0c9f4da48b900d99a?rik=AEzDTuKidZZYUw&riu=http%3a%2f%2fimg.wennermedia.com%2f920-width%2frs-136868-0b79ac312d1402b86d803ab464e58c456277e9fc.jpg&ehk=5S1B6Pr3bjcHntJFAOKE86nWBVKQpDD8PfU8d66NUKg%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 7,
-    name: 'Nighttime Reverie',
-    duration: '4:05',
-    isCurrentlyPlaying: false
+    name: 'Hey Jude',
+    artists: 'The Beatles',
+    duration: '7:11',
+    image:
+      'https://th.bing.com/th/id/R.81c8c0acb1b3603da3eff94c74011067?rik=dMv20s0xd65kqg&pid=ImgRaw&r=0'
   },
   {
     id: 8,
-    name: 'Starry Night Jam',
-    duration: '3:55',
-    isCurrentlyPlaying: false
+    name: 'Like a Rolling Stone',
+    artists: 'Bob Dylan',
+    duration: '6:13',
+    image:
+      'https://th.bing.com/th/id/R.6308be7d91435a77af94ff989cc6d963?rik=PceX9wmYc5Tteg&pid=ImgRaw&r=0'
   },
   {
     id: 9,
-    name: 'Moonbeam Sonata',
-    duration: '4:25',
-    isCurrentlyPlaying: false
+    name: 'Stairway to Heaven',
+    artists: 'Led Zeppelin',
+    duration: '8:02',
+    image:
+      'https://th.bing.com/th/id/R.4bda3ad78c2a6f493dfbc3cfbfa98e83?rik=5MzR5NYGaZ263g&pid=ImgRaw&r=0'
   },
   {
     id: 10,
-    name: 'Dreamy Nocturne',
-    duration: '4:00',
-    isCurrentlyPlaying: false
+    name: 'Smells Like Teen Spirit',
+    artists: 'Nirvana',
+    duration: '5:01',
+    image:
+      'https://th.bing.com/th/id/R.02685d922f28673c62f9fa5b5a8aaf42?rik=ofl9iZ8lv2hRIw&riu=http%3a%2f%2fcuteculturechick.com%2fwp-content%2fuploads%2f2012%2f12%2fNirvana-Smells-Like-Teen-Spirit.jpg&ehk=7e2SfG4OQrDnYbkwUvqPWWjMos%2fQxGvzCtMnRKA8rFc%3d&risl=&pid=ImgRaw&r=0'
   },
   {
     id: 11,
-    name: 'Nightfall Rendezvous',
-    duration: '4:15',
-    isCurrentlyPlaying: false
+    name: "Sweet Child o' Mine",
+    artists: "Guns N' Roses",
+    duration: '5:55',
+    image:
+      'https://th.bing.com/th/id/R.4b3629528430b69aea9c8d2e5005d74d?rik=kbP0wV8J%2bS6w6Q&pid=ImgRaw&r=0'
   }
 ]

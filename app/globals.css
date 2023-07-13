@@ -509,19 +509,6 @@ input:hover {
   border-radius: 15px;
 }
 
-.marquee {
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 .vinyl {
   animation: spin 2s linear infinite;
   transition: all 500ms;
