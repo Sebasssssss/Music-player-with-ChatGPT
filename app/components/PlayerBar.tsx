@@ -96,7 +96,7 @@ export default function PlayerBar() {
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
             <ContextMenu name={Songs[currentSongIndexState].name}>
-              <h1 className="font-medium max-w-full">
+              <h1 className="font-medium max-w-full cursor-pointer">
                 {Songs[currentSongIndexState].name}
               </h1>
             </ContextMenu>
