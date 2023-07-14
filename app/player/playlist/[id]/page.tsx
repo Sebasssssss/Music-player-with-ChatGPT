@@ -72,13 +72,12 @@ export default function Player() {
             <h1 className="text-xl font-bold flex flex-col">
               {decodeURI(selectedPlaylist?.name)}
               <span className="text-xs">
-                {selectedPlaylist?.description}
-                <br /> 2018 • {Songs.length} songs
+                2018 • {selectedPlaylist?.tracks.total} songs • 1 hr 8 min
               </span>
             </h1>
             <LikeButton />
           </div>
-          <ListOfSongs />
+          <ListOfSongs songs={selectedPlaylist?.songs} />
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ export interface Playlist {
 export const playlists: Playlist[] = [
   {
     id: '1',
-    name: 'Chill Vibes',
+    name: 'Me 4 U',
     description: 'Relax and unwind with these soothing tracks.',
     tracks: {
       total: 52
@@ -28,7 +28,7 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1524419986249-348e8fa6ad4a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+        url: 'https://th.bing.com/th/id/R.8c392f7f495016e1201163221a9e6a90?rik=2kkpPiqXrsvs5Q&riu=http%3a%2f%2fhushhushbiz.com%2fwp-content%2fuploads%2f2015%2f09%2fOMI-ME4U.jpg&ehk=vrsALlGRA9k%2fD%2fgsITWFJ1LMbmM8OAVYQbHJe5ANQas%3d&risl=&pid=ImgRaw&r=0',
         width: 640,
         height: 640
       }
@@ -36,8 +36,9 @@ export const playlists: Playlist[] = [
   },
   {
     id: '2',
-    name: 'Summer Hits',
-    description: 'The hottest tracks of the summer!',
+    name: 'Battleground',
+    description:
+      'https://images-na.ssl-images-amazon.com/images/I/71aa0hLghgL._AC_SX679_.jpg',
     tracks: {
       total: 76
     },
@@ -54,7 +55,7 @@ export const playlists: Playlist[] = [
   },
   {
     id: '3',
-    name: 'Throwback Jams',
+    name: 'Stoney (Deluxe)',
     description: 'Rediscover classic hits from the past.',
     tracks: {
       total: 98
@@ -64,7 +65,7 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1686007576593-e246e858a383?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMnx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60',
+        url: 'https://th.bing.com/th/id/R.666f62816d6648b4945b4773f9f46e03?rik=5fPUPg9qHCpl7Q&riu=http%3a%2f%2fhiphop-n-more.com%2fwp-content%2fuploads%2f2016%2f11%2fpost-malone-stoney.jpg&ehk=P2Bt6dL1xp1xK1Nzf%2f7sIspar%2bunL6SsfR7Z6dLx%2fLY%3d&risl=&pid=ImgRaw&r=0',
         width: 640,
         height: 640
       }
@@ -72,7 +73,7 @@ export const playlists: Playlist[] = [
   },
   {
     id: '4',
-    name: 'Road Trip Mix',
+    name: 'TESTING',
     description: 'Hit the road with these energetic tunes.',
     tracks: {
       total: 64
@@ -82,7 +83,7 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1685857011630-cef679285c9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxNXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+        url: 'https://th.bing.com/th/id/OIP.TCJ_HtIyRf6hqWrHrkqyxgHaHa?pid=ImgDet&rs=1',
         width: 640,
         height: 640
       }
