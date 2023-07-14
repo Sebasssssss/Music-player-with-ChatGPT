@@ -272,7 +272,7 @@ export const Songs = [
     artists: 'Led Zeppelin',
     duration: '8:02',
     image:
-      'https://th.bing.com/th/id/R.c6e0f71f72c75ff8e8a302cc59f9ad68?rik=Lc4FrS%2bcwWplzQ&pid=ImgRaw&r=0'
+      'https://th.bing.com/th/id/R.dd914647eb361097d77f3070d1a26f59?rik=tUYTbtXwylXXXg&pid=ImgRaw&r=0'
   },
   {
     id: 10,

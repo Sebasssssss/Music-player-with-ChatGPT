@@ -84,13 +84,13 @@ export default function PlayerBar() {
       <div className="w-full grid grid-cols-3 gap-8 relative">
         <div />
         <div className="absolute left-4 bottom-4 gap-2 flex items-end">
-          <div className="relative">
+          <div className="relative w-32 h-32">
             <Image
-              className="rounded-full shadow-2xl border-2 border-white"
+              className="rounded-full shadow-2xl border-2 border-white object-cover"
               src={Songs[currentSongIndexState].image}
               alt=""
-              height={120}
-              width={120}
+              height={128}
+              width={128}
             />
             <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
