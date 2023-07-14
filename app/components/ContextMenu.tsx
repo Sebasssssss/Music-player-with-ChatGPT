@@ -20,7 +20,7 @@ export default function ContextMenu({ children, name }) {
 
   return (
     <Context>
-      <ContextMenuTrigger className="w-full cursor-pointer">
+      <ContextMenuTrigger className="w-full">
         {children}
       </ContextMenuTrigger>
       <ContextMenuContent className="w-52 bg-white shados">
