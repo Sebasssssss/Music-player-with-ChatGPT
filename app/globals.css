@@ -448,7 +448,7 @@ input:hover {
 
 .visualizer-container div {
   width: 2px;
-  background: #9696a0;
+  background: black;
   transition: transform 250ms ease, background 200ms ease;
 }
 

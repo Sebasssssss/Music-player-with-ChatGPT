@@ -54,7 +54,7 @@ export default function VisualizerBar({ onClick, pause }) {
       clearInterval(intervalRef.current)
 
       bars?.forEach(bar => {
-        bar.style.background = '#9696a0'
+        bar.style.opacity = '0.5'
       })
 
       intervalRef.current = null
@@ -63,7 +63,7 @@ export default function VisualizerBar({ onClick, pause }) {
         bars?.forEach(bar => {
           let size = Math.random()
           bar.style.transform = `scaleY(${size})`
-          bar.style.background = 'black'
+          bar.style.opacity = '100'
         })
       }, 150)
     }

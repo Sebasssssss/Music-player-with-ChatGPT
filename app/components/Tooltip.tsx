@@ -13,7 +13,7 @@ export function Tooltip() {
         <Tip>
           <TooltipTrigger>
             <div>
-              <InfoEmpty className="opacity-70 hover:opacity-90 transition-opacity duration-300" />
+              <InfoEmpty className="opacity-50 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </TooltipTrigger>
           <TooltipContent className="w-52 text-left">

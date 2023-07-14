@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import ChatTrigger from './ChatTrigger'
 import VisualizerBar from './VisualizerBar'
 import {
@@ -113,12 +113,12 @@ export default function PlayerBar() {
             <div className="w-full flex items-center justify-center gap-4 relative">
               <SkipPrev
                 onClick={handleSkipPrev}
-                className="hover:opacity-70 active:opacity-100 transition-opacity duration-300"
+                className="hover:opacity-70 active:opacity-100 active:-translate-x-0.5 transition-all duration-300"
               />
               <VisualizerBar onClick={handleTogglePlay} pause={pause} />
               <SkipNext
                 onClick={handleSkipNext}
-                className="hover:opacity-70 active:opacity-100 transition-opacity duration-300"
+                className="hover:opacity-70 active:opacity-100 active:translate-x-0.5 transition-all duration-300"
               />
             </div>
           </div>
@@ -128,7 +128,7 @@ export default function PlayerBar() {
           <Shuffle
             onClick={handleShuffle}
             className={cn(
-              'opacity-70 hover:opacity-90 transition-opacity duration-300',
+              'opacity-50 hover:opacity-100 active:translate-y-0.5 transition-all duration-300',
               {
                 'opacity-100': shuffle
               }
@@ -136,7 +136,7 @@ export default function PlayerBar() {
           />
           <button onClick={handleRepeat}>
             {repeat ? (
-              <Repeat className="opacity-70 hover:opacity-100 transition-opacity duration-300" />
+              <Repeat className="opacity-50 hover:opacity-100 active:translate-y-0.5 transition-all duration-300" />
             ) : (
               <RepeatOnce />
             )}
