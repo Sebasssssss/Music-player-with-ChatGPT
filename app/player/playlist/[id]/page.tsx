@@ -39,32 +39,18 @@ export default function Player() {
           src={background}
           width={100}
           height={100}
-          className="not-selectable -z-20 opacity-95 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
+          className="not-selectable -z-20 opacity-100 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
         <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 -z-10"></div>
         <div
           onDoubleClick={handleTogglePlay}
           className="flex flex-col items-center mx-12 relative cursor-pointer"
         >
-          <Image
-            alt="albumCover"
-            src={selectedPlaylist?.images[0]?.url || ''}
-            width={400}
-            height={400}
-            className={`${
-              isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-300 ease-in-out rounded-[32px] aspect-square z-10 not-selectable reflection`}
-            onLoadingComplete={() => setIsLoading(false)}
-          />
-          <Image
-            alt="albumCover Shadow"
-            src={selectedPlaylist?.images[0]?.url || ''}
-            width={400}
-            height={400}
-            className={`${
-              isLoading ? 'grayscale blur-sm' : 'grayscale-0 blur-0'
-            } duration-300 ease-in-out rounded-[32px] not-selectable aspect-square absolute bottom-0 blur-2xl opacity-60 reflection`}
-            onLoadingComplete={() => setIsLoading(false)}
+          <div
+            style={{
+              backgroundImage: `url(${selectedPlaylist?.images[0]?.url})`
+            }}
+            className={`w-[400px] h-[400px] relative bg-bottom bg-cover rounded-[30px] after:rounded-[30px] after:content-["''"] after:h-[50%] after:absolute after:-bottom-[51%] after:bg-bottom after:bg-cover after:opacity-50 after:blur-[2px] before:rounded-[30px] before:h-[52%] before:absolute before:-bottom-[52%] before:z-10 before:blur-[2px] reflected`}
           />
         </div>
         <div className="flex flex-col">

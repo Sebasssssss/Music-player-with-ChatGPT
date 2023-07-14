@@ -469,10 +469,20 @@ input:hover {
   filter: blur(calc(var(--abs-offset) * 1rem));
 }
 
-.reflection {
-  -webkit-box-reflect: below 3px
-    linear-gradient(transparent, transparent, #fff4);
+.reflected {
   transform: perspective(800px) rotateY(24deg);
+}
+
+.reflected::after {
+  background-image: inherit;
+  width: inherit;
+  transform: scaleY(-1);
+}
+
+.reflected::before {
+  content: '';
+  width: inherit;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), #fef5f5);
 }
 
 .albumShadow {
