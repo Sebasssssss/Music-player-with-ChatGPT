@@ -1,7 +1,6 @@
 export interface Playlist {
   id: string
   name: string
-  description: string
   tracks: {
     total: number
   }
@@ -19,7 +18,6 @@ export const playlists: Playlist[] = [
   {
     id: '1',
     name: 'Me 4 U',
-    description: 'Relax and unwind with these soothing tracks.',
     tracks: {
       total: 52
     },
@@ -37,8 +35,6 @@ export const playlists: Playlist[] = [
   {
     id: '2',
     name: 'Battleground',
-    description:
-      'https://images-na.ssl-images-amazon.com/images/I/71aa0hLghgL._AC_SX679_.jpg',
     tracks: {
       total: 76
     },
@@ -56,9 +52,8 @@ export const playlists: Playlist[] = [
   {
     id: '3',
     name: 'Stoney (Deluxe)',
-    description: 'Rediscover classic hits from the past.',
     tracks: {
-      total: 98
+      total: 16
     },
     followers: {
       total: 2789
@@ -74,7 +69,6 @@ export const playlists: Playlist[] = [
   {
     id: '4',
     name: 'TESTING',
-    description: 'Hit the road with these energetic tunes.',
     tracks: {
       total: 64
     },
@@ -92,7 +86,6 @@ export const playlists: Playlist[] = [
   {
     id: '5',
     name: 'Morning Motivation',
-    description: 'Start your day right with these uplifting tracks.',
     tracks: {
       total: 32
     },
@@ -110,7 +103,6 @@ export const playlists: Playlist[] = [
   {
     id: '6',
     name: 'Party Mix',
-    description: 'Get the party started with these upbeat bangers.',
     tracks: {
       total: 57
     },
@@ -128,8 +120,6 @@ export const playlists: Playlist[] = [
   {
     id: '7',
     name: 'Workout Mix',
-    description:
-      'Stay motivated during your workout with these high-energy tracks.',
     tracks: {
       total: 42
     },
@@ -147,8 +137,6 @@ export const playlists: Playlist[] = [
   {
     id: '8',
     name: 'Relaxation Zone',
-    description:
-      'Unwind and find your inner peace with these calming melodies.',
     tracks: {
       total: 26
     },
@@ -166,7 +154,6 @@ export const playlists: Playlist[] = [
   {
     id: '9',
     name: 'Romantic Evening',
-    description: 'Set the mood with these romantic ballads.',
     tracks: {
       total: 37
     },
@@ -184,7 +171,6 @@ export const playlists: Playlist[] = [
   {
     id: '10',
     name: 'Indie Favorites',
-    description: 'Discover the best indie tracks from emerging artists.',
     tracks: {
       total: 63
     },
