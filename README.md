@@ -1,8 +1,8 @@
-# Music player with ChatGPT
+# Music Web Player with ChatGPT
 
-This project is a chat application where users can interact with ChatGPT, an AI language model, to receive music recommendations based on questions made in the chat. The application is built using Next.js 13, Tailwind CSS, and TypeScript.
+This project is a music web player that incorporates ChatGPT, an AI language model, allowing users to interact with it and receive music recommendations based on their chat conversations. The application is built using Next.js 13, Tailwind CSS, and TypeScript.
 
-![Screenshot 2023-05-11 220401](https://github.com/Sebasssssss/Chatbot/assets/105828786/ba38a6cf-78d8-4e33-926e-e969e5a37f29)
+![Screenshot 2023-07-15 231937](https://github.com/Sebasssssss/Music-player-with-ChatGPT/assets/105828786/62bf14f4-bc1e-44c5-9581-1af0039de8ab)
 
 ## Installation
 
@@ -15,7 +15,7 @@ To run this project locally, follow these steps:
 
 ## Usage
 
-To use the application, you must create a `.env` file at the root level of the project and add the following environment variables:
+To use the web player, create a `.env` file at the root level of the project and add the following environment variables:
 
 ```
 OPENAI_API_KEY=your_openai_api_key
@@ -25,22 +25,22 @@ REDIS_SECRET=your_redis_secret
 
 You can obtain an OpenAI API key by signing up for an account on their website. For Redis, you can use a hosted service or run Redis locally.
 
-To get the REDIS_URL and REDIS_SECRET, you will have to register on [upstash](https://console.upstash.com/) and create a new database.
+To get the REDIS_URL and REDIS_SECRET, register on [Upstash](https://console.upstash.com/) and create a new database.
 
-Once the you've done all of that, you can interact with ChatGPT by typing in the chat input box. Ask for music recommendations based on genres, artists, or any other relevant queries. ChatGPT will process your query and provide you with personalized recommendations.
+Once you've completed the setup, you can interact with ChatGPT by typing in the chat input box. Ask for music recommendations based on genres, artists, or any other relevant queries. ChatGPT will process your query and provide you with personalized recommendations.
 
 ## Libraries Used
 
 The following libraries were used in the development of this project:
 
 - [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
-- [radix-ui](https://www.radix-ui.com/) - A collection of high-quality React UI components.
-- [tanstack/react-query](https://react-query.tanstack.com/) - A library for managing remote data fetching and caching in React.
+- [Radix UI](https://www.radix-ui.com/) - A collection of high-quality React UI components.
+- [react-query](https://react-query.tanstack.com/) by Tanstack - A library for managing remote data fetching and caching in React.
 - [upstash/ratelimit and redis](https://github.com/upstash/ratelimit)
 - [axios](https://axios-http.com/) - A popular JavaScript library for making HTTP requests.
 - [class-variance-authority](https://github.com/zilioner/class-variance-authority)
 - [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing class names dynamically.
-- [licide-react](https://github.com/reiinakano/licide) - Icons
+- [licide-react](https://github.com/reiinakano/licide) - Icon library.
 - [nanoid](https://github.com/ai/nanoid) - A small and secure library for generating unique IDs.
 - [sonner](https://github.com/bpmn-io/sonner) - An opinionated toast component for React.
 - [tailwind-merge](https://github.com/benface/tailwindcss-merge) - A Tailwind CSS plugin for merging variants.
