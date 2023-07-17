@@ -1,6 +1,7 @@
 import React, { useState, useRef, ReactNode } from 'react'
 import { playlists } from '../lib/api-response'
 import { NavArrowLeft, NavArrowRight } from 'iconoir-react'
+import { cn } from '@/app/lib/utils'
 
 const MAX_VISIBILITY = 3
 
@@ -53,12 +54,6 @@ const CarouselContent: React.FC<CarouselProps> = ({ children }) => {
       className="carousel relative w-full h-full grid place-items-center"
       ref={containerRef}
     >
-      <button className="group absolute -left-8 text-center rounded-full border-2 border-transparent hover:border-zinc-700 active:scale-95 transition-all duration-300">
-        <NavArrowLeft
-          className="w-12 h-12 opacity-50 group-hover:opacity-100 transition-opacity duration-300"
-          onMouseDown={handleMouseDownLeft}
-        />
-      </button>
       {React.Children.map(children, (child, i) => (
         <div
           className="card-container absolute w-full h-full transition-all duration-300 ease-out"
@@ -77,12 +72,31 @@ const CarouselContent: React.FC<CarouselProps> = ({ children }) => {
           })}
         </div>
       ))}
-      <button className="group absolute -right-8 text-center rounded-full border-2 border-transparent hover:border-zinc-700 active:scale-95 transition-all duration-300">
-        <NavArrowRight
-          className="w-12 h-12 opacity-50 group-hover:opacity-100 transition-all duration-300"
-          onMouseDown={handleMouseDownRight}
-        />
-      </button>
+      <div className="inline-flex items-center gap-2 absolute bottom-0">
+        <button
+          className={cn(
+            'opacity-0 invisible hover:opacity-100 active:scale-90 transition-all duration-300',
+            {
+              'opacity-50 visible': active > 0
+            }
+          )}
+        >
+          <NavArrowLeft className="w-8 h-8" onMouseDown={handleMouseDownLeft} />
+        </button>
+        <button
+          className={cn(
+            'opacity-0 hover:opacity-100 invisible active:scale-90 transition-all duration-300',
+            {
+              'opacity-50 hover:opacity-100 visible': active < count - 1
+            }
+          )}
+        >
+          <NavArrowRight
+            className="w-8 h-8"
+            onMouseDown={handleMouseDownRight}
+          />
+        </button>
+      </div>
     </div>
   )
 }
