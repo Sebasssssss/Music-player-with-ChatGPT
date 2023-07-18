@@ -11,7 +11,7 @@ export default function Player() {
     <div className="overflow-hidden w-full h-screen">
       <div className="container mx-auto flex flex-col gap-8">
         <h1 className="font-semibold pt-8 text-3xl">Good {getGreeting()}</h1>
-        <article className="w-full h-80 bg-black text-white grid grid-cols-2 px-8 place-items-center rounded-[10px] shados relative">
+        <article className="w-full h-80 bg-black text-white grid grid-cols-2 px-8 place-items-center rounded-[10px] customShadowHigh relative">
           <div className="flex flex-col gap-2">
             <h1 className="font-medium text-2xl">
               Sunflower - Spider-Man: Into the Spider-Verse

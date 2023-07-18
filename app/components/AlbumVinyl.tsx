@@ -7,7 +7,7 @@ export default function AlbumVinyl() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="font-semibold text-xl">Now playing</h1>
-      <div className="w-[315px] h-[315px] relative z-10 shados">
+      <div className="w-[315px] h-[315px] relative z-10 customShadowMedium">
         <div className="bg-center bg-cover bg-no-repeat bg-[url(https://hiphop-n-more.com/wp-content/uploads/2016/11/post-malone-stoney-768x768.jpg)] h-[315px] w-[315px] relative z-10" />
         <div
           style={{
