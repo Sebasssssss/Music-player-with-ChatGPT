@@ -4,13 +4,12 @@ import background from '@/public/background.png'
 import ListOfSongs from '../../../components/ListOfSongs'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { Playlist, Songs, playlists } from '@/app/lib/api-response'
+import { Playlist, playlists } from '@/app/lib/api-response'
 import { useAudioContext } from '@/app/providers/AppState'
 import LikeButton from '@/app/components/LikeButton'
 
 export default function Player() {
   const { handleTogglePlay } = useAudioContext()
-  const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
   const value = pathname.split('/').pop()
   const [selectedPlaylist, setSelectedPlaylist] = useState<Playlist | null>(

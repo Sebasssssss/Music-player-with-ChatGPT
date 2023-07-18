@@ -5,7 +5,6 @@ svg {
 }
 svg #heart {
   transform-origin: center;
-  animation: animateHeartOut 0.3s linear forwards;
 }
 svg #main-circ {
   transform-origin: 29.5px 29.5px;
@@ -201,60 +200,5 @@ svg #main-circ {
   }
   100% {
     transform: scale(1);
-  }
-}
-
-@keyframes animateHeartOut {
-  0% {
-    transform: rotate(45deg);
-    transform: translateX(6px);
-    fill: #450a0a;
-    stroke-width: 0;
-  }
-  25% {
-    transform: rotate(-45deg);
-    transform: translateX(-6px);
-    opacity: 1;
-    fill: #7f1d1d;
-    stroke-width: 0.1;
-  }
-  50% {
-    transform: rotate(45deg);
-    opacity: 1;
-    transform: translateX(6px);
-    fill: #991b1b;
-    stroke-width: 0.2;
-  }
-  75% {
-    transform: rotate(-45deg);
-    opacity: 1;
-    transform: translateX(-6px);
-    fill: transparent;
-    stroke: #991b1b;
-    stroke-width: 0.5;
-  }
-  85% {
-    transform: rotate(45deg);
-    opacity: 1;
-    transform: translateX(6px);
-    fill: transparent;
-    stroke: #7f1d1d;
-    stroke-width: 1;
-  }
-  95% {
-    transform: rotate(-45deg);
-    transform: translateX(-6px);
-    opacity: 1;
-    fill: transparent;
-    stroke: #450a0a;
-    stroke-width: 2;
-  }
-  100% {
-    transform: rotate(0deg);
-    transform: translateX(0px);
-    opacity: 1;
-    fill: transparent;
-    stroke: #27272a;
-    stroke-width: 3;
   }
 }

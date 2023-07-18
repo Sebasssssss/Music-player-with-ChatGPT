@@ -35,10 +35,14 @@ export default function PlayerBar() {
     handleRepeat
   } = useAudioContext()
 
-  const [currentSongIndexState, setCurrentSongIndexState] = useState(() => {
-    const savedIndex = localStorage.getItem('currentSongIndex')
-    return savedIndex ? Number(savedIndex) : 0
-  })
+  const [currentSongIndexState, setCurrentSongIndexState] = useState(0)
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedIndex = localStorage.getItem('currentSongIndex')
+      setCurrentSongIndexState(savedIndex ? Number(savedIndex) : 0)
+    }
+  }, [])
 
   const handleSkipNext = () => {
     setCurrentSongIndexState(prevIndex => {

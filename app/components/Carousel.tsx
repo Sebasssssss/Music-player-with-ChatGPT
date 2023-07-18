@@ -1,5 +1,5 @@
 import React, { useState, useRef, ReactNode } from 'react'
-import { playlists } from '../lib/api-response'
+import { Songs } from '../lib/api-response'
 import { NavArrowLeft, NavArrowRight } from 'iconoir-react'
 import { cn } from '@/app/lib/utils'
 
@@ -109,16 +109,16 @@ const Carousel = () => {
   return (
     <div className="w-full h-full">
       <CarouselContent>
-        {playlists.map(playlist => (
+        {Songs.map(song => (
           <div
-            key={playlist.id}
+            key={song.id}
             className="card w-full h-full flex flex-col items-center justify-center gap-2 p-[2rem] transition-all duration-300 ease-out text-black"
           >
-            <p className="font-medium">{playlist.name}</p>
+            <p className="font-medium">{song.name}</p>
             <div className="relative group">
               <div
                 className="w-40 h-40 rounded-[10px] albumShadow"
-                style={{ backgroundImage: `url(${playlist.images[0].url})` }}
+                style={{ backgroundImage: `url(${song.image})` }}
                 onMouseDown={handleMouseDown}
               />
             </div>
