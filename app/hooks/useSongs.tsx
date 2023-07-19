@@ -21,8 +21,8 @@ export default function useSongs() {
     listItemRef.current = document.querySelectorAll('#landing-header li')
     menuBackDropRef.current = document.querySelector('#menu-backdrop')
 
-    const handleMouseEnter = (event: Event) => {
-      const item = event.currentTarget as HTMLLIElement
+    const handleMouseEnter = (e: Event) => {
+      const item = e.currentTarget as HTMLLIElement
       const { left, top, width, height } = item.getBoundingClientRect()
 
       if (menuBackDropRef.current) {

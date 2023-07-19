@@ -7,12 +7,20 @@ import React, {
   useRef,
   useState
 } from 'react'
+import { Songs } from '../lib/api-response'
 
 interface AudioContextValue {
   audioRef?: React.RefObject<HTMLAudioElement | null>
   currentTime?: number
+  shuffle?: boolean
+  repeat?: boolean
   volume?: number
+  activeIndex?: number | null
+  setActiveIndex?: React.Dispatch<React.SetStateAction<number | null>>
+  isPlaying?: boolean
+  setIsPlaying?: React.Dispatch<React.SetStateAction<boolean>>
   pause?: boolean
+  setPause?: React.Dispatch<React.SetStateAction<boolean>>
   setVolume?: React.Dispatch<React.SetStateAction<number>>
   handleTimeUpdate?: () => void
   handleSeek?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -21,8 +29,10 @@ interface AudioContextValue {
   handleVolumeToggle?: () => void
   handleShuffle?: () => void
   handleRepeat?: () => void
-  shuffle?: boolean
-  repeat?: boolean
+  handlePlaySong: (index: number) => void
+  handleDoubleClick: (index: number) => void
+  handleSkipNext?: () => void
+  handleSkipPrev?: () => void
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
@@ -41,6 +51,57 @@ export const AudioProvider = ({ children }) => {
   const audioElement = audioRef.current
   const [repeat, setRepeat] = useState(true)
   const [shuffle, setShuffle] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+
+  const handlePlaySong = (index: number) => {
+    setPause(true)
+    setIsPlaying(true)
+    setActiveIndex(index)
+  }
+
+  const handleDoubleClick = (index: number) => {
+    handlePlaySong(index)
+  }
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedIndex = localStorage.getItem('currentSongIndex')
+      setActiveIndex(savedIndex ? Number(savedIndex) : 0)
+    }
+  }, [setActiveIndex])
+
+  const handleSkipNext = () => {
+    setActiveIndex(prevIndex => {
+      const currentIndex = prevIndex ?? 0
+      let newIndex = currentIndex + 1
+      if (shuffle) {
+        newIndex = Math.floor(Math.random() * Songs.length)
+      }
+      if (newIndex >= Songs.length) {
+        newIndex = 0
+      }
+      return newIndex
+    })
+  }
+
+  const handleSkipPrev = () => {
+    setActiveIndex(prevIndex => {
+      const currentIndex = prevIndex ?? 0
+      let newIndex = currentIndex - 1
+      if (shuffle) {
+        newIndex = Math.floor(Math.random() * Songs.length)
+      }
+      if (newIndex < 0) {
+        newIndex = Songs.length - 1
+      }
+      return newIndex
+    })
+  }
+
+  useEffect(() => {
+    localStorage.setItem('currentSongIndex', String(activeIndex))
+  }, [activeIndex])
 
   const handleShuffle = () => {
     setShuffle(!shuffle)
@@ -106,8 +167,8 @@ export const AudioProvider = ({ children }) => {
   }, [pause])
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.code === 'Space') {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
         handleTogglePlay()
       }
     }
@@ -133,7 +194,15 @@ export const AudioProvider = ({ children }) => {
     handleShuffle,
     handleRepeat,
     shuffle,
-    repeat
+    repeat,
+    isPlaying,
+    setIsPlaying,
+    handlePlaySong,
+    handleDoubleClick,
+    activeIndex,
+    setActiveIndex,
+    handleSkipNext,
+    handleSkipPrev
   }
 
   return (

@@ -1,5 +1,4 @@
 'use client'
-import { useState, useEffect } from 'react'
 import ChatTrigger from './ChatTrigger'
 import VisualizerBar from './VisualizerBar'
 import {
@@ -11,12 +10,12 @@ import {
   Repeat,
   RepeatOnce
 } from 'iconoir-react'
-import ProgressBar from './ProgressBar'
-import QueueTrigger from './QueueTrigger'
 import { useAudioContext } from '../providers/AppState'
 import { cn } from '@/app/lib/utils'
-import Image from 'next/image'
 import { Songs } from '../lib/api-response'
+import ProgressBar from './ProgressBar'
+import QueueTrigger from './QueueTrigger'
+import Image from 'next/image'
 import ContextMenu from './ContextMenu'
 
 export default function PlayerBar() {
@@ -32,53 +31,17 @@ export default function PlayerBar() {
     shuffle,
     repeat,
     handleShuffle,
-    handleRepeat
+    handleRepeat,
+    activeIndex,
+    handleSkipPrev,
+    handleSkipNext
   } = useAudioContext()
-
-  const [currentSongIndexState, setCurrentSongIndexState] = useState(0)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedIndex = localStorage.getItem('currentSongIndex')
-      setCurrentSongIndexState(savedIndex ? Number(savedIndex) : 0)
-    }
-  }, [])
-
-  const handleSkipNext = () => {
-    setCurrentSongIndexState(prevIndex => {
-      let newIndex = prevIndex + 1
-      if (shuffle) {
-        newIndex = Math.floor(Math.random() * Songs.length)
-      }
-      if (newIndex >= Songs.length) {
-        newIndex = 0
-      }
-      return newIndex
-    })
-  }
 
   const formatTime = (timeInSeconds: number) => {
     const minutes = Math.floor(timeInSeconds / 60)
     const seconds = Math.floor(timeInSeconds % 60)
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`
   }
-
-  const handleSkipPrev = () => {
-    setCurrentSongIndexState(prevIndex => {
-      let newIndex = prevIndex - 1
-      if (shuffle) {
-        newIndex = Math.floor(Math.random() * Songs.length)
-      }
-      if (newIndex < 0) {
-        newIndex = Songs.length - 1
-      }
-      return newIndex
-    })
-  }
-
-  useEffect(() => {
-    localStorage.setItem('currentSongIndex', String(currentSongIndexState))
-  }, [currentSongIndexState])
 
   return (
     <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white rounded-[10px] z-20">
@@ -91,7 +54,14 @@ export default function PlayerBar() {
           <div className="relative w-32 h-32">
             <Image
               className="rounded-full shadow-2xl border-2 border-white object-cover"
-              src={Songs[currentSongIndexState].image}
+              src={
+                activeIndex !== undefined &&
+                activeIndex !== null &&
+                activeIndex >= 0 &&
+                activeIndex < Songs.length
+                  ? Songs[activeIndex]?.image
+                  : undefined
+              }
               alt=""
               height={128}
               width={128}
@@ -99,13 +69,32 @@ export default function PlayerBar() {
             <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
-            <ContextMenu name={Songs[currentSongIndexState].name}>
+            <ContextMenu
+              name={
+                activeIndex !== undefined &&
+                activeIndex !== null &&
+                activeIndex >= 0 &&
+                activeIndex < Songs.length
+                  ? Songs[activeIndex]?.name
+                  : undefined
+              }
+            >
               <h1 className="font-medium max-w-full cursor-pointer">
-                {Songs[currentSongIndexState].name}
+                {activeIndex !== undefined &&
+                activeIndex !== null &&
+                activeIndex >= 0 &&
+                activeIndex < Songs.length
+                  ? Songs[activeIndex]?.name
+                  : undefined}
               </h1>
             </ContextMenu>
             <p className="opacity-70 text-xs">
-              {Songs[currentSongIndexState].artists}
+              {activeIndex !== undefined &&
+              activeIndex !== null &&
+              activeIndex >= 0 &&
+              activeIndex < Songs.length
+                ? Songs[activeIndex]?.artists
+                : undefined}
             </p>
           </div>
         </div>

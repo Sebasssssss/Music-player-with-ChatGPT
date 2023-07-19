@@ -2,7 +2,8 @@
 import { Pause, Play } from 'iconoir-react'
 import { Songs } from '../lib/api-response'
 import ContextMenu from './ContextMenu'
-import useSongs from '../hooks/useSongs'
+import { useAudioContext } from '../providers/AppState'
+import { useEffect, useRef } from 'react'
 
 export default function ListOfSongs() {
   const {
@@ -10,10 +11,54 @@ export default function ListOfSongs() {
     setIsPlaying,
     handlePlaySong,
     handleDoubleClick,
-    activeIndex,
-    pause,
-    setPause
-  } = useSongs()
+    activeIndex
+  } = useAudioContext()
+
+  const listItemRef = useRef<NodeListOf<HTMLLIElement> | null>(null)
+  const menuBackDropRef = useRef<HTMLElement | null>(null)
+
+  useEffect(() => {
+    listItemRef.current = document.querySelectorAll('#landing-header li')
+    menuBackDropRef.current = document.querySelector('#menu-backdrop')
+
+    const handleMouseEnter = (e: Event) => {
+      const item = e.currentTarget as HTMLLIElement
+      const { left, top, width, height } = item.getBoundingClientRect()
+
+      if (menuBackDropRef.current) {
+        menuBackDropRef.current.style.setProperty('--left', `${left}px`)
+        menuBackDropRef.current.style.setProperty('--top', `${top}px`)
+        menuBackDropRef.current.style.setProperty('--width', `${width}px`)
+        menuBackDropRef.current.style.setProperty('--height', `${height}px`)
+
+        menuBackDropRef.current.style.opacity = '1'
+        menuBackDropRef.current.style.visibility = 'visible'
+      }
+    }
+
+    const handleMouseLeave = () => {
+      if (menuBackDropRef.current) {
+        menuBackDropRef.current.style.opacity = '0'
+        menuBackDropRef.current.style.visibility = 'hidden'
+      }
+    }
+
+    if (listItemRef.current) {
+      listItemRef.current.forEach(item => {
+        item.addEventListener('mouseenter', handleMouseEnter)
+        item.addEventListener('mouseleave', handleMouseLeave)
+      })
+    }
+
+    return () => {
+      if (listItemRef.current) {
+        listItemRef.current.forEach(item => {
+          item.removeEventListener('mouseenter', handleMouseEnter)
+          item.removeEventListener('mouseleave', handleMouseLeave)
+        })
+      }
+    }
+  }, [])
 
   return (
     <div className="h-96 overflow-y-scroll overflow-x-hidden scrollbar-hidden masked-overflow">
@@ -55,14 +100,10 @@ export default function ListOfSongs() {
               ) : (
                 <div className="w-8">
                   <button className="hidden group-hover:block">
-                    {pause ? (
-                      <Play
-                        className="w-5"
-                        onClick={() => handlePlaySong(index)}
-                      />
-                    ) : (
-                      <Pause className="w-5" onClick={() => setPause(!pause)} />
-                    )}
+                    <Play
+                      className="w-5"
+                      onClick={() => handlePlaySong(index)}
+                    />
                   </button>
                   <span className="cursor-pointer group-hover:hidden">
                     {index + 1}
