@@ -33,6 +33,7 @@ interface AudioContextValue {
   handleDoubleClick: (index: number) => void
   handleSkipNext?: () => void
   handleSkipPrev?: () => void
+  handleIsPlaying?: () => void
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
@@ -48,28 +49,37 @@ export const AudioProvider = ({ children }) => {
     return 1
   })
   const [pause, setPause] = useState(true)
-  const audioElement = audioRef.current
   const [repeat, setRepeat] = useState(true)
   const [shuffle, setShuffle] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const audioElement = audioRef.current
+
+  const handleShuffle = () => {
+    setShuffle(!shuffle)
+  }
+
+  const handleRepeat = () => {
+    setRepeat(!repeat)
+  }
 
   const handlePlaySong = (index: number) => {
-    setPause(true)
-    setIsPlaying(true)
     setActiveIndex(index)
+    handleIsPlaying()
   }
 
   const handleDoubleClick = (index: number) => {
     handlePlaySong(index)
   }
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedIndex = localStorage.getItem('currentSongIndex')
-      setActiveIndex(savedIndex ? Number(savedIndex) : 0)
+  const handleIsPlaying = () => {
+    if (isPlaying) {
+      setIsPlaying(false)
+    } else {
+      setIsPlaying(true)
     }
-  }, [setActiveIndex])
+    handleTogglePlay()
+  }
 
   const handleSkipNext = () => {
     setActiveIndex(prevIndex => {
@@ -97,18 +107,6 @@ export const AudioProvider = ({ children }) => {
       }
       return newIndex
     })
-  }
-
-  useEffect(() => {
-    localStorage.setItem('currentSongIndex', String(activeIndex))
-  }, [activeIndex])
-
-  const handleShuffle = () => {
-    setShuffle(!shuffle)
-  }
-
-  const handleRepeat = () => {
-    setRepeat(!repeat)
   }
 
   const handleTimeUpdate = () => {
@@ -167,6 +165,17 @@ export const AudioProvider = ({ children }) => {
   }, [pause])
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const savedIndex = localStorage.getItem('currentSongIndex')
+      setActiveIndex(savedIndex ? Number(savedIndex) : 0)
+    }
+  }, [setActiveIndex])
+
+  useEffect(() => {
+    localStorage.setItem('currentSongIndex', String(activeIndex))
+  }, [activeIndex])
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.code === 'Space') {
         handleTogglePlay()
@@ -202,7 +211,8 @@ export const AudioProvider = ({ children }) => {
     activeIndex,
     setActiveIndex,
     handleSkipNext,
-    handleSkipPrev
+    handleSkipPrev,
+    handleIsPlaying
   }
 
   return (

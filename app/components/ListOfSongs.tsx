@@ -11,7 +11,8 @@ export default function ListOfSongs() {
     setIsPlaying,
     handlePlaySong,
     handleDoubleClick,
-    activeIndex
+    activeIndex,
+    handleIsPlaying
   } = useAudioContext()
 
   const listItemRef = useRef<NodeListOf<HTMLLIElement> | null>(null)
@@ -75,26 +76,20 @@ export default function ListOfSongs() {
               {activeIndex === index ? (
                 <>
                   <button
-                    onClick={() => setIsPlaying(!isPlaying)}
+                    onClick={handleIsPlaying}
                     className="hidden group-hover:block"
                   >
                     {isPlaying ? (
-                      <Pause
-                        className="w-5"
-                        onClick={() => setIsPlaying(false)}
-                      />
+                      <Pause className="w-5" />
                     ) : (
-                      <Play
-                        className="w-5"
-                        onClick={() => handlePlaySong(index)}
-                      />
+                      <Play className="w-5" />
                     )}
                   </button>
                   <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]"></div>
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
                   </div>
                 </>
               ) : (
