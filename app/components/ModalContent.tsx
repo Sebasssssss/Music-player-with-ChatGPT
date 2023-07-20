@@ -60,7 +60,7 @@ export default function ModalContent({
                 onChange={handleChange}
                 placeholder="Search..."
                 ref={ref}
-                className="w-full md:w-96 h-12 px-3 shados rounded-[10px] border-2 hover:border-black/40  active:shadow-none focus:border-black/40 hover:bg-gray-100 transition duration-300 focus:outline-none input"
+                className="w-full md:w-96 h-12 px-3 shados rounded-[10px] border-2 dark:border-black hover:border-black/40  active:shadow-none focus:border-black/40 hover:bg-gray-100 dark:bg-[#212121] transition duration-300 focus:outline-none input"
               />
               <div className="flex items-center absolute right-[10px] top-3">
                 {input !== '' ? (
@@ -86,9 +86,9 @@ export default function ModalContent({
                   initial="hidden"
                   animate="enter"
                   exit="exit"
-                  className="bg-white w-full h-full rounded-[10px] shados relative"
+                  className="bg-white dark:bg-black w-full h-full rounded-[10px] customShadowMedium relative"
                 >
-                  <div className="flex flex-col items-center justify-between shados gap-8 p-8 w-full rounded-[10px] relative">
+                  <div className="flex flex-col items-center justify-between gap-8 p-8 w-full rounded-[10px] relative">
                     <div className="flex flex-col gap-2">
                       <Image
                         className="rounded-[10px] shados"

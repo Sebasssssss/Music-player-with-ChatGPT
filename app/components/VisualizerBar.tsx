@@ -1,8 +1,10 @@
 import { useEffect, useRef } from 'react'
+import { useThemeContext } from '../context/themeContext'
 
 export default function VisualizerBar({ onClick, pause }) {
   const barsRef = useRef<NodeListOf<HTMLElement> | null>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const { isDarkMode } = useThemeContext()
 
   useEffect(() => {
     barsRef.current = document.querySelectorAll('.bars')
@@ -30,7 +32,7 @@ export default function VisualizerBar({ onClick, pause }) {
           bars?.forEach(bar => {
             let size = Math.random()
             bar.style.transform = `scaleY(${size})`
-            bar.style.background = 'black'
+            bar.style.background = isDarkMode ? 'white' : 'black'
           })
         }, 150)
       }
@@ -45,7 +47,7 @@ export default function VisualizerBar({ onClick, pause }) {
         clearInterval(intervalRef.current)
       }
     }
-  }, [])
+  }, [isDarkMode])
 
   useEffect(() => {
     const bars = barsRef.current
@@ -63,16 +65,19 @@ export default function VisualizerBar({ onClick, pause }) {
         bars?.forEach(bar => {
           let size = Math.random()
           bar.style.transform = `scaleY(${size})`
-          bar.style.background = 'black'
+          bar.style.background = isDarkMode ? 'white' : 'black'
         })
       }, 150)
     }
-  }, [pause])
+  }, [pause, isDarkMode])
 
   return (
-    <div className="visualizer-container" onClick={onClick}>
+    <div
+      className="visualizer-container cursor-pointer h-5 flex gap-[0.2rem] justify-between"
+      onClick={onClick}
+    >
       {Array.from({ length: 50 }).map((_, index) => (
-        <div key={index} className="bars"></div>
+        <div key={index} className="bars w-[2px] bg-[#9696a0]" />
       ))}
     </div>
   )

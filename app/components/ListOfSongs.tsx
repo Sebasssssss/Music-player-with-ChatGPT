@@ -8,7 +8,6 @@ import { useEffect, useRef } from 'react'
 export default function ListOfSongs() {
   const {
     isPlaying,
-    setIsPlaying,
     handlePlaySong,
     handleDoubleClick,
     activeIndex,
@@ -86,10 +85,10 @@ export default function ListOfSongs() {
                     )}
                   </button>
                   <div className="flex rotate-180 group-hover:hidden h-5 mt-1">
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
-                    <div className="audio-visualizer w-[2px] h-5 bg-black rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black dark:bg-white rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black dark:bg-white rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black dark:bg-white rounded-[5px] m-[0.1em]" />
+                    <div className="audio-visualizer w-[2px] h-5 bg-black dark:bg-white rounded-[5px] m-[0.1em]" />
                   </div>
                 </>
               ) : (
@@ -115,7 +114,7 @@ export default function ListOfSongs() {
         <div
           id="menu-backdrop"
           className="
-          absolute bg-black/20 backdrop-blur-lg rounded-[10px]
+          absolute bg-black/20 dark:bg-white/20 backdrop-blur-lg rounded-[10px]
           translate-x-[var(--left)] translate-y-[var(--top)]
           left-0 top-0
           w-[var(--width)] h-[var(--height)]

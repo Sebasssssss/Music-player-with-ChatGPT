@@ -68,11 +68,11 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ audioRef }) => {
   return (
     <>
       <div
-        className="audio-bar group w-24 h-[2px] hover:h-[5px] rounded overflow-hidden transition-all duration-100 bg-black/30"
+        className="audio-bar group w-24 h-[2px] hover:h-[5px] rounded overflow-hidden transition-all duration-100 bg-black/30 dark:bg-[#4d4d4d]"
         ref={audioBarRef}
       >
         <div
-          className="h-[2px] group-hover:h-[5px] w-0 rounded relative bg-black transition-all duration-100"
+          className="h-[2px] group-hover:h-[5px] w-0 rounded relative bg-black dark:bg-white transition-all duration-100"
           ref={audioBarFillRef}
         ></div>
       </div>

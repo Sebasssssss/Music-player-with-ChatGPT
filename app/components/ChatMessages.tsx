@@ -42,9 +42,9 @@ const ChatMessages: FC<ChatMessagesProps> = ({ className, ...props }) => {
               >
                 <p
                   className={cn('px-4 py-2', {
-                    'bg-zinc-900 text-white rounded-l-2xl rounded-tr-2xl rounded-br-sm':
+                    'bg-zinc-900 dark:bg-white text-white dark:text-black rounded-l-2xl rounded-tr-2xl rounded-br-sm':
                       message.isUserMessage,
-                    'bg-gray-200 text-zinc-900 rounded-r-2xl rounded-tl-2xl rounded-bl-sm':
+                    'bg-gray-200 dark:bg-white/20 rounded-r-2xl rounded-tl-2xl rounded-bl-sm':
                       !message.isUserMessage
                   })}
                 >

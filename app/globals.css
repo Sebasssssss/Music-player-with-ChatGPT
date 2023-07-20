@@ -35,20 +35,53 @@
 
     --radius: 0.5rem;
   }
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 240 3.7% 15.9%;
+  }
 }
 
 :root {
   --bg: #f0dba5;
-  --text: #151515;
   --yellow: #dbd5c4;
   --red: #4a2560;
   --green: #c17710;
-  --sidebar-bg: #f5f4fd;
   --sidebar-item-hover: #f9f8fb;
-  --sidebar-main-container-bg: #fff;
   --sidebar-container-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --shadow-color: 0deg 0% 63%;
-  --shadow-button: 336deg 16% 42%;
+  --album-reflection: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3),
+    #fef5f5
+  );
+  --thumb-bg: white;
+  --thumb-border: black;
   --shadow-elevation-low: -0.4px 0.4px 0.7px hsl(var(--shadow-color) / 0.31),
     -0.6px 0.8px 1.2px -1.1px hsl(var(--shadow-color) / 0.33),
     -1.5px 1.8px 2.7px -2.2px hsl(var(--shadow-color) / 0.36);
@@ -63,6 +96,14 @@
     -14.8px 17.6px 26.7px -1.5px hsl(var(--shadow-color) / 0.39),
     -24px 28.6px 43.4px -1.9px hsl(var(--shadow-color) / 0.4),
     -37.5px 44.7px 67.8px -2.2px hsl(var(--shadow-color) / 0.41);
+}
+
+html.dark {
+  --album-reflection: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), #16161b);
+  --sidebar-item-hover: #383838;
+  --shadow-color: 0deg 0% 0%;
+  --thumb-bg: #6366f1;
+  --thumb-border: #373737;
 }
 
 .customShadowLow {
@@ -186,20 +227,20 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: white;
+  background-color: var(--thumb-bg);
   box-shadow: var(--shadow-elevation-medium);
-  border: 4px solid black;
+  border: 4px solid var(--thumb-border);
   border-radius: 50%;
   cursor: pointer;
   transition: 0.1s all ease-in-out;
 }
 
 .range-slider::-webkit-slider-thumb:hover {
-  border: 3px solid black;
+  border: 3px solid var(--thumb-border);
 }
 
 .range-slider::-webkit-slider-thumb:active {
-  border: 5px solid black;
+  border: 5px solid var(--thumb-border);
 }
 
 .scrollbar-w-2::-webkit-scrollbar {
@@ -245,7 +286,6 @@ body {
 }
 
 .sidebar-container {
-  box-shadow: var(--sidebar-container-shadow);
   height: 100vh;
   max-height: 100vh;
 }
@@ -325,6 +365,45 @@ body {
 
 .sidebar-listItem:nth-child(n + 5) {
   animation-delay: 1s;
+}
+
+.sidebar-themeInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+.sidebar-themeInputText {
+  transform: translatex(0);
+}
+.shrink .sidebar-themeInputText {
+  width: 0;
+  opacity: 0;
+  transform: translatex(-8px);
+}
+.shrink .sidebar-themeType {
+  width: 100%;
+}
+.shrink .sidebar-themeLabel.switched .light {
+  display: none;
+}
+.sidebar-themeLabel.switched:before {
+  left: 50%;
+}
+.shrink .sidebar-themeLabel.switched:before {
+  left: 2px;
+}
+.sidebar-themeLabel:not(.switched) .shrink .sidebar-themeLabel .dark {
+  display: none;
+}
+.sidebar-themeLabel:before {
+  width: calc(50% - 2px);
+  height: calc(100% - 4px);
+  transform: translatey(-50%);
+  transition: left 0.5s ease;
+}
+.shrink .sidebar-themeLabel:before {
+  width: calc(100% - 4px);
 }
 
 @keyframes fadeInItem {
@@ -422,20 +501,7 @@ input:hover {
   box-shadow: 0 0 0 4px rgb(0 0 0 / 10%);
 }
 
-.visualizer-container {
-  height: 20px;
-  display: flex;
-  gap: 0.2rem;
-  justify-content: space-between;
-}
-
-.visualizer-container:hover {
-  cursor: pointer;
-}
-
-.visualizer-container div {
-  width: 2px;
-  background: #9696a0;
+.bars {
   transition: transform 250ms ease, background 200ms ease;
 }
 
@@ -469,7 +535,8 @@ input:hover {
 .reflected::before {
   content: '';
   width: inherit;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), #fef5f5);
+  background: var(--album-reflection);
+  transition: all 0.5s ease-in-out;
 }
 
 .albumShadow {

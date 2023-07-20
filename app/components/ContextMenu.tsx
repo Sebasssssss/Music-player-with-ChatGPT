@@ -20,13 +20,11 @@ export default function ContextMenu({ children, name }) {
 
   return (
     <Context>
-      <ContextMenuTrigger className="w-full">
-        {children}
-      </ContextMenuTrigger>
-      <ContextMenuContent className="w-52 bg-white shados">
+      <ContextMenuTrigger className="w-full">{children}</ContextMenuTrigger>
+      <ContextMenuContent className="w-52 border-none customShadowLow">
         <ContextMenuItem
           inset
-          className="hover:bg-[#f1f5f9] cursor-pointer"
+          className="cursor-pointer"
           onClick={handleCopyText}
         >
           Copy text
@@ -34,7 +32,7 @@ export default function ContextMenu({ children, name }) {
             <Copy />
           </ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset className="hover:bg-[#f1f5f9] cursor-pointer">
+        <ContextMenuItem inset className="cursor-pointer">
           <Link
             href={`https://www.youtube.com/results?search_query=${name}`}
             target="_blank"
@@ -63,15 +61,10 @@ export default function ContextMenu({ children, name }) {
           Show credits
         </ContextMenuItem>
         <ContextMenuSub>
-          <ContextMenuSubTrigger inset className="hover:bg-[#f1f5f9]">
-            Add to playlist
-          </ContextMenuSubTrigger>
-          <ContextMenuSubContent className="w-48 bg-white">
+          <ContextMenuSubTrigger inset>Add to playlist</ContextMenuSubTrigger>
+          <ContextMenuSubContent className="w-48 border-none">
             {playlists.map(playlist => (
-              <ContextMenuItem
-                key={playlist.id}
-                className="hover:bg-[#f1f5f9] cursor-pointer"
-              >
+              <ContextMenuItem key={playlist.id} className="cursor-pointer">
                 {playlist.name}
               </ContextMenuItem>
             ))}

@@ -8,7 +8,7 @@ import template from '@/public/post.png'
 
 export default function Player() {
   return (
-    <div className="overflow-hidden w-full h-screen">
+    <div className="overflow-hidden w-full h-screen dark:bg-[#181818] transition-colors duration-500">
       <div className="container mx-auto flex flex-col gap-8">
         <h1 className="font-semibold pt-8 text-3xl">Good {getGreeting()}</h1>
         <article className="w-full h-80 bg-black text-white grid grid-cols-2 px-8 place-items-center rounded-[10px] customShadowHigh relative">
@@ -33,7 +33,7 @@ export default function Player() {
               .map(playlist => (
                 <div
                   key={playlist.id}
-                  className="flex justify-between h-[100px] w-full bg-white rounded-[10px] shados group relative"
+                  className="flex justify-between h-[100px] w-full bg-white dark:bg-[#121212] rounded-[10px] shadow-xl group relative"
                 >
                   <div className="flex items-center gap-4">
                     <Image

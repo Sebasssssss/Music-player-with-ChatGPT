@@ -1,5 +1,6 @@
 import PlayerBar from '../components/PlayerBar'
 import Sidebar from '../components/Sidebar'
+import { ThemeProvider } from '../context/themeContext'
 import { AudioProvider } from '../providers/AppState'
 
 export default function RootLayout({
@@ -8,12 +9,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <div>
-      <AudioProvider>
-        <Sidebar />
-        {children}
-        <PlayerBar />
-      </AudioProvider>
+    <div className="text-black dark:text-zinc-300 transition-colors duration-500">
+      <ThemeProvider>
+        <AudioProvider>
+          <Sidebar />
+          {children}
+          <PlayerBar />
+        </AudioProvider>
+      </ThemeProvider>
     </div>
   )
 }

@@ -15,7 +15,7 @@ export default function QueueTrigger() {
         <PopoverTrigger className="hover:opacity-70 active:translate-y-0.5 transition-all duration-300">
           <Playlist />
         </PopoverTrigger>
-        <PopoverContent className="h-80 w-80 bg-white rounded-[10px] grid place-items-center gap-4 shados overflow-hidden px-8">
+        <PopoverContent className="h-80 w-80 border-none rounded-[10px] grid place-items-center gap-4 shados overflow-hidden px-8">
           <Tooltip />
           <h1 className="absolute top-4 text-lg font-medium">
             Comming next...

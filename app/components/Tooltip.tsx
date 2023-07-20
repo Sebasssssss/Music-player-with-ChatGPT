@@ -16,7 +16,7 @@ export function Tooltip() {
               <InfoEmpty className="opacity-50 hover:opacity-100 transition-opacity duration-300" />
             </div>
           </TooltipTrigger>
-          <TooltipContent className="w-52 text-left">
+          <TooltipContent className="w-52 text-left dark:border-none">
             <p>The song that is selected is the one to be reproduce next.</p>
           </TooltipContent>
         </Tip>

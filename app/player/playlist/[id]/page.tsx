@@ -1,12 +1,14 @@
 'use client'
-import Image from 'next/image'
-import background from '@/public/background.png'
-import ListOfSongs from '../../../components/ListOfSongs'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Playlist, playlists } from '@/app/lib/api-response'
 import { useAudioContext } from '@/app/providers/AppState'
+import Image from 'next/image'
+import ListOfSongs from '../../../components/ListOfSongs'
 import LikeButton from '@/app/components/LikeButton'
+import background from '@/public/background.png'
+import blackBack from '@/public/blackBack.png'
+import { useThemeContext } from '@/app/context/themeContext'
 
 export default function Player() {
   const { handleTogglePlay } = useAudioContext()
@@ -15,6 +17,7 @@ export default function Player() {
   const [selectedPlaylist, setSelectedPlaylist] = useState<Playlist | null>(
     null
   )
+  const { isDarkMode } = useThemeContext()
 
   const playlist = playlists.find(playlist => playlist.id === value)
   useEffect(() => {
@@ -35,12 +38,12 @@ export default function Player() {
         />
         <Image
           alt="white background"
-          src={background}
+          src={isDarkMode ? blackBack : background}
           width={100}
           height={100}
           className="not-selectable -z-20 opacity-100 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
-        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 -z-10"></div>
+        <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 dark:bg-black/20 -z-10"></div>
         <div
           onDoubleClick={handleTogglePlay}
           className="flex flex-col items-center mx-12 relative cursor-pointer"

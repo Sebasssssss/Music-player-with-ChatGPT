@@ -1,3 +1,22 @@
+:root {
+  --heart-fill: #450a0a;
+  --animation-1: #ef4444;
+  --animation-2: #dc2626;
+  --animation-3: #b91c1c;
+  --animation-4: #991b1b;
+  --animation-5: #7f1d1d;
+  --animation-6: #450a0a;
+}
+
+html.dark {
+  --heart-fill: #4f46e5;
+  --animation-1: #c7d2fe;
+  --animation-2: #a5b4fc;
+  --animation-3: #818cf8;
+  --animation-4: #6366f1;
+  --animation-5: #4f46e5;
+  --animation-6: #4f46e5;
+}
 svg {
   cursor: pointer;
   overflow: visible;
@@ -15,7 +34,7 @@ svg #main-circ {
 
 #checkbox:checked + label svg #heart {
   transform: scale(0.2);
-  fill: #450a0a;
+  fill: var(--heart-fill);
   stroke: none;
   animation: animateHeart 0.3s linear forwards 0.25s;
 }
@@ -150,44 +169,44 @@ svg #main-circ {
   40% {
     transform: scale(10);
     opacity: 1;
-    fill: #ef4444;
+    fill: var(--animation-1);
   }
   55% {
     transform: scale(11);
     opacity: 1;
-    fill: #dc2626;
+    fill: var(--animation-2);
   }
   65% {
     transform: scale(12);
     opacity: 1;
-    fill: #b91c1c;
+    fill: var(--animation-3);
   }
   75% {
     transform: scale(13);
     opacity: 1;
     fill: transparent;
-    stroke: #991b1b;
+    stroke: var(--animation-4);
     stroke-width: 0.5;
   }
   85% {
     transform: scale(17);
     opacity: 1;
     fill: transparent;
-    stroke: #7f1d1d;
+    stroke: var(--animation-5);
     stroke-width: 0.2;
   }
   95% {
     transform: scale(18);
     opacity: 1;
     fill: transparent;
-    stroke: #450a0a;
+    stroke: var(--animation-6);
     stroke-width: 0.1;
   }
   100% {
     transform: scale(19);
     opacity: 1;
     fill: transparent;
-    stroke: #450a0a;
+    stroke: var(--animation-6);
     stroke-width: 0;
   }
 }

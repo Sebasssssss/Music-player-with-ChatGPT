@@ -44,7 +44,7 @@ export default function PlayerBar() {
   }
 
   return (
-    <div className="w-full shados container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white rounded-[10px] z-20">
+    <div className="w-full customShadowHigh container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white dark:bg-[#121212] rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
         <source src="likeyou.mp3" type="audio/mpeg" />
       </audio>
@@ -53,7 +53,7 @@ export default function PlayerBar() {
         <div className="absolute left-4 bottom-4 gap-2 flex items-end">
           <div className="relative w-32 h-32">
             <Image
-              className="rounded-full shadow-2xl border-2 border-white object-cover"
+              className="rounded-full shadow-2xl border-2 border-white dark:border-zinc-800 object-cover"
               src={
                 activeIndex !== undefined &&
                 activeIndex !== null &&
@@ -66,7 +66,7 @@ export default function PlayerBar() {
               height={128}
               width={128}
             />
-            <div className="w-8 h-8 rounded-full border-2 border-white bg-[#d6dee7] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+            <div className="w-8 h-8 rounded-full border-2 border-white dark:border-zinc-800 bg-[#d6dee7] dark:bg-[#383838] dark:shadow-inner absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
           </div>
           <div className="flex flex-col w-64 whitespace-nowrap overflow-hidden text-ellipsis">
             <ContextMenu
@@ -146,7 +146,7 @@ export default function PlayerBar() {
             step="0.01"
             value={volume}
             onChange={handleVolumeChange}
-            className="w-16 range-slider appearance-none bg-gray-300 h-1 rounded-lg focus:outline-none focus:bg-gray-500 transition-all duration-300"
+            className="w-16 range-slider appearance-none bg-gray-300 dark:bg-[#4d4d4d] h-1 rounded-lg focus:outline-none focus:bg-gray-500 transition-all duration-300"
           />
         </div>
       </div>

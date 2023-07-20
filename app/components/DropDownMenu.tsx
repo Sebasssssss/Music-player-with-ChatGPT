@@ -28,7 +28,7 @@ import {
 export function DropDownMenu() {
   return (
     <DropDown>
-      <DropdownMenuTrigger className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb] hover:border-[#f9f8fb] outline-none transition-colors duration-300 ease-in-out">
+      <DropdownMenuTrigger className="sidebar-profileSection font-medium flex items-center gap-2 mt-auto border border-[#f9f8fb] dark:border-zinc-700 py-2 px-[10px] rounded-[28px] overflow-hidden h-[60px] flex-shrink-0 cursor-pointer hover:bg-[#f9f8fb] dark:bg-none dark:hover:bg-white/20 dark:hover:border-white/20 hover:border-[#f9f8fb] outline-none transition-colors duration-300 ease-in-out">
         <Image
           src={template}
           width="40"
@@ -40,15 +40,15 @@ export function DropDownMenu() {
           Sebass Rodriguez
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 bg-white ml-8">
+      <DropdownMenuContent className="w-56 ml-8 border-none">
         <DropdownMenuLabel>Sebass</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+          <DropdownMenuItem>
             <User className="mr-2 h-4 w-4" />
             <span>Profile</span>
           </DropdownMenuItem>
-          <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+          <DropdownMenuItem>
             <Settings className="mr-2 h-4 w-4" />
             <span>Settings</span>
           </DropdownMenuItem>
@@ -61,17 +61,17 @@ export function DropDownMenu() {
               <span>Invite users</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
-              <DropdownMenuSubContent className="bg-white">
-                <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+              <DropdownMenuSubContent className="border-none">
+                <DropdownMenuItem>
                   <Mail className="mr-2 h-4 w-4" />
                   <span>Email</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+                <DropdownMenuItem>
                   <Message className="mr-2 h-4 w-4" />
                   <span>Message</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+                <DropdownMenuItem>
                   <Plus className="mr-2 h-4 w-4" />
                   <span>More...</span>
                 </DropdownMenuItem>
@@ -80,22 +80,22 @@ export function DropDownMenu() {
           </DropdownMenuSub>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+        <DropdownMenuItem>
           <GitHub className="mr-2 h-4 w-4" />
           <Link href="https://github.com/Sebasssssss" target="_blank">
             GitHub
           </Link>
         </DropdownMenuItem>
-        <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+        <DropdownMenuItem>
           <Plus className="mr-2 h-4 w-4" />
           <span>Support</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className="hover:bg-[#f9f8fb]">
+        <DropdownMenuItem>
           <Link href="/" className="inline-flex items-center">
             <LogOut className="mr-2 h-4 w-4" />
             <span>Log out</span>
-          </Link>{' '}
+          </Link>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropDown>

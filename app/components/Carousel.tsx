@@ -112,7 +112,7 @@ const Carousel = () => {
         {Songs.map(song => (
           <div
             key={song.id}
-            className="card w-full h-full flex flex-col items-center justify-center gap-2 p-[2rem] transition-all duration-300 ease-out text-black"
+            className="card w-full h-full flex flex-col items-center justify-center gap-2 p-[2rem] transition-all duration-300 ease-out"
           >
             <p className="font-medium">{song.name}</p>
             <div className="relative group">
