@@ -11,7 +11,7 @@ export default function LikeButton() {
     setIsChecked(!isChecked)
   }
 
-  const bubblesColor = isDarkMode ? '#4f46e5' : '#450a0a'
+  const bubblesColor = isDarkMode ? '#c7d2fe' : '#450a0a'
 
   return (
     <button className="w-max h-max outline-none">

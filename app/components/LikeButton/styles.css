@@ -9,13 +9,13 @@
 }
 
 html.dark {
-  --heart-fill: #4f46e5;
-  --animation-1: #c7d2fe;
-  --animation-2: #a5b4fc;
-  --animation-3: #818cf8;
+  --heart-fill: #c7d2fe;
+  --animation-1: #4f46e5;
+  --animation-2: #4f46e5;
+  --animation-3: #6366f1;
   --animation-4: #6366f1;
-  --animation-5: #4f46e5;
-  --animation-6: #4f46e5;
+  --animation-5: #a5b4fc;
+  --animation-6: #c7d2fe;
 }
 svg {
   cursor: pointer;
