@@ -23,7 +23,7 @@ export default function Home() {
             </h1>
             <Link
               href="/player"
-              className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none shados text-white rounded-md font-semibold transition-all duration-200"
+              className="w-max px-10 py-3 inline-flex items-center gap-2 bg-zinc-900 hover:bg-zinc-900/90 active:translate-y-0.5 active:bg-black outline-none customShadowMedium text-white rounded-md font-semibold transition-all duration-200"
             >
               Login with Spotify <Spotify />
             </Link>

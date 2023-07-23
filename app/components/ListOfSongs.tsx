@@ -93,11 +93,11 @@ export default function ListOfSongs() {
                 </>
               ) : (
                 <div className="w-8">
-                  <button className="hidden group-hover:block">
-                    <Play
-                      className="w-5"
-                      onClick={() => handlePlaySong(index)}
-                    />
+                  <button
+                    onClick={() => handlePlaySong(index)}
+                    className="hidden group-hover:block"
+                  >
+                    <Play className="w-5" />
                   </button>
                   <span className="cursor-pointer group-hover:hidden">
                     {index + 1}
@@ -114,7 +114,7 @@ export default function ListOfSongs() {
         <div
           id="menu-backdrop"
           className="
-          absolute bg-black/20 dark:bg-white/20 backdrop-blur-lg rounded-[10px]
+          absolute bg-black/20 backdrop-blur-lg rounded-[10px]
           translate-x-[var(--left)] translate-y-[var(--top)]
           left-0 top-0
           w-[var(--width)] h-[var(--height)]

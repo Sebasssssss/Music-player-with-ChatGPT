@@ -21,7 +21,7 @@ export default function ContextMenu({ children, name }) {
   return (
     <Context>
       <ContextMenuTrigger className="w-full">{children}</ContextMenuTrigger>
-      <ContextMenuContent className="w-52 border-none customShadowLow">
+      <ContextMenuContent className="w-52 customShadowLow dark:border-zinc-700">
         <ContextMenuItem
           inset
           className="cursor-pointer"
@@ -62,7 +62,7 @@ export default function ContextMenu({ children, name }) {
         </ContextMenuItem>
         <ContextMenuSub>
           <ContextMenuSubTrigger inset>Add to playlist</ContextMenuSubTrigger>
-          <ContextMenuSubContent className="w-48 border-none">
+          <ContextMenuSubContent className="w-48 dark:border-zinc-700">
             {playlists.map(playlist => (
               <ContextMenuItem key={playlist.id} className="cursor-pointer">
                 {playlist.name}

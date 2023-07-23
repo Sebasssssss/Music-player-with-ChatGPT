@@ -40,7 +40,7 @@ export function DropDownMenu() {
           Sebass Rodriguez
         </span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56 ml-8 border-none">
+      <DropdownMenuContent className="w-56 ml-8 dark:border-zinc-700">
         <DropdownMenuLabel>Sebass</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

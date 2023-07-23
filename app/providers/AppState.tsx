@@ -10,48 +10,48 @@ import React, {
 import { Songs } from '../lib/api-response'
 
 interface AudioContextValue {
-  audioRef?: React.RefObject<HTMLAudioElement | null>
-  currentTime?: number
-  shuffle?: boolean
-  repeat?: boolean
-  volume?: number
-  activeIndex?: number | null
-  setActiveIndex?: React.Dispatch<React.SetStateAction<number | null>>
-  isPlaying?: boolean
-  setIsPlaying?: React.Dispatch<React.SetStateAction<boolean>>
-  pause?: boolean
-  setPause?: React.Dispatch<React.SetStateAction<boolean>>
-  setVolume?: React.Dispatch<React.SetStateAction<number>>
-  handleTimeUpdate?: () => void
-  handleSeek?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleVolumeChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
-  handleTogglePlay?: () => void
-  handleVolumeToggle?: () => void
-  handleShuffle?: () => void
-  handleRepeat?: () => void
+  audioRef: React.RefObject<HTMLAudioElement | null>
+  currentTime: number
+  shuffle: boolean
+  repeat: boolean
+  volume: number
+  activeIndex: number | null
+  setActiveIndex: React.Dispatch<React.SetStateAction<number | null>>
+  isPlaying: boolean
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
+  pause: boolean
+  setPause: React.Dispatch<React.SetStateAction<boolean>>
+  setVolume: React.Dispatch<React.SetStateAction<number>>
+  handleTimeUpdate: () => void
+  handleSeek: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  handleTogglePlay: () => void
+  handleVolumeToggle: () => void
+  handleShuffle: () => void
+  handleRepeat: () => void
   handlePlaySong: (index: number) => void
   handleDoubleClick: (index: number) => void
-  handleSkipNext?: () => void
-  handleSkipPrev?: () => void
-  handleIsPlaying?: () => void
+  handleSkipNext: () => void
+  handleSkipPrev: () => void
+  handleIsPlaying: () => void
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
 
-export const AudioProvider = ({ children }) => {
+export const AudioProvider: React.FC = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [volume, setVolume] = useState(() => {
+  const [currentTime, setCurrentTime] = useState<number>(0)
+  const [volume, setVolume] = useState<number | string>(() => {
     if (typeof localStorage !== 'undefined') {
       const savedVolume = localStorage.getItem('volume')
       return savedVolume !== null ? parseFloat(savedVolume) : 1
     }
     return 1
   })
-  const [pause, setPause] = useState(true)
-  const [repeat, setRepeat] = useState(true)
-  const [shuffle, setShuffle] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [pause, setPause] = useState<boolean>(true)
+  const [repeat, setRepeat] = useState<boolean>(true)
+  const [shuffle, setShuffle] = useState<boolean>(false)
+  const [isPlaying, setIsPlaying] = useState<boolean>(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const audioElement = audioRef.current
 
@@ -63,23 +63,30 @@ export const AudioProvider = ({ children }) => {
     setRepeat(!repeat)
   }
 
+  const handleDoubleClick = (index: number) => {
+    handlePlaySong(index)
+  }
+
   const handlePlaySong = (index: number) => {
     setActiveIndex(index)
     handleIsPlaying()
   }
 
-  const handleDoubleClick = (index: number) => {
-    handlePlaySong(index)
-  }
-
   const handleIsPlaying = () => {
-    if (isPlaying) {
-      setIsPlaying(false)
-    } else {
-      setIsPlaying(true)
-    }
+    setIsPlaying(!isPlaying)
     handleTogglePlay()
   }
+
+  const handleTogglePlay = useCallback(() => {
+    if (pause) {
+      setPause(false)
+    } else {
+      setPause(true)
+    }
+    audioRef.current?.paused
+      ? audioRef.current?.play()
+      : audioRef.current?.pause()
+  }, [pause])
 
   const handleSkipNext = () => {
     setActiveIndex(prevIndex => {
@@ -129,7 +136,10 @@ export const AudioProvider = ({ children }) => {
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const volumeLevel = e.target.valueAsNumber
-    setTimeout(() => localStorage.setItem('volume', volumeLevel), 500)
+    setTimeout(
+      () => localStorage.setItem('volume', volumeLevel.toString()),
+      500
+    )
     if (audioRef.current) {
       audioRef.current.volume = volumeLevel
       setVolume(volumeLevel)
@@ -153,16 +163,6 @@ export const AudioProvider = ({ children }) => {
       }
     }
   }
-
-  const handleTogglePlay = useCallback(() => {
-    if (pause) {
-      setPause(false)
-      audioRef.current?.play()
-    } else {
-      setPause(true)
-      audioRef.current?.pause()
-    }
-  }, [pause])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
