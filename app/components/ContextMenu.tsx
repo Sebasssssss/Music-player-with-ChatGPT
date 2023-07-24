@@ -12,8 +12,14 @@ import {
 import { YouTube, Copy } from 'iconoir-react'
 import { playlists } from '../lib/api-response'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 
-export default function ContextMenu({ children, name }) {
+interface ContextMenuProps {
+  children: ReactNode
+  name: string
+}
+
+export default function ContextMenu({ children, name }: ContextMenuProps) {
   const handleCopyText = () => {
     navigator.clipboard.writeText(name)
   }
