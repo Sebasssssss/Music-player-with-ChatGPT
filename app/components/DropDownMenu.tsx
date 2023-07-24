@@ -36,7 +36,7 @@ export function DropDownMenu() {
           alt="Monica Geller"
           className="w-10 h-10 rounded-[50%] object-cover flex-shrink-0"
         />
-        <span className="whitespace-nowrap overflow-hidden text-ellipsis text-zinc-900">
+        <span className="whitespace-nowrap overflow-hidden text-ellipsis">
           Sebass Rodriguez
         </span>
       </DropdownMenuTrigger>
