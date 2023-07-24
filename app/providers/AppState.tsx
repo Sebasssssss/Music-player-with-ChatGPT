@@ -1,5 +1,6 @@
 'use client'
 import React, {
+  ReactNode,
   createContext,
   useCallback,
   useContext,
@@ -20,7 +21,7 @@ interface AudioContextValue {
   isPlaying: boolean
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
   pause: boolean
-  setPause: React.Dispatch<React.SetStateAction<boolean>>
+  setPause?: React.Dispatch<React.SetStateAction<boolean>>
   setVolume: React.Dispatch<React.SetStateAction<number>>
   handleTimeUpdate: () => void
   handleSeek: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -38,10 +39,14 @@ interface AudioContextValue {
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
 
-export const AudioProvider: React.FC = ({ children }) => {
+interface AudioProviderProps {
+  children: ReactNode
+}
+
+export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [currentTime, setCurrentTime] = useState<number>(0)
-  const [volume, setVolume] = useState<number | string>(() => {
+  const [volume, setVolume] = useState<number>(() => {
     if (typeof localStorage !== 'undefined') {
       const savedVolume = localStorage.getItem('volume')
       return savedVolume !== null ? parseFloat(savedVolume) : 1

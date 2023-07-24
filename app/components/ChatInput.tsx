@@ -3,7 +3,15 @@ import { MessagesContext } from '@/app/context/messages'
 import { Message } from '@/app/lib/validators/message'
 import { useMutation } from '@tanstack/react-query'
 import { nanoid } from 'nanoid'
-import { FC, HTMLAttributes, useContext, useRef, useState } from 'react'
+import {
+  FC,
+  HTMLAttributes,
+  KeyboardEvent,
+  ChangeEvent,
+  useContext,
+  useRef,
+  useState
+} from 'react'
 import { Toaster, toast } from 'sonner'
 import TextareaAutosize from 'react-textarea-autosize'
 import { Send } from 'iconoir-react'
@@ -77,7 +85,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     }
   })
 
-  const handleKeyDown = e => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
 
@@ -91,7 +99,7 @@ const ChatInput: FC<ChatInputProps> = ({ className, ...props }) => {
     }
   }
 
-  const handleChange = e => {
+  const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value)
   }
 
