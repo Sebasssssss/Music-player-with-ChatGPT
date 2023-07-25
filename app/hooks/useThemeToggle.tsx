@@ -2,18 +2,25 @@ import { useEffect, useCallback } from 'react'
 import { useThemeContext } from '../context/themeContext'
 
 const useThemeToggle = () => {
-  const { isDarkMode, setIsDarkMode, toggleTheme } = useThemeContext()
+  const themeContext = useThemeContext()
 
-  // Load theme preference from local storage on initial render
+  if (!themeContext) {
+    throw new Error('useThemeToggle must be used within a ThemeProvider')
+  }
+
+  const { isDarkMode, setIsDarkMode, toggleTheme } = themeContext
+
   useEffect(() => {
     const userTheme = localStorage.getItem('theme')
     const systemTheme = window.matchMedia(
       '(prefers-color-scheme: dark)'
     ).matches
-    setIsDarkMode(userTheme === 'dark' || (!userTheme && systemTheme))
+
+    if (setIsDarkMode) {
+      setIsDarkMode(userTheme === 'dark' || (!userTheme && systemTheme))
+    }
   }, [setIsDarkMode])
 
-  // Function to apply the theme class to the document's html element
   const themeCheck = useCallback(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark')
@@ -22,11 +29,12 @@ const useThemeToggle = () => {
     }
   }, [isDarkMode])
 
-  // Save the user's theme preference to local storage and apply the theme class
   useEffect(() => {
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-    themeCheck()
-  }, [isDarkMode, themeCheck])
+    if (setIsDarkMode) {
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+      themeCheck()
+    }
+  }, [isDarkMode, setIsDarkMode, themeCheck])
 
   return { isDarkMode, toggleTheme }
 }

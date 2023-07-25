@@ -76,7 +76,7 @@ export default function PlayerBar() {
                 activeIndex >= 0 &&
                 activeIndex < Songs.length
                   ? Songs[activeIndex]?.name
-                  : undefined
+                  : ''
               }
             >
               <h1 className="font-medium max-w-full cursor-pointer">

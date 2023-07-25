@@ -11,7 +11,7 @@ import React, {
 import { Songs } from '../lib/api-response'
 
 interface AudioContextValue {
-  audioRef: React.RefObject<HTMLAudioElement | null>
+  audioRef: any
   currentTime: number
   shuffle: boolean
   repeat: boolean
@@ -44,7 +44,7 @@ interface AudioProviderProps {
 }
 
 export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
-  const audioRef = useRef<HTMLAudioElement | null>(null)
+  const audioRef = useRef<any>(null)
   const [currentTime, setCurrentTime] = useState<number>(0)
   const [volume, setVolume] = useState<number>(() => {
     if (typeof localStorage !== 'undefined') {

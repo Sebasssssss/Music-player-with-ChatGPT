@@ -1,22 +1,31 @@
 'use client'
-import { createContext, useContext, useState, useCallback } from 'react'
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  ReactNode
+} from 'react'
 
-interface ThemeContextValue {
-  isDarkMode: boolean
-  setIsDarkMode: (value: boolean) => void
-  toggleTheme: () => void
+interface ThemeContextProps {
+  children?: ReactNode
+  isDarkMode?: boolean
+  setIsDarkMode?: (value: boolean) => void
+  toggleTheme?: () => void
 }
 
-const ThemeContext = createContext<ThemeContextValue | undefined>(undefined)
+const ThemeContext = createContext<ThemeContextProps | undefined>(undefined)
 
-export const ThemeProvider: React.FC = ({ children }) => {
+export const ThemeProvider: React.FC<ThemeContextProps> = ({
+  children
+}: ThemeContextProps) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
 
   const toggleTheme = useCallback(() => {
     setIsDarkMode(prevMode => !prevMode)
   }, [])
 
-  const contextValue: ThemeContextValue = {
+  const contextValue: ThemeContextProps = {
     isDarkMode,
     setIsDarkMode,
     toggleTheme
@@ -29,7 +38,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
   )
 }
 
-export const useThemeContext = (): ThemeContextValue => {
+export const useThemeContext = (): ThemeContextProps => {
   const context = useContext(ThemeContext)
   if (!context) {
     throw new Error('useThemeContext must be used within a ThemeProvider')

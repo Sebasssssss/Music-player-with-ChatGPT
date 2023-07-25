@@ -1,7 +1,12 @@
 import { useEffect, useRef } from 'react'
 import { useThemeContext } from '../context/themeContext'
 
-export default function VisualizerBar({ onClick, pause }) {
+interface VisualizerBarProps {
+  onClick: () => void
+  pause: boolean
+}
+
+export default function VisualizerBar({ onClick, pause }: VisualizerBarProps) {
   const barsRef = useRef<NodeListOf<HTMLElement> | null>(null)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const { isDarkMode } = useThemeContext()

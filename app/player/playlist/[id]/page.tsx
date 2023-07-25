@@ -58,14 +58,14 @@ export default function Player() {
         <div className="flex flex-col">
           <div className="flex w-full justify-between py-4 px-6">
             <h1 className="text-xl font-bold flex flex-col">
-              {decodeURI(selectedPlaylist?.name)}
+              {decodeURI(selectedPlaylist?.name || '')}
               <span className="text-xs">
                 2018 • {selectedPlaylist?.tracks.total} songs • 1 hr 8 min
               </span>
             </h1>
             <LikeButton />
           </div>
-          <ListOfSongs songs={selectedPlaylist?.songs} />
+          <ListOfSongs />
         </div>
       </div>
     </div>

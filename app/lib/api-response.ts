@@ -26,7 +26,7 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://th.bing.com/th/id/R.8c392f7f495016e1201163221a9e6a90?rik=2kkpPiqXrsvs5Q&riu=http%3a%2f%2fhushhushbiz.com%2fwp-content%2fuploads%2f2015%2f09%2fOMI-ME4U.jpg&ehk=vrsALlGRA9k%2fD%2fgsITWFJ1LMbmM8OAVYQbHJe5ANQas%3d&risl=&pid=ImgRaw&r=0',
+        url: 'https://m3.paperblog.com/i/106/1067705/happy-releaseday-omi-me-4-u-L-QCAlDO.jpeg',
         width: 640,
         height: 640
       }
@@ -60,7 +60,7 @@ export const playlists: Playlist[] = [
     },
     images: [
       {
-        url: 'https://th.bing.com/th/id/R.666f62816d6648b4945b4773f9f46e03?rik=5fPUPg9qHCpl7Q&riu=http%3a%2f%2fhiphop-n-more.com%2fwp-content%2fuploads%2f2016%2f11%2fpost-malone-stoney.jpg&ehk=P2Bt6dL1xp1xK1Nzf%2f7sIspar%2bunL6SsfR7Z6dLx%2fLY%3d&risl=&pid=ImgRaw&r=0',
+        url: 'https://hiphop-n-more.com/wp-content/uploads/2016/11/post-malone-stoney.jpg',
         width: 640,
         height: 640
       }
