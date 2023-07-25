@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger
 } from '@/app/components/ui/dropdown-menu'
 import Image from 'next/image'
-import template from '../../public/album.png'
+import template from '../../public/album.webp'
 import Link from 'next/link'
 import {
   User,

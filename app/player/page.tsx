@@ -4,7 +4,7 @@ import AlbumVinyl from '../components/AlbumVinyl'
 import { playlists } from '../lib/api-response'
 import { Play } from 'iconoir-react'
 import { getGreeting } from '../lib/getGreeting'
-import template from '@/public/post.png'
+import template from '@/public/post.webp'
 
 export default function Player() {
   return (

@@ -5,7 +5,7 @@ import { Search, Cancel } from 'iconoir-react'
 import { AnimatePresence } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import template from '@/public/album.png'
+import template from '@/public/album.webp'
 
 interface ModalContentProps {
   isModalOpen: boolean
