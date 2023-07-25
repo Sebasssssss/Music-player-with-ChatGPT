@@ -1,7 +1,7 @@
 import PlayerBar from '../components/PlayerBar'
 import Sidebar from '../components/Sidebar'
 import { ThemeProvider } from '../context/themeContext'
-import { AudioProvider } from '../providers/AppState'
+import { AudioProvider } from '../context/appState'
 
 export default function RootLayout({
   children

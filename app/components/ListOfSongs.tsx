@@ -2,7 +2,7 @@
 import { Pause, Play } from 'iconoir-react'
 import { Songs } from '../lib/api-response'
 import ContextMenu from './ContextMenu'
-import { useAudioContext } from '../providers/AppState'
+import { useAudioContext } from '../context/appState'
 import { useEffect, useRef } from 'react'
 
 export default function ListOfSongs() {

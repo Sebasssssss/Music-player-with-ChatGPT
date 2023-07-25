@@ -10,7 +10,7 @@ import {
   Repeat,
   RepeatOnce
 } from 'iconoir-react'
-import { useAudioContext } from '../providers/AppState'
+import { useAudioContext } from '../context/appState'
 import { cn } from '@/app/lib/utils'
 import { Songs } from '../lib/api-response'
 import ProgressBar from './ProgressBar'

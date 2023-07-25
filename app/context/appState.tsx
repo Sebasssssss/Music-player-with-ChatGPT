@@ -83,14 +83,13 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   }
 
   const handleTogglePlay = useCallback(() => {
-    if (pause) {
+    if (pause && audioRef.current?.paused) {
       setPause(false)
+      audioRef.current?.play()
     } else {
       setPause(true)
+      audioRef.current?.pause()
     }
-    audioRef.current?.paused
-      ? audioRef.current?.play()
-      : audioRef.current?.pause()
   }, [pause])
 
   const handleSkipNext = () => {

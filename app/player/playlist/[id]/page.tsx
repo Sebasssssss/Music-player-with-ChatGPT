@@ -2,7 +2,6 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Playlist, playlists } from '@/app/lib/api-response'
-import { useAudioContext } from '@/app/providers/AppState'
 import Image from 'next/image'
 import ListOfSongs from '../../../components/ListOfSongs'
 import LikeButton from '@/app/components/LikeButton'
@@ -11,7 +10,6 @@ import blackBack from '@/public/blackBack.png'
 import { useThemeContext } from '@/app/context/themeContext'
 
 export default function Player() {
-  const { handleTogglePlay } = useAudioContext()
   const pathname = usePathname()
   const value = pathname.split('/').pop()
   const [selectedPlaylist, setSelectedPlaylist] = useState<Playlist | null>(
@@ -44,10 +42,7 @@ export default function Player() {
           className="not-selectable -z-20 opacity-100 w-screen h-screen absolute ml-auto mr-auto right-0 left-0 text-center"
         />
         <div className="absolute top-0 left-0 w-full h-screen backdrop-blur-xl bg-white/20 dark:bg-black/20 -z-10"></div>
-        <div
-          onDoubleClick={handleTogglePlay}
-          className="flex flex-col items-center mx-12 relative cursor-pointer"
-        >
+        <div className="flex flex-col items-center mx-12 relative">
           <div
             style={{
               backgroundImage: `url(${selectedPlaylist?.images[0]?.url})`

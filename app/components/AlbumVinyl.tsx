@@ -1,4 +1,4 @@
-import { useAudioContext } from '@/app/providers/AppState'
+import { useAudioContext } from '@/app/context/appState'
 import { cn } from '@/app/lib/utils'
 
 export default function AlbumVinyl() {
