@@ -110,9 +110,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     setActiveIndex(prevIndex => {
       const currentIndex = prevIndex ?? 0
       let newIndex = currentIndex - 1
-      if (shuffle) {
-        newIndex = Math.floor(Math.random() * Songs.length)
-      }
       if (newIndex < 0) {
         newIndex = Songs.length - 1
       }
