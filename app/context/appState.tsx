@@ -30,7 +30,6 @@ interface AudioContextValue {
   handleDoubleClick: (index: number) => void
   handleSkipNext: () => void
   handleSkipPrev: () => void
-  handleIsPlaying: () => void
 }
 
 const AudioContext = createContext<AudioContextValue | undefined>(undefined)
@@ -53,7 +52,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   const [repeat, setRepeat] = useState(true)
   const [shuffle, setShuffle] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
   const audioElement = audioRef.current
 
   const handleShuffle = () => {
@@ -69,11 +68,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   }
 
   const handlePlaySong = (index: number) => {
-    setActiveIndex(index)
-    handleIsPlaying()
-  }
-
-  const handleIsPlaying = () => {
+    setActiveIndex(() => index === activeIndex ? activeIndex : index)
     setIsPlaying(!isPlaying)
     handleTogglePlay()
   }
@@ -118,7 +113,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
       setCurrentTime(audioElement.currentTime)
       if (audioElement.currentTime === audioElement.duration) {
         setCurrentTime(0)
-        setPause(true)
+        handleSkipNext()
       }
     }
   }
@@ -206,7 +201,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     activeIndex,
     handleSkipNext,
     handleSkipPrev,
-    handleIsPlaying
   }
 
   return (

@@ -10,8 +10,7 @@ export default function ListOfSongs() {
     isPlaying,
     handlePlaySong,
     handleDoubleClick,
-    activeIndex,
-    handleIsPlaying
+    activeIndex
   } = useAudioContext()
 
   const listItemRef = useRef<NodeListOf<HTMLLIElement> | null>(null)
@@ -75,7 +74,7 @@ export default function ListOfSongs() {
               {activeIndex === index ? (
                 <>
                   <button
-                    onClick={handleIsPlaying}
+                    onClick={() => handlePlaySong(index)}
                     className="hidden group-hover:block"
                   >
                     {isPlaying ? (
