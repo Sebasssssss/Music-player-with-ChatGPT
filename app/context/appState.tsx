@@ -17,12 +17,8 @@ interface AudioContextValue {
   repeat: boolean
   volume: number
   activeIndex: number | null
-  setActiveIndex: React.Dispatch<React.SetStateAction<number | null>>
   isPlaying: boolean
-  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
   pause: boolean
-  setPause?: React.Dispatch<React.SetStateAction<boolean>>
-  setVolume: React.Dispatch<React.SetStateAction<number>>
   handleTimeUpdate: () => void
   handleSeek: (e: React.ChangeEvent<HTMLInputElement>) => void
   handleVolumeChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -45,7 +41,7 @@ interface AudioProviderProps {
 
 export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   const audioRef = useRef<any>(null)
-  const [currentTime, setCurrentTime] = useState<number>(0)
+  const [currentTime, setCurrentTime] = useState(0)
   const [volume, setVolume] = useState<number>(() => {
     if (typeof localStorage !== 'undefined') {
       const savedVolume = localStorage.getItem('volume')
@@ -53,10 +49,10 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     }
     return 1
   })
-  const [pause, setPause] = useState<boolean>(true)
-  const [repeat, setRepeat] = useState<boolean>(true)
-  const [shuffle, setShuffle] = useState<boolean>(false)
-  const [isPlaying, setIsPlaying] = useState<boolean>(false)
+  const [pause, setPause] = useState(true)
+  const [repeat, setRepeat] = useState(true)
+  const [shuffle, setShuffle] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const audioElement = audioRef.current
 
@@ -195,7 +191,6 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     currentTime,
     volume,
     pause,
-    setVolume,
     handleTimeUpdate,
     handleSeek,
     handleVolumeChange,
@@ -206,11 +201,9 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     shuffle,
     repeat,
     isPlaying,
-    setIsPlaying,
     handlePlaySong,
     handleDoubleClick,
     activeIndex,
-    setActiveIndex,
     handleSkipNext,
     handleSkipPrev,
     handleIsPlaying

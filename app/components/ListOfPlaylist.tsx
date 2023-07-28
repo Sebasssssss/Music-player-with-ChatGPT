@@ -8,11 +8,7 @@ import Link from 'next/link'
 export default function ListOfPlaylist() {
   const [state, setState] = useState<Playlist[]>(playlists)
   const [isLoading, setIsLoading] = useState(true)
-  const [activeIndex, setActiveIndex] = useState<number | null>(null)
 
-  const handleIsActive = (index: number) => {
-    setActiveIndex(index)
-  }
 
   return (
     <>
@@ -20,13 +16,7 @@ export default function ListOfPlaylist() {
         <Link
           href={`/player/playlist/${item.id}`}
           key={index}
-          onClick={() => handleIsActive(index)}
-          className={cn(
-            'sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4',
-            {
-              active: activeIndex === index
-            }
-          )}
+          className= 'sidebar-listItem flex items-center opacity-0 py-2 relative -translate-x-4'
         >
           <button className="w-full p-2 rounded inline-flex items-center">
             <Image
