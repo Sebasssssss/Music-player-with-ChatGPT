@@ -59,7 +59,7 @@ export default function PlayerBar() {
                 activeIndex !== null &&
                 activeIndex >= 0 &&
                 activeIndex < Songs.length
-                  ? Songs[activeIndex]?.image || ''
+                  ? Songs[activeIndex]?.image
                   : ''
               }
               alt=""
