@@ -68,20 +68,22 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
   }
 
   const handlePlaySong = (index: number) => {
-    setActiveIndex(() => index === activeIndex ? activeIndex : index)
+    setActiveIndex(() => (index === activeIndex ? activeIndex : index))
     setIsPlaying(!isPlaying)
     handleTogglePlay()
   }
 
   const handleTogglePlay = useCallback(() => {
-    if (pause && audioRef.current?.paused) {
-      setPause(false)
-      audioRef.current?.play()
-    } else {
-      setPause(true)
-      audioRef.current?.pause()
-    }
-  }, [pause])
+    setTimeout(function () {
+      if (audioRef.current?.paused) {
+        setPause(false)
+        audioRef.current?.play()
+      } else {
+        audioRef.current?.pause()
+        setPause(true)
+      }
+    }, 300)
+  }, [])
 
   const handleSkipNext = () => {
     setActiveIndex(prevIndex => {
@@ -200,7 +202,7 @@ export const AudioProvider: React.FC<AudioProviderProps> = ({ children }) => {
     handleDoubleClick,
     activeIndex,
     handleSkipNext,
-    handleSkipPrev,
+    handleSkipPrev
   }
 
   return (

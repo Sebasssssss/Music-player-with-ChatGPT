@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react'
 
 export default function ListOfSongs() {
   const {
-    isPlaying,
+    pause,
     handlePlaySong,
     handleDoubleClick,
     activeIndex
@@ -77,10 +77,10 @@ export default function ListOfSongs() {
                     onClick={() => handlePlaySong(index)}
                     className="hidden group-hover:block"
                   >
-                    {isPlaying ? (
-                      <Pause className="w-5" />
-                    ) : (
+                    {pause ? (
                       <Play className="w-5" />
+                    ) : (
+                      <Pause className="w-5" />
                     )}
                   </button>
                   <div className="flex rotate-180 group-hover:hidden h-5 mt-1">

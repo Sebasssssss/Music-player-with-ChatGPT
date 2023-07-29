@@ -46,7 +46,7 @@ export default function PlayerBar() {
   return (
     <div className="w-full customShadowHigh container absolute left-0 right-0 ml-auto mr-auto bottom-6 gap-12 py-6 px-8 bg-white dark:bg-[#121212] rounded-[10px] z-20">
       <audio ref={audioRef} onTimeUpdate={handleTimeUpdate}>
-        <source src="likeyou.mp3" type="audio/mpeg" />
+        <source src="/likeyou.mp3" type="audio/mpeg" />
       </audio>
       <div className="w-full grid grid-cols-3 gap-8 relative">
         <div />
