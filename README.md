@@ -33,16 +33,16 @@ Once you've completed the setup, you can interact with ChatGPT by typing in the 
 
 The following libraries were used in the development of this project:
 
-1. **Tailwind CSS**: A CSS framework for quick and easy UI development.
-2. **Radix UI**: Provides high-quality React UI components like menus and tooltips.
-3. **react-query** by Tanstack: Handles data fetching and caching in React apps.
-4. **upstash/ratelimit and redis**: Enables rate-limiting to control server requests.
-5. **axios**: A popular library for making HTTP requests in JavaScript.
-6. **clsx**: A tiny utility for dynamic class name creation in React components.
-8. **nanoid**: Generates unique IDs for elements in the app.
-9. **sonner**: A toast component for displaying notifications in React.
-10. **tailwind-merge**: A Tailwind CSS plugin for merging variants.
-11. **zod**: A TypeScript-first schema validation library.
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework for rapid UI development.
+- [Radix UI](https://www.radix-ui.com/) - A collection of high-quality React UI components.
+- [react-query](https://react-query.tanstack.com/) by Tanstack - A library for managing remote data fetching and caching in React.
+- [upstash/ratelimit and redis](https://github.com/upstash/ratelimit)
+- [axios](https://axios-http.com/) - A popular JavaScript library for making HTTP requests.
+- [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing class names dynamically.
+- [nanoid](https://github.com/ai/nanoid) - A small and secure library for generating unique IDs.
+- [sonner](https://github.com/bpmn-io/sonner) - An opinionated toast component for React.
+- [tailwind-merge](https://github.com/benface/tailwindcss-merge) - A Tailwind CSS plugin for merging variants.
+- [zod](https://github.com/colinhacks/zod) - A TypeScript-first schema validation library.
 
 Please refer to the documentation for each library to understand how to use them effectively in your own projects.
 
