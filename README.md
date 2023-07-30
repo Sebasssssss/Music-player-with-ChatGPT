@@ -33,25 +33,16 @@ Once you've completed the setup, you can interact with ChatGPT by typing in the 
 
 The following libraries were used in the development of this project:
 
-- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapid UI development. Tailwind CSS allows you to quickly build custom designs by composing utility classes, making it easy to create responsive and consistent user interfaces.
-
-- [Radix UI](https://www.radix-ui.com/): A collection of high-quality React UI components. Radix UI provides various components like context menus, dropdown menus, popovers, and tooltips that can enhance the user experience and streamline the development process.
-
-- [react-query](https://react-query.tanstack.com/) by Tanstack: A library for managing remote data fetching and caching in React. With react-query, you can easily fetch and cache data from APIs, making it simpler to handle data in your React applications.
-
-- [upstash/ratelimit and redis](https://github.com/upstash/ratelimit): These libraries offer rate-limiting capabilities using Redis, which helps control and manage the number of requests from clients to your server. Rate limiting is essential to protect your server from abuse and ensure fair usage.
-
-- [axios](https://axios-http.com/): A popular JavaScript library for making HTTP requests. Axios provides an easy-to-use API for handling HTTP requests and responses, making it a reliable choice for interacting with APIs.
-
-- [clsx](https://github.com/lukeed/clsx): A tiny utility for constructing class names dynamically. clsx simplifies the process of conditionally adding CSS classes to elements based on certain conditions, making it more convenient to manage class names in React components.
-
-- [nanoid](https://github.com/ai/nanoid): A small and secure library for generating unique IDs. nanoid is useful when you need to create unique identifiers for elements like form inputs, components, or database records.
-
-- [sonner](https://github.com/bpmn-io/sonner): An opinionated toast component for React. Toaster components like sonner help display notifications and alerts to users in an elegant and user-friendly manner.
-
-- [tailwind-merge](https://github.com/benface/tailwindcss-merge): A Tailwind CSS plugin for merging variants. This plugin extends the capabilities of Tailwind CSS by enabling you to merge multiple variants together, giving you more control over your styles.
-
-- [zod](https://github.com/colinhacks/zod): A TypeScript-first schema validation library. zod allows you to define and validate data schemas in TypeScript, helping ensure data consistency and reducing runtime errors.
+1. **Tailwind CSS**: A CSS framework for quick and easy UI development.
+2. **Radix UI**: Provides high-quality React UI components like menus and tooltips.
+3. **react-query** by Tanstack: Handles data fetching and caching in React apps.
+4. **upstash/ratelimit and redis**: Enables rate-limiting to control server requests.
+5. **axios**: A popular library for making HTTP requests in JavaScript.
+6. **clsx**: A tiny utility for dynamic class name creation in React components.
+8. **nanoid**: Generates unique IDs for elements in the app.
+9. **sonner**: A toast component for displaying notifications in React.
+10. **tailwind-merge**: A Tailwind CSS plugin for merging variants.
+11. **zod**: A TypeScript-first schema validation library.
 
 Please refer to the documentation for each library to understand how to use them effectively in your own projects.
 
