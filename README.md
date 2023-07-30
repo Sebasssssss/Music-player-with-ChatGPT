@@ -38,7 +38,6 @@ The following libraries were used in the development of this project:
 - [react-query](https://react-query.tanstack.com/) by Tanstack - A library for managing remote data fetching and caching in React.
 - [upstash/ratelimit and redis](https://github.com/upstash/ratelimit)
 - [axios](https://axios-http.com/) - A popular JavaScript library for making HTTP requests.
-- [class-variance-authority](https://github.com/zilioner/class-variance-authority)
 - [clsx](https://github.com/lukeed/clsx) - A tiny utility for constructing class names dynamically.
 - [licide-react](https://github.com/reiinakano/licide) - Icon library.
 - [nanoid](https://github.com/ai/nanoid) - A small and secure library for generating unique IDs.
