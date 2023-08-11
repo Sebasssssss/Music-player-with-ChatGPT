@@ -2,7 +2,11 @@
 
 This project is a music web player that incorporates ChatGPT, an AI language model, allowing users to interact with it and receive music recommendations based on their chat conversations. The application is built using Next.js 13, Tailwind CSS, and TypeScript.
 
-![Screenshot 2023-07-15 231937](https://github.com/Sebasssssss/Music-player-with-ChatGPT/assets/105828786/62bf14f4-bc1e-44c5-9581-1af0039de8ab)
+Dark Mode
+![image](https://github.com/Sebasssssss/Music-player-with-ChatGPT/assets/105828786/96c2067a-bfc0-4734-9d90-468cf75dbdc8)
+
+Light Mode
+![image](https://github.com/Sebasssssss/Music-player-with-ChatGPT/assets/105828786/49d9db94-42af-42f1-9926-97ce07be7f66)
 
 ## Installation
 
